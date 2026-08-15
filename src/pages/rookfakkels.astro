@@ -18,7 +18,7 @@ const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
   title="Rookfakkels"
   description="Rookfakkel-shoots door Femke's Camera — kleurrijke rook rond je hond voor stoere, filmische beelden. Vanaf €95."
 >
-  <section class="hero rf-photo-hero">
+  <section class="hero photo-hero">
     {heroImg ? (
       <Image src={heroImg} alt={heroPhoto.naam || 'Rookfakkel-shoot'} widths={[600, 1200, 1800]} sizes="100vw" loading="eager" class="hero-img" />
     ) : (
@@ -26,7 +26,7 @@ const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
     )}
     <div class="hero-overlay">
       <div class="container hero-content">
-        <span class="rf-kicker">Een sfeervolle extra</span>
+        <span class="hero-kicker">Een sfeervolle extra</span>
         <h1>Rookfakkel-shoots</h1>
         <p class="hero-lead">{rf.intro}</p>
         <div class="hero-cta">

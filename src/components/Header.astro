@@ -28,13 +28,14 @@ function isActive(href) {
       <span class="brand-tag">{site.tagline}</span>
     </a>
 
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
+
     <div class="header-actions">
       {igUrl && (
         <a href={igUrl} class="header-ig" rel="noopener" target="_blank" aria-label="Femke's Camera op Instagram">
           <InstaIcon size={22} />
         </a>
       )}
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
       <label for="nav-toggle" class="nav-burger" aria-label="Menu openen">
         <span></span><span></span><span></span>
       </label>

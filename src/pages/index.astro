@@ -60,16 +60,15 @@ const categorieen = [
 
     <div class="cat-grid">
       {categorieen.map((c) => (
-        <a href={c.href} class:list={['cat-card', { big: c.groot, small: !c.groot }]}>
-          {c.img && (
-            <span class="cat-media">
-              <Image src={c.img} alt={c.foto?.naam || c.titel} widths={[400, 800]} sizes="(max-width: 640px) 100vw, 380px" loading="lazy" class="cat-img" />
-            </span>
+        <a href={c.href} class="cat-card">
+          {c.img ? (
+            <Image src={c.img} alt={c.foto?.naam || c.titel} widths={[300, 600]} sizes="(max-width: 640px) 50vw, 240px" loading="lazy" class="cat-img" />
+          ) : (
+            <span class="cat-img cat-img-fallback" aria-hidden="true"></span>
           )}
-          <span class="cat-body">
+          <span class="cat-overlay">
             <span class="cat-titel">{c.titel}</span>
             <span class="cat-tekst">{c.tekst}</span>
-            <span class="cat-arrow" aria-hidden="true">Bekijken →</span>
           </span>
         </a>
       ))}

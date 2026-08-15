@@ -13,10 +13,10 @@ const reiskostenRegel = plaats
   : `Reiskosten €0,30/km buiten ${straal} km (regio in overleg)`;
 const dierenExtras = [...(dieren.extras || []), reiskostenRegel];
 
-// Kleine helper voor de secundaire kaarten (Rookfakkels & Motor).
+// Secundaire kaarten (Rookfakkels & Motor) — zelfde warme stijl als de rest.
 const secundair = [
-  { data: rookfakkels, href: '/rookfakkels', linktekst: 'Bekijk rookfakkel-shoots →', accent: 'light' },
-  { data: motor, href: '/motor', linktekst: 'Bekijk motorshoots →', accent: 'motor' },
+  { data: rookfakkels, href: '/rookfakkels', linktekst: 'Bekijk rookfakkel-shoots →' },
+  { data: motor, href: '/motor', linktekst: 'Bekijk motorshoots →' },
 ];
 ---
 
@@ -39,17 +39,28 @@ const secundair = [
       </ul>
     </div>
 
+    <!-- Dierensport & Evenementen: boven de secundaire categorieën (motor/fakkel) -->
+    <div class="prijs-blok zakelijk">
+      <div class="blok-kop">
+        <h2>{dierensport.titel}</h2>
+        <span class="blok-sub">{dierensport.ondertitel}</span>
+      </div>
+      <div class="package-grid">
+        {dierensport.pakketten.map((p) => <PackageCard pakket={p} />)}
+      </div>
+    </div>
+
     <!-- Rookfakkels & Motor: secundair, met eigen sub-opties en link naar de landingspagina -->
     <div class="secundair-rij">
       {secundair.map((s) => (
-        <div class:list={['prijs-blok', 'klein', 'landing-kaart', { 'motor-kaart': s.accent === 'motor' }]}>
+        <div class="prijs-blok klein landing-kaart">
           <div class="blok-kop">
             <h2>{s.data.titel}</h2>
             <span class="blok-sub">{s.data.ondertitel}</span>
           </div>
           {s.data.intro && <p class="blok-intro klein-intro">{s.data.intro}</p>}
           <div class="package-grid">
-            {s.data.pakketten.map((p) => <PackageCard pakket={p} accent={s.accent === 'motor' ? 'motor' : 'light'} />)}
+            {s.data.pakketten.map((p) => <PackageCard pakket={p} />)}
           </div>
           {s.data.opties && s.data.opties.length > 0 && (
             <ul class="opties-lijst compact">
@@ -70,17 +81,6 @@ const secundair = [
           <p class="landing-link"><a href={s.href}>{s.linktekst}</a></p>
         </div>
       ))}
-    </div>
-
-    <!-- Dierensport & Evenementen: los vermeld -->
-    <div class="prijs-blok zakelijk">
-      <div class="blok-kop">
-        <h2>{dierensport.titel}</h2>
-        <span class="blok-sub">{dierensport.ondertitel}</span>
-      </div>
-      <div class="package-grid">
-        {dierensport.pakketten.map((p) => <PackageCard pakket={p} />)}
-      </div>
     </div>
 
     <div class="band-inner center">
