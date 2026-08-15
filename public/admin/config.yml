@@ -30,6 +30,7 @@ collections:
         label: 'Honden'
         fields:
           - { label: 'Titel', name: 'titel', widget: 'string' }
+          - { label: 'Intro / verkooptekst (optioneel)', name: 'intro', widget: 'text', required: false, hint: "Korte tekst boven de foto's in het portfolio." }
           - { label: 'Categorie (niet wijzigen)', name: 'categorie', widget: 'hidden', default: 'honden' }
           - label: "Foto's"
             name: 'photos'
@@ -45,6 +46,7 @@ collections:
         label: "Puppy's"
         fields:
           - { label: 'Titel', name: 'titel', widget: 'string' }
+          - { label: 'Intro / verkooptekst (optioneel)', name: 'intro', widget: 'text', required: false, hint: "Korte tekst boven de foto's in het portfolio." }
           - { label: 'Categorie (niet wijzigen)', name: 'categorie', widget: 'hidden', default: 'puppys' }
           - label: "Foto's"
             name: 'photos'
@@ -60,6 +62,7 @@ collections:
         label: 'Agility'
         fields:
           - { label: 'Titel', name: 'titel', widget: 'string' }
+          - { label: 'Intro / verkooptekst (optioneel)', name: 'intro', widget: 'text', required: false, hint: "Korte tekst boven de foto's in het portfolio." }
           - { label: 'Categorie (niet wijzigen)', name: 'categorie', widget: 'hidden', default: 'agility' }
           - label: "Foto's"
             name: 'photos'
@@ -72,9 +75,10 @@ collections:
               - { label: 'Bijschrift (optioneel)', name: 'bijschrift', widget: 'string', required: false }
       - file: 'src/galleries/creative.json'
         name: 'creative'
-        label: 'Creative & Thema'
+        label: 'Rookfakkels'
         fields:
           - { label: 'Titel', name: 'titel', widget: 'string' }
+          - { label: 'Intro / verkooptekst (optioneel)', name: 'intro', widget: 'text', required: false, hint: "Korte tekst boven de foto's in het portfolio." }
           - { label: 'Categorie (niet wijzigen)', name: 'categorie', widget: 'hidden', default: 'creative' }
           - label: "Foto's"
             name: 'photos'
@@ -90,6 +94,7 @@ collections:
         label: 'Motor'
         fields:
           - { label: 'Titel', name: 'titel', widget: 'string' }
+          - { label: 'Intro / verkooptekst (optioneel)', name: 'intro', widget: 'text', required: false, hint: "Korte tekst boven de foto's in het portfolio." }
           - { label: 'Categorie (niet wijzigen)', name: 'categorie', widget: 'hidden', default: 'motor' }
           - label: "Foto's"
             name: 'photos'
@@ -105,6 +110,7 @@ collections:
         label: 'Paarden'
         fields:
           - { label: 'Titel', name: 'titel', widget: 'string' }
+          - { label: 'Intro / verkooptekst (optioneel)', name: 'intro', widget: 'text', required: false, hint: "Korte tekst boven de foto's in het portfolio." }
           - { label: 'Categorie (niet wijzigen)', name: 'categorie', widget: 'hidden', default: 'paarden' }
           - label: "Foto's"
             name: 'photos'
@@ -150,12 +156,13 @@ collections:
                 name: 'extras'
                 widget: 'list'
                 field: { label: 'Extra', name: 'extra', widget: 'string' }
-          - label: 'Creative & Thema'
-            name: 'creative'
+          - label: 'Rookfakkels'
+            name: 'rookfakkels'
             widget: 'object'
             fields:
               - { label: 'Titel', name: 'titel', widget: 'string' }
               - { label: 'Ondertitel', name: 'ondertitel', widget: 'string' }
+              - { label: 'Introtekst', name: 'intro', widget: 'text', required: false }
               - label: 'Pakketten'
                 name: 'pakketten'
                 widget: 'list'
@@ -169,12 +176,33 @@ collections:
                     name: 'regels'
                     widget: 'list'
                     field: { label: 'Regel', name: 'regel', widget: 'string' }
+              - label: 'Extra opties (meerprijs)'
+                name: 'opties'
+                widget: 'list'
+                required: false
+                label_singular: 'Optie'
+                summary: '{{fields.naam}} {{fields.meerprijs}}'
+                fields:
+                  - { label: 'Naam', name: 'naam', widget: 'string' }
+                  - { label: 'Meerprijs (bijv. +€15)', name: 'meerprijs', widget: 'string' }
+                  - { label: 'Toelichting (optioneel)', name: 'hint', widget: 'string', required: false }
+              - label: 'Add-on op aanvraag (optioneel)'
+                name: 'addon'
+                widget: 'object'
+                required: false
+                fields:
+                  - { label: 'Naam', name: 'naam', widget: 'string' }
+                  - { label: 'Meerprijs', name: 'meerprijs', widget: 'string' }
+                  - { label: 'Op aanvraag?', name: 'aanvraag', widget: 'boolean', default: true }
+              - { label: 'Breder-creatief blok (Halloween/thema, optioneel)', name: 'creatief', widget: 'text', required: false }
+              - { label: 'Losse notitie (optioneel)', name: 'note', widget: 'string', required: false }
           - label: 'Motor'
             name: 'motor'
             widget: 'object'
             fields:
               - { label: 'Titel', name: 'titel', widget: 'string' }
               - { label: 'Ondertitel', name: 'ondertitel', widget: 'string' }
+              - { label: 'Introtekst', name: 'intro', widget: 'text', required: false }
               - label: 'Pakketten'
                 name: 'pakketten'
                 widget: 'list'
@@ -188,8 +216,26 @@ collections:
                     name: 'regels'
                     widget: 'list'
                     field: { label: 'Regel', name: 'regel', widget: 'string' }
-          - label: 'Zakelijk (clubs/verenigingen)'
-            name: 'zakelijk'
+              - label: 'Extra opties (meerprijs)'
+                name: 'opties'
+                widget: 'list'
+                required: false
+                label_singular: 'Optie'
+                summary: '{{fields.naam}} {{fields.meerprijs}}'
+                fields:
+                  - { label: 'Naam', name: 'naam', widget: 'string' }
+                  - { label: 'Meerprijs (bijv. +€20)', name: 'meerprijs', widget: 'string' }
+                  - { label: 'Toelichting (optioneel)', name: 'hint', widget: 'string', required: false }
+              - label: 'Add-on op aanvraag (optioneel)'
+                name: 'addon'
+                widget: 'object'
+                required: false
+                fields:
+                  - { label: 'Naam', name: 'naam', widget: 'string' }
+                  - { label: 'Meerprijs', name: 'meerprijs', widget: 'string' }
+                  - { label: 'Op aanvraag?', name: 'aanvraag', widget: 'boolean', default: true }
+          - label: 'Dierensport & Evenementen'
+            name: 'dierensport'
             widget: 'object'
             fields:
               - { label: 'Titel', name: 'titel', widget: 'string' }

@@ -1,10 +1,11 @@
 {
   "titel": "Motor",
   "categorie": "motor",
+  "intro": "Jouw machine sfeervol en stoer in beeld — elk merk welkom, met of zonder rijder.",
   "photos": [
     {
       "image": "/src/assets/uploads/motor-01.jpeg",
-      "naam": "Kawasaki Z900 in de parkeergarage",
+      "naam": "Motor in de parkeergarage",
       "bijschrift": ""
     },
     {
@@ -34,7 +35,7 @@
     },
     {
       "image": "/src/assets/uploads/motor-07.jpeg",
-      "naam": "Kawasaki Z900 met de skyline op de achtergrond",
+      "naam": "Motor met de skyline op de achtergrond",
       "bijschrift": ""
     },
     {
@@ -59,7 +60,7 @@
     },
     {
       "image": "/src/assets/uploads/motor-12.jpeg",
-      "naam": "Kawasaki Z900 met groene accenten",
+      "naam": "Motor met groene accenten",
       "bijschrift": ""
     }
   ]

@@ -3,9 +3,11 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { resolveImage } from '../lib/images.js';
 import teksten from '../data/teksten.json';
+import site from '../data/site.json';
 
 const paragraphs = teksten.over_mij_body.split('\n\n');
 const foto = teksten.over_mij_foto ? resolveImage(teksten.over_mij_foto) : undefined;
+const plaats = site.plaatsnaam && !site.plaatsnaam.startsWith('[') ? site.plaatsnaam : null;
 ---
 
 <Base title="Over mij" description="Femke fotografeert dieren met geduld en oog voor gedrag. Werkt dagelijks in een dierenspeciaalzaak. Geen portret-, gezins- of aanzoekfotografie.">
@@ -15,6 +17,7 @@ const foto = teksten.over_mij_foto ? resolveImage(teksten.over_mij_foto) : undef
       <Image src={foto} alt="Femke met haar honden" widths={[400, 800, 1200]} sizes="(max-width: 760px) 100vw, 760px" loading="eager" class="over-foto" />
     )}
     {paragraphs.map((p) => <p class="prose">{p}</p>)}
+    {plaats && <p class="prose">Ik werk in en rond {plaats} — kom je van net iets verder? Vraag gerust, meestal komen we er samen uit.</p>}
 
     <div class="usp-box">
       <h2>Waarom dieren mijn ding zijn</h2>

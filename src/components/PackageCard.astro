@@ -10,5 +10,5 @@ const { pakket, accent = 'light' } = Astro.props;
   <ul class="package-regels">
     {pakket.regels.map((r) => <li>{r}</li>)}
   </ul>
-  <a href="/contact" class="package-cta">Boek {pakket.naam}</a>
+  <a href={`/contact?pakket=${encodeURIComponent(pakket.naam)}`} class="package-cta">Boek {pakket.naam}</a>
 </article>

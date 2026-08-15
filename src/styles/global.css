@@ -188,6 +188,7 @@ img { max-width: 100%; display: block; }
 .portfolio-nav a.secondary { color: var(--muted); font-size: 0.85rem; }
 .portfolio-section { scroll-margin-top: 120px; margin-bottom: 2.6rem; }
 .cat-heading { font-size: 1.5rem; margin: 0 0 1rem; }
+.cat-intro { color: var(--muted); max-width: 640px; margin: -0.4rem 0 1.2rem; font-size: 1rem; }
 .portfolio-divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0 1.4rem; }
 .secondary-note { color: var(--muted); font-style: italic; margin-bottom: 2rem; }
 .secondary-section .cat-heading { font-size: 1.25rem; }
@@ -302,6 +303,102 @@ img { max-width: 100%; display: block; }
 .motor-hero h1 { font-size: clamp(2rem, 6vw, 3.2rem); margin: 0 0 0.9rem; }
 .motor-lead { max-width: 620px; color: var(--muted); font-size: 1.08rem; }
 .motor-band { background: var(--surface-2); }
+
+/* ---------- Boekingsformulier ---------- */
+.boek-form { margin: 1.8rem 0 0.5rem; }
+.form-row { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+.form-grid { display: grid; grid-template-columns: 1fr; gap: 0 1rem; }
+@media (min-width: 560px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+.boek-form label { font-weight: 600; font-size: 0.94rem; }
+.boek-form .req { color: var(--accent-dark); }
+.boek-form input,
+.boek-form select,
+.boek-form textarea {
+  font-family: var(--font-body); font-size: 1rem; color: var(--text);
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem; width: 100%;
+}
+.boek-form input:focus,
+.boek-form select:focus,
+.boek-form textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(200,121,79,0.18); }
+.boek-form textarea { resize: vertical; }
+.boek-form button[type="submit"] { margin-top: 0.4rem; }
+.form-note { color: var(--muted); font-size: 0.86rem; margin: 0.8rem 0 0; }
+.hp-field { position: absolute; left: -9999px; }
+
+.of-scheiding { display: flex; align-items: center; gap: 1rem; margin: 2.4rem 0 1.6rem; color: var(--muted); font-size: 0.9rem; }
+.of-scheiding::before, .of-scheiding::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+
+/* ---------- Sub-opties (landing + prijzen) ---------- */
+.opties-blok { margin-top: 1.6rem; }
+.opties-blok h3 { font-size: 1.1rem; margin: 0 0 0.7rem; }
+.opties-lijst { list-style: none; padding: 0; margin: 0; }
+.opties-lijst li {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  padding: 0.6rem 0; border-bottom: 1px solid var(--border);
+}
+.opties-lijst li:last-child { border-bottom: none; }
+.opties-lijst.compact li { padding: 0.45rem 0; font-size: 0.94rem; }
+.optie-naam { font-weight: 600; }
+.optie-hint { font-weight: 400; color: var(--muted); }
+.optie-prijs { font-weight: 700; color: var(--accent-dark); white-space: nowrap; }
+.optie-addon .optie-naam { font-weight: 500; color: var(--muted); }
+.optie-badge {
+  display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--accent-dark); background: var(--surface-2); border-radius: 999px; padding: 0.1rem 0.5rem; margin-left: 0.3rem;
+  vertical-align: middle;
+}
+body.theme-motor .optie-prijs { color: var(--accent); }
+body.theme-motor .optie-badge { color: var(--accent); }
+
+.landing-prijs { display: grid; grid-template-columns: 1fr; gap: 1.6rem; align-items: start; }
+@media (min-width: 720px) { .landing-prijs { grid-template-columns: 380px 1fr; } }
+
+/* Landing-kaarten op de prijzenpagina */
+.landing-kaart .klein-intro { font-size: 0.94rem; margin-bottom: 1rem; }
+.landing-kaart .package-grid.single { max-width: none; }
+.landing-link { margin: 1rem 0 0; }
+.landing-link a { font-weight: 600; }
+.prijs-blok.motor-kaart { background: #171b12; color: #e8ece4; border: 1px solid #2c3325; }
+.prijs-blok.motor-kaart .blok-sub { color: #9aa593; }
+.prijs-blok.motor-kaart .blok-intro,
+.prijs-blok.motor-kaart .optie-hint,
+.prijs-blok.motor-kaart .optie-addon .optie-naam { color: #9aa593; }
+.prijs-blok.motor-kaart h2 { color: #e8ece4; }
+.prijs-blok.motor-kaart .optie-prijs { color: #7db33a; }
+.prijs-blok.motor-kaart .optie-badge { color: #7db33a; background: #22271e; }
+.prijs-blok.motor-kaart .opties-lijst li { border-color: #2c3325; }
+.prijs-blok.motor-kaart .landing-link a { color: #7db33a; }
+.prijs-blok.motor-kaart .package-card { background: #1b1f18; border-color: #2c3325; color: #e8ece4; }
+.prijs-blok.motor-kaart .package-naam { color: #e8ece4; }
+.prijs-blok.motor-kaart .package-prijs { color: #7db33a; }
+.prijs-blok.motor-kaart .package-regels li { border-color: #2c3325; }
+.prijs-blok.motor-kaart .package-regels li::before { color: #7db33a; }
+.prijs-blok.motor-kaart .package-cta { background: #22271e; color: #e8ece4; border-color: #2c3325; }
+.prijs-blok.motor-kaart .package-cta:hover { background: #7db33a; color: #0e120b; border-color: #7db33a; }
+
+/* ---------- Rookfakkels-landing ---------- */
+.rf-hero {
+  padding: 4.5rem 0 3rem;
+  background:
+    radial-gradient(900px 340px at 15% -10%, rgba(200,121,79,0.22), transparent),
+    radial-gradient(700px 300px at 90% 0%, rgba(168,95,56,0.14), transparent),
+    var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+.rf-kicker { display: inline-block; color: var(--accent-dark); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.82rem; margin-bottom: 0.6rem; }
+.rf-hero h1 { font-size: clamp(2rem, 6vw, 3.2rem); margin: 0 0 0.9rem; }
+.rf-lead { max-width: 620px; color: var(--muted); font-size: 1.08rem; }
+.creatief-blok { background: var(--surface-2); border-radius: var(--radius); border-left: 4px solid var(--accent); padding: 1.4rem 1.6rem; margin-top: 2rem; }
+.creatief-blok h3 { font-size: 1.15rem; margin: 0 0 0.5rem; }
+.creatief-blok p { margin: 0; color: var(--text); }
+
+/* ---------- Footer plaats ---------- */
+.footer-plaats { color: var(--muted); margin: 0.4rem 0 0; font-size: 0.86rem; }
+
+/* ---------- Bedankt-pagina ---------- */
+.bedankt-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+.center-cta { justify-content: center; }
 
 /* ---------- Toegankelijkheid ---------- */
 @media (prefers-reduced-motion: reduce) {

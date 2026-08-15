@@ -9,6 +9,7 @@ const mailLink = site.email && !site.email.startsWith('[') ? `mailto:${site.emai
 const igDieren = site.instagram_dieren && !site.instagram_dieren.startsWith('[')
   ? `https://instagram.com/${site.instagram_dieren.replace('@', '')}`
   : null;
+const plaats = site.plaatsnaam && !site.plaatsnaam.startsWith('[') ? site.plaatsnaam : null;
 const year = new Date().getFullYear();
 ---
 
@@ -17,6 +18,7 @@ const year = new Date().getFullYear();
     <div class="footer-col">
       <span class="footer-brand">{site.merknaam}</span>
       <p class="footer-tag">{site.tagline}</p>
+      {plaats && <p class="footer-plaats">Dierenfotografie in en rond {plaats}</p>}
     </div>
 
     <div class="footer-col">
@@ -34,6 +36,7 @@ const year = new Date().getFullYear();
       <ul class="footer-links">
         <li><a href="/portfolio">Portfolio</a></li>
         <li><a href="/prijzen">Prijzen</a></li>
+        <li><a href="/rookfakkels">Rookfakkels</a></li>
         <li><a href="/motor">Motorfotografie</a></li>
       </ul>
     </div>

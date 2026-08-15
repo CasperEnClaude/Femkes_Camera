@@ -5,7 +5,7 @@
   "reiskosten_straal_km": "15",
   "email": "[e-mailadres invullen]",
   "whatsapp": "[telefoonnummer, bijv. 316xxxxxxxx]",
-  "instagram_dieren": "[instagram-handle dieren]",
-  "instagram_motor": "Kurosaki_Z900",
-  "toon_motor_instagram": true
+  "instagram_dieren": "[instagram-handle]",
+  "instagram_motor": "",
+  "toon_motor_instagram": false
 }

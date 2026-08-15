@@ -6,24 +6,30 @@ import site from '../data/site.json';
 import motorGallery from '../galleries/motor.json';
 import prijzen from '../data/prijzen.json';
 
-const igMotor = site.instagram_motor && !site.instagram_motor.startsWith('[')
-  ? `https://instagram.com/${site.instagram_motor.replace('@', '')}`
+const motor = prijzen.motor;
+
+// Instagram: eigen motor-handle indien ingevuld, anders de gewone handle van Femke.
+const motorHandle = site.instagram_motor && !site.instagram_motor.startsWith('[') && site.instagram_motor.trim()
+  ? site.instagram_motor
+  : (site.instagram_dieren && !site.instagram_dieren.startsWith('[') ? site.instagram_dieren : null);
+const igMotor = (site.toon_motor_instagram && motorHandle)
+  ? `https://instagram.com/${motorHandle.replace('@', '')}`
   : null;
 ---
 
 <Base
   title="Motorfotografie"
-  description="Motorfotografie door Femke's Camera — Kurosaki_Z900. Stoere, sfeervolle beelden van jouw motor, met of zonder rijder."
+  description="Motorfotografie door Femke's Camera — stoere, sfeervolle beelden van jouw motor, elk merk, met of zonder rijder."
   theme="motor"
 >
   <section class="motor-hero">
     <div class="container">
-      <span class="motor-kicker">Kurosaki_Z900</span>
+      <span class="motor-kicker">Voor elke motor</span>
       <h1>Motorfotografie</h1>
-      <p class="motor-lead">Naast dieren richt ik mijn lens graag op motoren. Stoere, sfeervolle beelden van jouw machine — met of zonder rijder. Een nieuw onderdeel van mijn werk, dus scherp geprijsd.</p>
+      <p class="motor-lead">Naast dieren richt ik mijn lens graag op motoren. Elk merk is welkom — stoere, sfeervolle beelden van jouw machine, met of zonder rijder. Een nieuw onderdeel van mijn werk, dus scherp geprijsd.</p>
       <div class="hero-cta">
-        <a href="/contact" class="btn btn-motor">Plan een motorshoot</a>
-        {igMotor && <a href={igMotor} class="btn btn-ghost-motor" rel="noopener">@{site.instagram_motor}</a>}
+        <a href="/contact?pakket=Motorshoot" class="btn btn-motor">Plan een motorshoot</a>
+        {igMotor && <a href={igMotor} class="btn btn-ghost-motor" rel="noopener">Instagram</a>}
       </div>
     </div>
   </section>
@@ -34,9 +40,28 @@ const igMotor = site.instagram_motor && !site.instagram_motor.startsWith('[')
   </section>
 
   <section class="container section">
-    <h2 class="cat-heading">{prijzen.motor.titel}shoot</h2>
-    <div class="package-grid single">
-      {prijzen.motor.pakketten.map((p) => <PackageCard pakket={p} accent="motor" />)}
+    <h2 class="cat-heading">Wat een motorshoot kost</h2>
+    <div class="landing-prijs">
+      <div class="package-grid single">
+        {motor.pakketten.map((p) => <PackageCard pakket={p} accent="motor" />)}
+      </div>
+      <div class="opties-blok">
+        <h3>Uitbreiden kan</h3>
+        <ul class="opties-lijst motor-opties">
+          {motor.opties.map((o) => (
+            <li>
+              <span class="optie-naam">{o.naam}{o.hint && <span class="optie-hint"> — {o.hint}</span>}</span>
+              <span class="optie-prijs">{o.meerprijs}</span>
+            </li>
+          ))}
+          {motor.addon && (
+            <li class="optie-addon">
+              <span class="optie-naam">{motor.addon.naam} <span class="optie-badge">op aanvraag</span></span>
+              <span class="optie-prijs">{motor.addon.meerprijs}</span>
+            </li>
+          )}
+        </ul>
+      </div>
     </div>
     <p class="klein-note center">Prijs kan omhoog zodra er meer voorbeelden in dit portfolio staan.</p>
   </section>
@@ -45,7 +70,7 @@ const igMotor = site.instagram_motor && !site.instagram_motor.startsWith('[')
     <div class="container band-inner center">
       <h2>Jouw motor voor de lens?</h2>
       <p>Stuur me een bericht — ik denk graag mee over locatie en sfeer.</p>
-      <a href="/contact" class="btn btn-motor">Neem contact op</a>
+      <a href="/contact?pakket=Motorshoot" class="btn btn-motor">Neem contact op</a>
     </div>
   </section>
 </Base>

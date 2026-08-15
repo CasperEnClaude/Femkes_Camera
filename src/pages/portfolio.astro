@@ -4,16 +4,16 @@ import Gallery from '../components/Gallery.astro';
 import honden from '../galleries/honden.json';
 import puppys from '../galleries/puppys.json';
 import agility from '../galleries/agility.json';
-import paarden from '../galleries/paarden.json';
 import creative from '../galleries/creative.json';
 import motor from '../galleries/motor.json';
 
-// Dieren eerst en prominent; creative & motor secundair.
+// Dieren eerst en prominent; rookfakkels & motor secundair.
+// Paarden staat tijdelijk uit tot er minimaal 6-8 sterke paardenfoto's zijn
+// (galerij + CMS-collectie blijven bestaan, alleen niet getoond).
 const primair = [
   { id: 'honden', data: honden },
   { id: 'puppys', data: puppys },
   { id: 'agility', data: agility },
-  { id: 'paarden', data: paarden },
 ];
 const secundair = [
   { id: 'creative', data: creative },
@@ -30,25 +30,29 @@ const secundair = [
       <a href="#honden">Honden</a>
       <a href="#puppys">Puppy's</a>
       <a href="#agility">Agility</a>
-      <a href="#paarden">Paarden</a>
-      <a href="#creative" class="secondary">Creative</a>
+      <a href="#creative" class="secondary">Rookfakkels</a>
       <a href="#motor" class="secondary">Motor</a>
     </nav>
 
     {primair.map((g) => (
       <div class="portfolio-section" id={g.id}>
         <h2 class="cat-heading">{g.data.titel}</h2>
+        {g.data.intro && <p class="cat-intro">{g.data.intro}</p>}
         <Gallery gallery={g.data} />
       </div>
     ))}
 
     <hr class="portfolio-divider" />
-    <p class="secondary-note">Naast dieren doe ik af en toe iets creatiefs of een motorshoot — een leuke extra, geen hoofdaanbod.</p>
+    <p class="secondary-note">Naast dieren doe ik af en toe een rookfakkel-shoot of een motorshoot — een leuke extra, geen hoofdaanbod.</p>
 
     {secundair.map((g) => (
       <div class="portfolio-section secondary-section" id={g.id}>
         <h2 class="cat-heading">{g.data.titel}</h2>
+        {g.data.intro && <p class="cat-intro">{g.data.intro}</p>}
         <Gallery gallery={g.data} />
+        {g.id === 'creative' && (
+          <p class="motor-link-note"><a href="/rookfakkels" class="btn btn-ghost">Meer over rookfakkel-shoots →</a></p>
+        )}
         {g.id === 'motor' && (
           <p class="motor-link-note"><a href="/motor" class="btn btn-ghost">Meer motorfotografie →</a></p>
         )}

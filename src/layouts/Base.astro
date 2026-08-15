@@ -14,6 +14,24 @@ const fullTitle = title
   ? `${title} · ${site.merknaam}`
   : `${site.merknaam} — ${site.tagline}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+
+// LocalBusiness structured data — helpt lokale vindbaarheid. Adres/regio en
+// social alleen meegeven als ze echt zijn ingevuld (geen placeholders).
+const plaats = site.plaatsnaam && !site.plaatsnaam.startsWith('[') ? site.plaatsnaam : null;
+const igHandle = site.instagram_dieren && !site.instagram_dieren.startsWith('[')
+  ? site.instagram_dieren.replace('@', '')
+  : null;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': Astro.site ? new URL('/', Astro.site).toString() : undefined,
+  name: site.merknaam,
+  description: site.tagline,
+  url: Astro.site ? Astro.site.toString() : undefined,
+  priceRange: '€€',
+  ...(plaats ? { areaServed: plaats, address: { '@type': 'PostalAddress', addressLocality: plaats, addressCountry: 'NL' } } : {}),
+  ...(igHandle ? { sameAs: [`https://instagram.com/${igHandle}`] } : {}),
+};
 ---
 
 <!doctype html>
@@ -30,6 +48,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:locale" content="nl_NL" />
     <meta name="theme-color" content={theme === 'motor' ? '#12140f' : '#c8794f'} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
   </head>
   <body class={theme === 'motor' ? 'theme-motor' : 'theme-light'}>
     <a class="skip-link" href="#main">Naar inhoud</a>

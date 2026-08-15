@@ -3,22 +3,28 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { resolveImage } from '../lib/images.js';
 import teksten from '../data/teksten.json';
+import site from '../data/site.json';
 import honden from '../galleries/honden.json';
 
 // Sterkste hondenfoto als hero (eerste foto uit de Honden-galerij).
 const heroPhoto = honden.photos?.[0];
 const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
 
+const plaats = site.plaatsnaam && !site.plaatsnaam.startsWith('[') ? site.plaatsnaam : null;
+const homeDescription = plaats
+  ? `Dierenfotografie door Femke's Camera in en rond ${plaats} — natuurlijke foto's van honden, puppy's en agility, met geduld en oog voor karakter.`
+  : "Dierenfotografie door Femke's Camera — natuurlijke foto's van honden, puppy's en agility, met geduld en oog voor karakter.";
+
 const categorieen = [
-  { titel: 'Honden', href: '/portfolio#honden', groot: true, tekst: 'Van rustige portretten tot volle actie — je hond zoals hij echt is.' },
-  { titel: "Puppy's", href: "/portfolio#puppys", groot: true, tekst: 'Die eerste weken leg je maar één keer vast.' },
-  { titel: 'Agility', href: '/portfolio#agility', groot: true, tekst: 'Snelheid, focus en plezier op de baan.' },
-  { titel: 'Creative & Thema', href: '/portfolio#creative', groot: false, tekst: 'Rookbommen en thema-shoots als leuke extra.' },
-  { titel: 'Motor', href: '/motor', groot: false, tekst: 'Ook motoren voor de lens.' },
+  { titel: 'Honden', href: '/portfolio#honden', groot: true, tekst: 'Van rustige portretten tot volle actie — beelden waar je jaren later nog trots op bent.' },
+  { titel: "Puppy's", href: "/portfolio#puppys", groot: true, tekst: 'Die eerste weken zijn zo voorbij. Leg je pups vast — om te koesteren én om harten te veroveren.' },
+  { titel: 'Agility', href: '/portfolio#agility', groot: true, tekst: 'Snelheid, focus en flow — laat de sport én jullie band zien.' },
+  { titel: 'Rookfakkels', href: '/rookfakkels', groot: false, tekst: 'Kleurrijke rook rond je hond: stoere beelden die opvallen.' },
+  { titel: 'Motor', href: '/motor', groot: false, tekst: 'Jouw machine sfeervol in beeld — elk merk welkom.' },
 ];
 ---
 
-<Base>
+<Base description={homeDescription}>
   <section class="hero">
     {heroImg ? (
       <Image src={heroImg} alt={heroPhoto.naam || 'Hondenfotografie door Femke\'s Camera'} widths={[600, 1200, 1800]} sizes="100vw" loading="eager" class="hero-img" />

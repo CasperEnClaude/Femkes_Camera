@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import Gallery from '../components/Gallery.astro';
+import PackageCard from '../components/PackageCard.astro';
+import creativeGallery from '../galleries/creative.json';
+import prijzen from '../data/prijzen.json';
+
+const rf = prijzen.rookfakkels;
+---
+
+<Base
+  title="Rookfakkels"
+  description="Rookfakkel-shoots door Femke's Camera — kleurrijke rook rond je hond voor stoere, filmische beelden. Vanaf €95."
+>
+  <section class="rf-hero">
+    <div class="container">
+      <span class="rf-kicker">Een sfeervolle extra</span>
+      <h1>Rookfakkel-shoots</h1>
+      <p class="rf-lead">{rf.intro}</p>
+      <div class="hero-cta">
+        <a href="/contact?pakket=Rookfakkel-shoot" class="btn btn-primary">Plan een rookfakkel-shoot</a>
+        <a href="/portfolio#creative" class="btn btn-ghost">Meer werk</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2 class="cat-heading">Werk</h2>
+    <Gallery gallery={creativeGallery} />
+  </section>
+
+  <section class="container section">
+    <h2 class="cat-heading">Wat een rookfakkel-shoot kost</h2>
+    <div class="landing-prijs">
+      <div class="package-grid single">
+        {rf.pakketten.map((p) => <PackageCard pakket={p} />)}
+      </div>
+      <div class="opties-blok">
+        <h3>Uitbreiden kan</h3>
+        <ul class="opties-lijst">
+          {rf.opties.map((o) => (
+            <li>
+              <span class="optie-naam">{o.naam}{o.hint && <span class="optie-hint"> — {o.hint}</span>}</span>
+              <span class="optie-prijs">{o.meerprijs}</span>
+            </li>
+          ))}
+          {rf.addon && (
+            <li class="optie-addon">
+              <span class="optie-naam">{rf.addon.naam} <span class="optie-badge">op aanvraag</span></span>
+              <span class="optie-prijs">{rf.addon.meerprijs}</span>
+            </li>
+          )}
+        </ul>
+        {rf.note && <p class="klein-note">{rf.note}</p>}
+      </div>
+    </div>
+    {rf.creatief && (
+      <div class="creatief-blok">
+        <h3>Breder dan alleen rook</h3>
+        <p>{rf.creatief}</p>
+      </div>
+    )}
+  </section>
+
+  <section class="band">
+    <div class="container band-inner center">
+      <h2>Iets kleurrijks maken van jouw hond?</h2>
+      <p>Stuur me een bericht — ik denk graag mee over kleur en locatie.</p>
+      <a href="/contact?pakket=Rookfakkel-shoot" class="btn btn-primary">Neem contact op</a>
+    </div>
+  </section>
+</Base>

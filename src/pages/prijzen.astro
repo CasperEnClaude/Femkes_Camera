@@ -2,11 +2,25 @@
 import Base from '../layouts/Base.astro';
 import PackageCard from '../components/PackageCard.astro';
 import prijzen from '../data/prijzen.json';
+import site from '../data/site.json';
 
-const { dieren, creative, motor, zakelijk } = prijzen;
+const { dieren, rookfakkels, motor, dierensport } = prijzen;
+
+const plaats = site.plaatsnaam && !site.plaatsnaam.startsWith('[') ? site.plaatsnaam : null;
+const straal = site.reiskosten_straal_km || '15';
+const reiskostenRegel = plaats
+  ? `Reiskosten €0,30/km buiten ${straal} km van ${plaats}`
+  : `Reiskosten €0,30/km buiten ${straal} km (regio in overleg)`;
+const dierenExtras = [...(dieren.extras || []), reiskostenRegel];
+
+// Kleine helper voor de secundaire kaarten (Rookfakkels & Motor).
+const secundair = [
+  { data: rookfakkels, href: '/rookfakkels', linktekst: 'Bekijk rookfakkel-shoots →', accent: 'light' },
+  { data: motor, href: '/motor', linktekst: 'Bekijk motorshoots →', accent: 'motor' },
+];
 ---
 
-<Base title="Diensten & Prijzen" description="Pakketten voor dierenfotografie vanaf €65. Plus creative-, motor- en clubfotografie.">
+<Base title="Diensten & Prijzen" description="Pakketten voor dierenfotografie vanaf €65. Plus rookfakkel-, motor- en dierensportfotografie.">
   <section class="container section">
     <h1 class="page-title">Diensten &amp; Prijzen</h1>
 
@@ -21,42 +35,51 @@ const { dieren, creative, motor, zakelijk } = prijzen;
         {dieren.pakketten.map((p) => <PackageCard pakket={p} />)}
       </div>
       <ul class="extras">
-        {dieren.extras.map((e) => <li>{e}</li>)}
+        {dierenExtras.map((e) => <li>{e}</li>)}
       </ul>
     </div>
 
-    <!-- Creative & Motor: secundair, kleiner, eronder -->
+    <!-- Rookfakkels & Motor: secundair, met eigen sub-opties en link naar de landingspagina -->
     <div class="secundair-rij">
-      <div class="prijs-blok klein">
-        <div class="blok-kop">
-          <h2>{creative.titel}</h2>
-          <span class="blok-sub">{creative.ondertitel}</span>
+      {secundair.map((s) => (
+        <div class:list={['prijs-blok', 'klein', 'landing-kaart', { 'motor-kaart': s.accent === 'motor' }]}>
+          <div class="blok-kop">
+            <h2>{s.data.titel}</h2>
+            <span class="blok-sub">{s.data.ondertitel}</span>
+          </div>
+          {s.data.intro && <p class="blok-intro klein-intro">{s.data.intro}</p>}
+          <div class="package-grid">
+            {s.data.pakketten.map((p) => <PackageCard pakket={p} accent={s.accent === 'motor' ? 'motor' : 'light'} />)}
+          </div>
+          {s.data.opties && s.data.opties.length > 0 && (
+            <ul class="opties-lijst compact">
+              {s.data.opties.map((o) => (
+                <li>
+                  <span class="optie-naam">{o.naam}</span>
+                  <span class="optie-prijs">{o.meerprijs}</span>
+                </li>
+              ))}
+              {s.data.addon && (
+                <li class="optie-addon">
+                  <span class="optie-naam">{s.data.addon.naam} <span class="optie-badge">op aanvraag</span></span>
+                  <span class="optie-prijs">{s.data.addon.meerprijs}</span>
+                </li>
+              )}
+            </ul>
+          )}
+          <p class="landing-link"><a href={s.href}>{s.linktekst}</a></p>
         </div>
-        <div class="package-grid">
-          {creative.pakketten.map((p) => <PackageCard pakket={p} />)}
-        </div>
-      </div>
-
-      <div class="prijs-blok klein">
-        <div class="blok-kop">
-          <h2>{motor.titel}</h2>
-          <span class="blok-sub">{motor.ondertitel}</span>
-        </div>
-        <div class="package-grid">
-          {motor.pakketten.map((p) => <PackageCard pakket={p} accent="motor" />)}
-        </div>
-        <p class="klein-note">Bewust bescheiden geprijsd — dit onderdeel is nog nieuw. <a href="/motor">Bekijk motorfotografie →</a></p>
-      </div>
+      ))}
     </div>
 
-    <!-- Zakelijk: los vermeld, niet tussen de consumentenpakketten -->
+    <!-- Dierensport & Evenementen: los vermeld -->
     <div class="prijs-blok zakelijk">
       <div class="blok-kop">
-        <h2>{zakelijk.titel}</h2>
-        <span class="blok-sub">{zakelijk.ondertitel}</span>
+        <h2>{dierensport.titel}</h2>
+        <span class="blok-sub">{dierensport.ondertitel}</span>
       </div>
       <div class="package-grid">
-        {zakelijk.pakketten.map((p) => <PackageCard pakket={p} />)}
+        {dierensport.pakketten.map((p) => <PackageCard pakket={p} />)}
       </div>
     </div>
 

@@ -44,56 +44,78 @@
     ],
     "extras": [
       "Extra foto €8 per stuk (5-pack €35)",
-      "Extra huisdier (ander gezin) €20",
-      "Reiskosten €0,30/km buiten 15 km van [plaatsnaam invullen]"
+      "Extra huisdier (ander gezin) €20"
     ]
   },
-  "creative": {
-    "titel": "Creative & Thema",
-    "ondertitel": "Een leuke extra",
+  "rookfakkels": {
+    "titel": "Rookfakkels",
+    "ondertitel": "Een sfeervolle extra",
+    "intro": "Kleurrijke rook rond je hond levert stoere, filmische beelden op — precies het soort foto waar mensen op blijven hangen en dat je dier er echt uit laat springen. Eén vaste opzet: jouw dier plus een rookfakkel, op een rustige plek waar het veilig kan.",
     "pakketten": [
       {
-        "naam": "Rookbom / Halloween shoot",
+        "naam": "Rookfakkel-shoot",
         "prijs": "€95",
         "populair": false,
         "regels": [
           "60 minuten",
-          "1 huisdier + rookbom of thema-attribuut",
+          "1 huisdier + rookfakkel in 1 kleur",
           "8 bewerkte foto's",
-          "Extra rookbom: +€15"
+          "Online galerij"
         ]
       }
-    ]
+    ],
+    "opties": [
+      { "naam": "Extra rookfakkel (extra kleur)", "meerprijs": "+€15" },
+      { "naam": "Combinatie van meerdere kleuren in één shoot", "meerprijs": "+€20" }
+    ],
+    "addon": {
+      "naam": "Instagram-reel van je shoot (15–30 sec)",
+      "meerprijs": "+€25–35",
+      "aanvraag": true
+    },
+    "creatief": "Zin in iets meer? De rookfakkel is mijn vaste basis, maar creatief kan er van alles bij — denk aan een Halloween-sfeer of een seizoensthema. Heb je zelf een idee of een styling in gedachten? Neem het gerust mee, dan kijken we samen wat we ervan kunnen maken.",
+    "note": "Zelf een kostuum of styling meebrengen mag altijd — dat kost niets extra."
   },
   "motor": {
     "titel": "Motor",
     "ondertitel": "Nieuw in mijn aanbod",
+    "intro": "Naast dieren richt ik mijn lens graag op motoren. Elk merk is welkom — stoere, sfeervolle beelden van jouw machine, met of zonder rijder.",
     "pakketten": [
       {
-        "naam": "Motor Shoot",
-        "prijs": "€95–115",
+        "naam": "Motorshoot (basis)",
+        "prijs": "€95",
         "populair": false,
         "regels": [
           "60 minuten",
-          "1 motor (met of zonder rijder)",
+          "Je motor voor de lens — geen rijder nodig",
           "8–10 bewerkte foto's",
           "Online galerij"
         ]
       }
-    ]
+    ],
+    "opties": [
+      { "naam": "Met rijder erbij", "meerprijs": "+€20", "hint": "meer regie en poses" },
+      { "naam": "Twee locaties in één shoot", "meerprijs": "+€35", "hint": "reken op een shoot van 2 uur+" }
+    ],
+    "addon": {
+      "naam": "Instagram-reel van je shoot (15–30 sec)",
+      "meerprijs": "+€25–35",
+      "aanvraag": true
+    }
   },
-  "zakelijk": {
-    "titel": "Zakelijk",
-    "ondertitel": "Voor clubs & verenigingen",
+  "dierensport": {
+    "titel": "Dierensport & Evenementen",
+    "ondertitel": "Voor clubs én deelnemers",
     "pakketten": [
       {
-        "naam": "Club / vereniging (agility e.d.)",
+        "naam": "Halve of hele dag",
         "prijs": "€150 / €250",
         "populair": false,
         "regels": [
           "Halve dag €150 · hele dag €250",
+          "Voor clubs/verenigingen én individuele wedstrijd- of trainingsdeelnemers",
           "Alle foto's bewerkt en geleverd",
-          "Voor gebruik / doorverkoop door de club",
+          "Vrij te gebruiken door de club of deelnemer",
           "Met vermelding van Femke's Camera op de gebruikte kanalen"
         ]
       }
