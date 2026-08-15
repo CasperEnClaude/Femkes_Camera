@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+
+const waRaw = (site.whatsapp || '').trim();
+const waNumber = waRaw.replace(/[^0-9]/g, '');
+const heeftWa = waNumber.length >= 8 && !waRaw.startsWith('[');
+const heeftMail = site.email && !site.email.startsWith('[');
+const heeftIg = site.instagram_dieren && !site.instagram_dieren.startsWith('[');
+
+// Sjabloon zodat baasjes meteen de juiste info meesturen.
+const sjabloon = [
+  'Hoi Femke! Ik wil graag een shoot boeken.',
+  '',
+  'Naam:',
+  'Type dier (bijv. hond, kat):',
+  'Gewenst pakket (Mini / Classic / Uitgebreid / anders):',
+  'Voorkeursdatum of periode:',
+  'Regio / plaats:',
+  'Bericht:',
+].join('\n');
+
+const waLink = heeftWa
+  ? `https://wa.me/${waNumber}?text=${encodeURIComponent(sjabloon)}`
+  : null;
+const mailLink = heeftMail
+  ? `mailto:${site.email}?subject=${encodeURIComponent('Shoot boeken — Femke\'s Camera')}&body=${encodeURIComponent(sjabloon)}`
+  : null;
+const igLink = heeftIg
+  ? `https://instagram.com/${site.instagram_dieren.replace('@', '')}`
+  : null;
+---
+
+<Base title="Contact & Boeken" description="Boek een shoot via WhatsApp, e-mail of Instagram. Geen druk — ik denk met je mee.">
+  <section class="container section narrow">
+    <h1 class="page-title">Contact &amp; Boeken</h1>
+    <p class="prose">Leuk dat je een shoot overweegt! Stuur me een berichtje via WhatsApp of e-mail. Vermeld kort je naam, wat voor dier je hebt, welk pakket je aanspreekt en een voorkeursdatum of periode — dan reageer ik zo snel mogelijk.</p>
+
+    <div class="contact-cards">
+      {waLink && (
+        <a href={waLink} class="contact-card wa" rel="noopener">
+          <span class="contact-icon" aria-hidden="true">💬</span>
+          <span class="contact-label">WhatsApp</span>
+          <span class="contact-sub">Snelst — met een kant-en-klaar berichtje</span>
+        </a>
+      )}
+      {mailLink && (
+        <a href={mailLink} class="contact-card mail">
+          <span class="contact-icon" aria-hidden="true">✉️</span>
+          <span class="contact-label">E-mail</span>
+          <span class="contact-sub">{site.email}</span>
+        </a>
+      )}
+      {igLink && (
+        <a href={igLink} class="contact-card ig" rel="noopener">
+          <span class="contact-icon" aria-hidden="true">📷</span>
+          <span class="contact-label">Instagram</span>
+          <span class="contact-sub">Bekijk mijn laatste werk</span>
+        </a>
+      )}
+    </div>
+
+    {(!heeftWa && !heeftMail) && (
+      <p class="prose warn">Contactgegevens worden binnenkort toegevoegd.</p>
+    )}
+
+    <div class="gerust-box">
+      <p><strong>Geen druk.</strong> Twijfel je nog of heb je een vraag over wat past bij jouw dier? Stel hem gerust — ik denk graag met je mee.</p>
+    </div>
+  </section>
+</Base>

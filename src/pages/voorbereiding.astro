@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import teksten from '../data/teksten.json';
+---
+
+<Base title="Voorbereiding" description="Zo bereid je je shoot voor: snoepjes en speeltje mee, hond laten uitrazen, en vooral: geen druk.">
+  <section class="container section narrow">
+    <h1 class="page-title">{teksten.voorbereiding_titel}</h1>
+    <p class="prose">{teksten.voorbereiding_intro}</p>
+
+    <ul class="checklist">
+      {teksten.voorbereiding_tips.map((t) => (
+        <li><span class="check" aria-hidden="true">✓</span><span>{t}</span></li>
+      ))}
+    </ul>
+
+    <div class="gerust-box">
+      <p>{teksten.voorbereiding_geruststelling}</p>
+    </div>
+
+    <div class="hero-cta">
+      <a href="/contact" class="btn btn-primary">Plan je shoot</a>
+      <a href="/prijzen" class="btn btn-ghost">Bekijk pakketten</a>
+    </div>
+  </section>
+</Base>

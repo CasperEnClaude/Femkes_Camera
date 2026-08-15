@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+
+Sitemap: https://femkes-camera.netlify.app/sitemap-index.xml

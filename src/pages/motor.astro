@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import Gallery from '../components/Gallery.astro';
+import PackageCard from '../components/PackageCard.astro';
+import site from '../data/site.json';
+import motorGallery from '../galleries/motor.json';
+import prijzen from '../data/prijzen.json';
+
+const igMotor = site.instagram_motor && !site.instagram_motor.startsWith('[')
+  ? `https://instagram.com/${site.instagram_motor.replace('@', '')}`
+  : null;
+---
+
+<Base
+  title="Motorfotografie"
+  description="Motorfotografie door Femke's Camera — Kurosaki_Z900. Stoere, sfeervolle beelden van jouw motor, met of zonder rijder."
+  theme="motor"
+>
+  <section class="motor-hero">
+    <div class="container">
+      <span class="motor-kicker">Kurosaki_Z900</span>
+      <h1>Motorfotografie</h1>
+      <p class="motor-lead">Naast dieren richt ik mijn lens graag op motoren. Stoere, sfeervolle beelden van jouw machine — met of zonder rijder. Een nieuw onderdeel van mijn werk, dus scherp geprijsd.</p>
+      <div class="hero-cta">
+        <a href="/contact" class="btn btn-motor">Plan een motorshoot</a>
+        {igMotor && <a href={igMotor} class="btn btn-ghost-motor" rel="noopener">@{site.instagram_motor}</a>}
+      </div>
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2 class="cat-heading">Werk</h2>
+    <Gallery gallery={motorGallery} />
+  </section>
+
+  <section class="container section">
+    <h2 class="cat-heading">{prijzen.motor.titel}shoot</h2>
+    <div class="package-grid single">
+      {prijzen.motor.pakketten.map((p) => <PackageCard pakket={p} accent="motor" />)}
+    </div>
+    <p class="klein-note center">Prijs kan omhoog zodra er meer voorbeelden in dit portfolio staan.</p>
+  </section>
+
+  <section class="band motor-band">
+    <div class="container band-inner center">
+      <h2>Jouw motor voor de lens?</h2>
+      <p>Stuur me een bericht — ik denk graag mee over locatie en sfeer.</p>
+      <a href="/contact" class="btn btn-motor">Neem contact op</a>
+    </div>
+  </section>
+</Base>

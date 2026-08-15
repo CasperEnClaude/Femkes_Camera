@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { resolveImage } from '../lib/images.js';
+import teksten from '../data/teksten.json';
+import honden from '../galleries/honden.json';
+
+// Sterkste hondenfoto als hero (eerste foto uit de Honden-galerij).
+const heroPhoto = honden.photos?.[0];
+const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
+
+const categorieen = [
+  { titel: 'Honden', href: '/portfolio#honden', groot: true, tekst: 'Van rustige portretten tot volle actie — je hond zoals hij echt is.' },
+  { titel: "Puppy's", href: "/portfolio#puppys", groot: true, tekst: 'Die eerste weken leg je maar één keer vast.' },
+  { titel: 'Agility', href: '/portfolio#agility', groot: true, tekst: 'Snelheid, focus en plezier op de baan.' },
+  { titel: 'Creative & Thema', href: '/portfolio#creative', groot: false, tekst: 'Rookbommen en thema-shoots als leuke extra.' },
+  { titel: 'Motor', href: '/motor', groot: false, tekst: 'Ook motoren voor de lens.' },
+];
+---
+
+<Base>
+  <section class="hero">
+    {heroImg ? (
+      <Image src={heroImg} alt={heroPhoto.naam || 'Hondenfotografie door Femke\'s Camera'} widths={[600, 1200, 1800]} sizes="100vw" loading="eager" class="hero-img" />
+    ) : (
+      <div class="hero-img hero-placeholder" aria-hidden="true"></div>
+    )}
+    <div class="hero-overlay">
+      <div class="container hero-content">
+        <h1>{teksten.home_titel}</h1>
+        <p class="hero-lead">{teksten.home_intro}</p>
+        <div class="hero-cta">
+          <a href="/prijzen" class="btn btn-primary">Bekijk pakketten</a>
+          <a href="/contact" class="btn btn-ghost">Boek een shoot</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2 class="section-title">Wat ik fotografeer</h2>
+    <p class="section-intro">Dieren zijn mijn hoofdaanbod. Daarnaast doe ik af en toe iets creatiefs of een motorshoot.</p>
+
+    <div class="cat-grid">
+      {categorieen.map((c) => (
+        <a href={c.href} class:list={['cat-card', { big: c.groot, small: !c.groot }]}>
+          <span class="cat-titel">{c.titel}</span>
+          <span class="cat-tekst">{c.tekst}</span>
+          <span class="cat-arrow" aria-hidden="true">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container band-inner">
+      <h2>Klaar voor mooie foto's van je huisdier?</h2>
+      <p>Ik denk graag met je mee over het juiste pakket.</p>
+      <a href="/contact" class="btn btn-primary">Neem contact op</a>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import teksten from '../data/teksten.json';
+
+const paragraphs = teksten.over_mij_body.split('\n\n');
+---
+
+<Base title="Over mij" description="Femke fotografeert dieren met geduld en oog voor gedrag. Werkt dagelijks in een dierenspeciaalzaak. Geen portret-, gezins- of aanzoekfotografie.">
+  <section class="container section narrow">
+    <h1 class="page-title">{teksten.over_mij_titel}</h1>
+    {paragraphs.map((p) => <p class="prose">{p}</p>)}
+
+    <div class="usp-box">
+      <h2>Waarom dieren mijn ding zijn</h2>
+      <ul>
+        <li>Ik werk elke dag met dieren in een dierenspeciaalzaak — ik lees hun gedrag.</li>
+        <li>Ik heb geduld. Een dier laat zich niet haasten, en dat hoeft ook niet.</li>
+        <li>Ik spreek de taal van baasjes en denk met je mee.</li>
+      </ul>
+    </div>
+
+    <div class="hero-cta">
+      <a href="/portfolio" class="btn btn-primary">Bekijk mijn werk</a>
+      <a href="/contact" class="btn btn-ghost">Boek een shoot</a>
+    </div>
+  </section>
+</Base>

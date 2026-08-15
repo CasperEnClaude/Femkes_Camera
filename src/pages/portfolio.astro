@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import Gallery from '../components/Gallery.astro';
+import honden from '../galleries/honden.json';
+import puppys from '../galleries/puppys.json';
+import agility from '../galleries/agility.json';
+import creative from '../galleries/creative.json';
+import motor from '../galleries/motor.json';
+
+// Dieren eerst en prominent; creative & motor secundair.
+const primair = [
+  { id: 'honden', data: honden },
+  { id: 'puppys', data: puppys },
+  { id: 'agility', data: agility },
+];
+const secundair = [
+  { id: 'creative', data: creative },
+  { id: 'motor', data: motor },
+];
+---
+
+<Base title="Portfolio" description="Een selectie van mijn sterkste dierenfoto's: honden, puppy's en agility. Plus creative- en motorwerk.">
+  <section class="container section">
+    <h1 class="page-title">Portfolio</h1>
+    <p class="section-intro">Een streng geselecteerde greep uit mijn werk. Liever een paar sterke beelden dan alles wat ik ooit maakte.</p>
+
+    <nav class="portfolio-nav" aria-label="Categorieën">
+      <a href="#honden">Honden</a>
+      <a href="#puppys">Puppy's</a>
+      <a href="#agility">Agility</a>
+      <a href="#creative" class="secondary">Creative</a>
+      <a href="#motor" class="secondary">Motor</a>
+    </nav>
+
+    {primair.map((g) => (
+      <div class="portfolio-section" id={g.id}>
+        <h2 class="cat-heading">{g.data.titel}</h2>
+        <Gallery gallery={g.data} />
+      </div>
+    ))}
+
+    <hr class="portfolio-divider" />
+    <p class="secondary-note">Naast dieren doe ik af en toe iets creatiefs of een motorshoot — een leuke extra, geen hoofdaanbod.</p>
+
+    {secundair.map((g) => (
+      <div class="portfolio-section secondary-section" id={g.id}>
+        <h2 class="cat-heading">{g.data.titel}</h2>
+        <Gallery gallery={g.data} />
+        {g.id === 'motor' && (
+          <p class="motor-link-note"><a href="/motor" class="btn btn-ghost">Meer motorfotografie →</a></p>
+        )}
+      </div>
+    ))}
+  </section>
+</Base>

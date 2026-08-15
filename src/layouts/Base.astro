@@ -1,0 +1,59 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import site from '../data/site.json';
+import '../styles/global.css';
+
+const {
+  title,
+  description = 'Dierenfotografie door Femke\'s Camera — natuurlijke foto\'s van honden, puppy\'s en agility, met geduld en oog voor karakter.',
+  theme = 'light', // 'light' (hoofdsite) of 'motor' (donker/groen subthema)
+} = Astro.props;
+
+const fullTitle = title
+  ? `${title} · ${site.merknaam}`
+  : `${site.merknaam} — ${site.tagline}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="nl_NL" />
+    <meta name="theme-color" content={theme === 'motor' ? '#12140f' : '#c8794f'} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class={theme === 'motor' ? 'theme-motor' : 'theme-light'}>
+    <a class="skip-link" href="#main">Naar inhoud</a>
+    <Header theme={theme} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer theme={theme} />
+
+    <!-- Netlify Identity: vangt de uitnodigings-/inloglink op en stuurt door naar /admin.
+         Alleen nodig voor Femke's beheerlogin; laadt met defer zodat het de site niet vertraagt. -->
+    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      window.addEventListener('load', function () {
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on('init', function (user) {
+            if (!user) {
+              window.netlifyIdentity.on('login', function () {
+                document.location.href = '/admin/';
+              });
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

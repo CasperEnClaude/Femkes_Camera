@@ -1,0 +1,14 @@
+---
+// Eén pakketkaart. 'accent' bepaalt de stijl (light of motor).
+const { pakket, accent = 'light' } = Astro.props;
+---
+
+<article class:list={['package-card', { featured: pakket.populair, motor: accent === 'motor' }]}>
+  {pakket.badge && <span class="package-badge">{pakket.badge}</span>}
+  <h3 class="package-naam">{pakket.naam}</h3>
+  <p class="package-prijs">{pakket.prijs}</p>
+  <ul class="package-regels">
+    {pakket.regels.map((r) => <li>{r}</li>)}
+  </ul>
+  <a href="/contact" class="package-cta">Boek {pakket.naam}</a>
+</article>

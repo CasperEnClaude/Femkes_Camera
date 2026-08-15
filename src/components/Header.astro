@@ -1,0 +1,47 @@
+---
+import site from '../data/site.json';
+const { theme = 'light' } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+// Dieren staan voorop; creative en motor zijn secundair (kleiner, verderop).
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/prijzen', label: 'Prijzen' },
+  { href: '/voorbereiding', label: 'Voorbereiding' },
+  { href: '/over-mij', label: 'Over mij' },
+  { href: '/contact', label: 'Contact' },
+];
+
+function isActive(href) {
+  if (href === '/') return path === '/';
+  return path === href || path.startsWith(href + '/');
+}
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">
+      <span class="brand-name">{site.merknaam}</span>
+      <span class="brand-tag">{site.tagline}</span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
+    <label for="nav-toggle" class="nav-burger" aria-label="Menu openen">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="site-nav" aria-label="Hoofdmenu">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          class:list={['nav-link', { active: isActive(item.href) }]}
+          aria-current={isActive(item.href) ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a href="/contact" class="nav-cta">Boek een shoot</a>
+    </nav>
+  </div>
+</header>

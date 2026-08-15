@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import { resolveImage } from '../lib/images.js';
+
+// Verwacht: gallery = { titel, categorie, photos: [{image, naam, bijschrift}] }
+const { gallery } = Astro.props;
+const photos = (gallery?.photos || [])
+  .map((p) => ({ ...p, resolved: resolveImage(p.image) }))
+  .filter((p) => p.resolved);
+---
+
+{photos.length === 0 ? (
+  <p class="gallery-empty">
+    Binnenkort komen hier de foto's van <strong>{gallery?.titel}</strong>.
+  </p>
+) : (
+  <div class="gallery-grid">
+    {photos.map((p, i) => (
+      <figure class="gallery-item">
+        <Image
+          src={p.resolved}
+          alt={p.naam || gallery.titel}
+          widths={[400, 800, 1200]}
+          sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw"
+          loading={i < 3 ? 'eager' : 'lazy'}
+          class="gallery-img"
+        />
+        {(p.naam || p.bijschrift) && (
+          <figcaption class="gallery-caption">
+            {p.naam && <span class="gallery-naam">{p.naam}</span>}
+            {p.bijschrift && <span class="gallery-bijschrift">{p.bijschrift}</span>}
+          </figcaption>
+        )}
+      </figure>
+    ))}
+  </div>
+)}

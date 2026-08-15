@@ -1,0 +1,234 @@
+# ============================================================
+# Decap CMS configuratie — het beheerscherm op /admin
+# Femke bewerkt hier foto's, prijzen en teksten zonder code.
+# ============================================================
+
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: 'Nieuw item toegevoegd via CMS ({{collection}})'
+    update: '{{collection}} bijgewerkt via CMS'
+    delete: '{{collection}} verwijderd via CMS'
+    uploadMedia: 'Foto geüpload via CMS'
+    deleteMedia: 'Foto verwijderd via CMS'
+
+# Waar geüploade foto's worden bewaard (Astro optimaliseert deze bij het bouwen).
+media_folder: 'src/assets/uploads'
+public_folder: '/src/assets/uploads'
+
+locale: 'nl'
+
+collections:
+  # ---------- 1. PORTFOLIO / FOTO'S ----------
+  - name: 'portfolio'
+    label: "📷 Portfolio (foto's)"
+    description: "Voeg per categorie foto's toe of verwijder ze. Vul bij elke foto de naam van het dier in — dat is goed voor Google."
+    files:
+      - file: 'src/galleries/honden.json'
+        name: 'honden'
+        label: 'Honden'
+        fields:
+          - { label: 'Titel', name: 'titel', widget: 'string' }
+          - { label: 'Categorie (niet wijzigen)', name: 'categorie', widget: 'hidden', default: 'honden' }
+          - label: "Foto's"
+            name: 'photos'
+            widget: 'list'
+            label_singular: 'Foto'
+            summary: '{{fields.naam}}'
+            fields:
+              - { label: 'Foto', name: 'image', widget: 'image' }
+              - { label: 'Naam / onderwerp (bijv. de hondennaam)', name: 'naam', widget: 'string', hint: 'Wordt gebruikt als alt-tekst — goed voor Google.' }
+              - { label: 'Bijschrift (optioneel)', name: 'bijschrift', widget: 'string', required: false }
+      - file: 'src/galleries/puppys.json'
+        name: 'puppys'
+        label: "Puppy's"
+        fields:
+          - { label: 'Titel', name: 'titel', widget: 'string' }
+          - { label: 'Categorie (niet wijzigen)', name: 'categorie', widget: 'hidden', default: 'puppys' }
+          - label: "Foto's"
+            name: 'photos'
+            widget: 'list'
+            label_singular: 'Foto'
+            summary: '{{fields.naam}}'
+            fields:
+              - { label: 'Foto', name: 'image', widget: 'image' }
+              - { label: 'Naam / onderwerp', name: 'naam', widget: 'string' }
+              - { label: 'Bijschrift (optioneel)', name: 'bijschrift', widget: 'string', required: false }
+      - file: 'src/galleries/agility.json'
+        name: 'agility'
+        label: 'Agility'
+        fields:
+          - { label: 'Titel', name: 'titel', widget: 'string' }
+          - { label: 'Categorie (niet wijzigen)', name: 'categorie', widget: 'hidden', default: 'agility' }
+          - label: "Foto's"
+            name: 'photos'
+            widget: 'list'
+            label_singular: 'Foto'
+            summary: '{{fields.naam}}'
+            fields:
+              - { label: 'Foto', name: 'image', widget: 'image' }
+              - { label: 'Naam / onderwerp', name: 'naam', widget: 'string' }
+              - { label: 'Bijschrift (optioneel)', name: 'bijschrift', widget: 'string', required: false }
+      - file: 'src/galleries/creative.json'
+        name: 'creative'
+        label: 'Creative & Thema'
+        fields:
+          - { label: 'Titel', name: 'titel', widget: 'string' }
+          - { label: 'Categorie (niet wijzigen)', name: 'categorie', widget: 'hidden', default: 'creative' }
+          - label: "Foto's"
+            name: 'photos'
+            widget: 'list'
+            label_singular: 'Foto'
+            summary: '{{fields.naam}}'
+            fields:
+              - { label: 'Foto', name: 'image', widget: 'image' }
+              - { label: 'Naam / onderwerp', name: 'naam', widget: 'string' }
+              - { label: 'Bijschrift (optioneel)', name: 'bijschrift', widget: 'string', required: false }
+      - file: 'src/galleries/motor.json'
+        name: 'motor'
+        label: 'Motor'
+        fields:
+          - { label: 'Titel', name: 'titel', widget: 'string' }
+          - { label: 'Categorie (niet wijzigen)', name: 'categorie', widget: 'hidden', default: 'motor' }
+          - label: "Foto's"
+            name: 'photos'
+            widget: 'list'
+            label_singular: 'Foto'
+            summary: '{{fields.naam}}'
+            fields:
+              - { label: 'Foto', name: 'image', widget: 'image' }
+              - { label: 'Naam / onderwerp', name: 'naam', widget: 'string' }
+              - { label: 'Bijschrift (optioneel)', name: 'bijschrift', widget: 'string', required: false }
+
+  # ---------- 2. PRIJZEN & PAKKETTEN ----------
+  - name: 'prijzen'
+    label: '💶 Prijzen & pakketten'
+    description: 'Pas prijzen, pakketnamen en wat er bij een pakket zit aan.'
+    files:
+      - file: 'src/data/prijzen.json'
+        name: 'prijzen'
+        label: 'Prijzen'
+        fields:
+          - label: 'Dieren (hoofdaanbod)'
+            name: 'dieren'
+            widget: 'object'
+            fields:
+              - { label: 'Titel', name: 'titel', widget: 'string' }
+              - { label: 'Ondertitel', name: 'ondertitel', widget: 'string' }
+              - { label: 'Introtekst', name: 'intro', widget: 'text' }
+              - label: 'Pakketten'
+                name: 'pakketten'
+                widget: 'list'
+                label_singular: 'Pakket'
+                summary: '{{fields.naam}} — {{fields.prijs}}'
+                fields:
+                  - { label: 'Naam', name: 'naam', widget: 'string' }
+                  - { label: 'Prijs', name: 'prijs', widget: 'string' }
+                  - { label: 'Populair markeren?', name: 'populair', widget: 'boolean', default: false }
+                  - { label: 'Badge (bijv. "Meest gekozen")', name: 'badge', widget: 'string', required: false }
+                  - label: 'Wat zit erbij'
+                    name: 'regels'
+                    widget: 'list'
+                    field: { label: 'Regel', name: 'regel', widget: 'string' }
+              - label: "Extra's (losse regels)"
+                name: 'extras'
+                widget: 'list'
+                field: { label: 'Extra', name: 'extra', widget: 'string' }
+          - label: 'Creative & Thema'
+            name: 'creative'
+            widget: 'object'
+            fields:
+              - { label: 'Titel', name: 'titel', widget: 'string' }
+              - { label: 'Ondertitel', name: 'ondertitel', widget: 'string' }
+              - label: 'Pakketten'
+                name: 'pakketten'
+                widget: 'list'
+                label_singular: 'Pakket'
+                fields:
+                  - { label: 'Naam', name: 'naam', widget: 'string' }
+                  - { label: 'Prijs', name: 'prijs', widget: 'string' }
+                  - { label: 'Populair markeren?', name: 'populair', widget: 'boolean', default: false }
+                  - { label: 'Badge', name: 'badge', widget: 'string', required: false }
+                  - label: 'Wat zit erbij'
+                    name: 'regels'
+                    widget: 'list'
+                    field: { label: 'Regel', name: 'regel', widget: 'string' }
+          - label: 'Motor'
+            name: 'motor'
+            widget: 'object'
+            fields:
+              - { label: 'Titel', name: 'titel', widget: 'string' }
+              - { label: 'Ondertitel', name: 'ondertitel', widget: 'string' }
+              - label: 'Pakketten'
+                name: 'pakketten'
+                widget: 'list'
+                label_singular: 'Pakket'
+                fields:
+                  - { label: 'Naam', name: 'naam', widget: 'string' }
+                  - { label: 'Prijs', name: 'prijs', widget: 'string' }
+                  - { label: 'Populair markeren?', name: 'populair', widget: 'boolean', default: false }
+                  - { label: 'Badge', name: 'badge', widget: 'string', required: false }
+                  - label: 'Wat zit erbij'
+                    name: 'regels'
+                    widget: 'list'
+                    field: { label: 'Regel', name: 'regel', widget: 'string' }
+          - label: 'Zakelijk (clubs/verenigingen)'
+            name: 'zakelijk'
+            widget: 'object'
+            fields:
+              - { label: 'Titel', name: 'titel', widget: 'string' }
+              - { label: 'Ondertitel', name: 'ondertitel', widget: 'string' }
+              - label: 'Pakketten'
+                name: 'pakketten'
+                widget: 'list'
+                label_singular: 'Pakket'
+                fields:
+                  - { label: 'Naam', name: 'naam', widget: 'string' }
+                  - { label: 'Prijs', name: 'prijs', widget: 'string' }
+                  - { label: 'Populair markeren?', name: 'populair', widget: 'boolean', default: false }
+                  - { label: 'Badge', name: 'badge', widget: 'string', required: false }
+                  - label: 'Wat zit erbij'
+                    name: 'regels'
+                    widget: 'list'
+                    field: { label: 'Regel', name: 'regel', widget: 'string' }
+
+  # ---------- 3. TEKSTEN OP DE PAGINA'S ----------
+  - name: 'teksten'
+    label: "📝 Teksten (Home, Over mij, Voorbereiding)"
+    description: "Pas de teksten op de belangrijkste pagina's aan."
+    files:
+      - file: 'src/data/teksten.json'
+        name: 'teksten'
+        label: 'Paginateksten'
+        fields:
+          - { label: 'Home — grote titel', name: 'home_titel', widget: 'string' }
+          - { label: 'Home — introtekst', name: 'home_intro', widget: 'text' }
+          - { label: 'Over mij — titel', name: 'over_mij_titel', widget: 'string' }
+          - { label: 'Over mij — verhaal', name: 'over_mij_body', widget: 'text', hint: 'Laat een lege regel tussen alinea\'s.' }
+          - { label: 'Voorbereiding — titel', name: 'voorbereiding_titel', widget: 'string' }
+          - { label: 'Voorbereiding — intro', name: 'voorbereiding_intro', widget: 'text' }
+          - label: 'Voorbereiding — tips'
+            name: 'voorbereiding_tips'
+            widget: 'list'
+            field: { label: 'Tip', name: 'tip', widget: 'string' }
+          - { label: 'Voorbereiding — geruststelling', name: 'voorbereiding_geruststelling', widget: 'text' }
+
+  # ---------- 4. INSTELLINGEN / CONTACTGEGEVENS ----------
+  - name: 'instellingen'
+    label: '⚙️ Instellingen & contactgegevens'
+    description: 'Naam, plaats, e-mail, WhatsApp en Instagram.'
+    files:
+      - file: 'src/data/site.json'
+        name: 'site'
+        label: 'Instellingen'
+        fields:
+          - { label: 'Merknaam', name: 'merknaam', widget: 'string' }
+          - { label: 'Tagline (onder de naam)', name: 'tagline', widget: 'string' }
+          - { label: 'Plaatsnaam / regio', name: 'plaatsnaam', widget: 'string' }
+          - { label: 'Reiskosten gratis binnen (km)', name: 'reiskosten_straal_km', widget: 'string' }
+          - { label: 'E-mailadres', name: 'email', widget: 'string' }
+          - { label: 'WhatsApp-nummer (met landcode, bijv. 316...)', name: 'whatsapp', widget: 'string' }
+          - { label: 'Instagram — dieren (zonder @)', name: 'instagram_dieren', widget: 'string', required: false }
+          - { label: 'Instagram — motor (zonder @)', name: 'instagram_motor', widget: 'string', required: false }
+          - { label: 'Motor-Instagram tonen?', name: 'toon_motor_instagram', widget: 'boolean', default: true }

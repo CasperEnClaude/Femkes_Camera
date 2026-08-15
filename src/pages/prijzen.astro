@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import PackageCard from '../components/PackageCard.astro';
+import prijzen from '../data/prijzen.json';
+
+const { dieren, creative, motor, zakelijk } = prijzen;
+---
+
+<Base title="Diensten & Prijzen" description="Pakketten voor dierenfotografie vanaf €65. Plus creative-, motor- en clubfotografie.">
+  <section class="container section">
+    <h1 class="page-title">Diensten &amp; Prijzen</h1>
+
+    <!-- Dieren: hoofdaanbod, bovenaan en het grootst -->
+    <div class="prijs-blok">
+      <div class="blok-kop">
+        <h2>{dieren.titel}</h2>
+        <span class="blok-sub">{dieren.ondertitel}</span>
+      </div>
+      <p class="blok-intro">{dieren.intro}</p>
+      <div class="package-grid primary-grid">
+        {dieren.pakketten.map((p) => <PackageCard pakket={p} />)}
+      </div>
+      <ul class="extras">
+        {dieren.extras.map((e) => <li>{e}</li>)}
+      </ul>
+    </div>
+
+    <!-- Creative & Motor: secundair, kleiner, eronder -->
+    <div class="secundair-rij">
+      <div class="prijs-blok klein">
+        <div class="blok-kop">
+          <h2>{creative.titel}</h2>
+          <span class="blok-sub">{creative.ondertitel}</span>
+        </div>
+        <div class="package-grid">
+          {creative.pakketten.map((p) => <PackageCard pakket={p} />)}
+        </div>
+      </div>
+
+      <div class="prijs-blok klein">
+        <div class="blok-kop">
+          <h2>{motor.titel}</h2>
+          <span class="blok-sub">{motor.ondertitel}</span>
+        </div>
+        <div class="package-grid">
+          {motor.pakketten.map((p) => <PackageCard pakket={p} accent="motor" />)}
+        </div>
+        <p class="klein-note">Bewust bescheiden geprijsd — dit onderdeel is nog nieuw. <a href="/motor">Bekijk motorfotografie →</a></p>
+      </div>
+    </div>
+
+    <!-- Zakelijk: los vermeld, niet tussen de consumentenpakketten -->
+    <div class="prijs-blok zakelijk">
+      <div class="blok-kop">
+        <h2>{zakelijk.titel}</h2>
+        <span class="blok-sub">{zakelijk.ondertitel}</span>
+      </div>
+      <div class="package-grid">
+        {zakelijk.pakketten.map((p) => <PackageCard pakket={p} />)}
+      </div>
+    </div>
+
+    <div class="band-inner center">
+      <h2>Niet zeker welk pakket past?</h2>
+      <p>Stuur me een berichtje, dan denk ik met je mee.</p>
+      <a href="/contact" class="btn btn-primary">Neem contact op</a>
+    </div>
+  </section>
+</Base>

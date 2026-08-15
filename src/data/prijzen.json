@@ -1,0 +1,102 @@
+{
+  "dieren": {
+    "titel": "Dieren",
+    "ondertitel": "Mijn hoofdaanbod",
+    "intro": "Ik fotografeer je huisdier zoals het is — spelend, snuffelend, lekker zichzelf. Geen geforceerde standjes, wel geduld en oog voor karakter.",
+    "pakketten": [
+      {
+        "naam": "Mini",
+        "prijs": "€65",
+        "populair": false,
+        "regels": [
+          "30–45 minuten",
+          "1 huisdier",
+          "5 zorgvuldig geselecteerde en bewerkte foto's",
+          "Online galerij",
+          "Digitale levering in hoge resolutie"
+        ]
+      },
+      {
+        "naam": "Classic",
+        "prijs": "€95",
+        "populair": true,
+        "badge": "Meest gekozen",
+        "regels": [
+          "60 minuten",
+          "Max. 2 huisdieren uit hetzelfde gezin",
+          "8–10 bewerkte foto's",
+          "Online galerij",
+          "Geschikt voor print en social media"
+        ]
+      },
+      {
+        "naam": "Uitgebreid",
+        "prijs": "€135",
+        "populair": false,
+        "regels": [
+          "75–90 minuten",
+          "Max. 3 huisdieren",
+          "15–20 bewerkte foto's",
+          "Online galerij",
+          "Meerdere settings/momenten"
+        ]
+      }
+    ],
+    "extras": [
+      "Extra foto €8 per stuk (5-pack €35)",
+      "Extra huisdier (ander gezin) €20",
+      "Reiskosten €0,30/km buiten 15 km van [plaatsnaam invullen]"
+    ]
+  },
+  "creative": {
+    "titel": "Creative & Thema",
+    "ondertitel": "Een leuke extra",
+    "pakketten": [
+      {
+        "naam": "Rookbom / Halloween shoot",
+        "prijs": "€95",
+        "populair": false,
+        "regels": [
+          "60 minuten",
+          "1 huisdier + rookbom of thema-attribuut",
+          "8 bewerkte foto's",
+          "Extra rookbom: +€15"
+        ]
+      }
+    ]
+  },
+  "motor": {
+    "titel": "Motor",
+    "ondertitel": "Nieuw in mijn aanbod",
+    "pakketten": [
+      {
+        "naam": "Motor Shoot",
+        "prijs": "€95–115",
+        "populair": false,
+        "regels": [
+          "60 minuten",
+          "1 motor (met of zonder rijder)",
+          "8–10 bewerkte foto's",
+          "Online galerij"
+        ]
+      }
+    ]
+  },
+  "zakelijk": {
+    "titel": "Zakelijk",
+    "ondertitel": "Voor clubs & verenigingen",
+    "pakketten": [
+      {
+        "naam": "Club / vereniging (agility e.d.)",
+        "prijs": "€150 / €250",
+        "populair": false,
+        "regels": [
+          "Halve dag €150 · hele dag €250",
+          "Alle foto's bewerkt en geleverd",
+          "Voor gebruik / doorverkoop door de club",
+          "Met vermelding van Femke's Camera op de gebruikte kanalen"
+        ]
+      }
+    ]
+  }
+}
