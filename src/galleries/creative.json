@@ -1,5 +1,26 @@
 {
   "titel": "Creative & Thema",
   "categorie": "creative",
-  "photos": []
+  "photos": [
+    {
+      "image": "/src/assets/uploads/creative-01.jpeg",
+      "naam": "Creatieve shoot met gekleurde rookbom bij het water",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/creative-02.jpeg",
+      "naam": "Sfeervolle rookbom-shoot in rood en oranje",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/creative-03.jpeg",
+      "naam": "Rookbom-shoot met rode rook",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/creative-04.jpg",
+      "naam": "Thema-shoot met rook en led-masker",
+      "bijschrift": ""
+    }
+  ]
 }

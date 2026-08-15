@@ -1,5 +1,51 @@
 {
   "titel": "Puppy's",
   "categorie": "puppys",
-  "photos": []
+  "photos": [
+    {
+      "image": "/src/assets/uploads/puppys-01.png",
+      "naam": "Puppy rent door het gras",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/puppys-02.png",
+      "naam": "Puppy springt door het gras in tegenlicht",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/puppys-03.png",
+      "naam": "Blue merle pup in het gras",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/puppys-04.jpg",
+      "naam": "Pluizige pup in gouden tegenlicht",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/puppys-05.png",
+      "naam": "Nestje puppy's samen op een bankje",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/puppys-06.jpg",
+      "naam": "Pasgeboren pup in de derde levensweek",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/puppys-07.png",
+      "naam": "Blue merle pup in de hand",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/puppys-08.png",
+      "naam": "Red tri pup in de hand",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/puppys-09.png",
+      "naam": "Rustige merle pup in de hand",
+      "bijschrift": ""
+    }
+  ]
 }

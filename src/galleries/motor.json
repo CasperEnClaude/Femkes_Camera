@@ -1,5 +1,66 @@
 {
   "titel": "Motor",
   "categorie": "motor",
-  "photos": []
+  "photos": [
+    {
+      "image": "/src/assets/uploads/motor-01.jpeg",
+      "naam": "Kawasaki Z900 in de parkeergarage",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/motor-02.jpeg",
+      "naam": "Motorrijder met verlichte koplampen, vooraanzicht",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/motor-03.jpeg",
+      "naam": "Helm in profiel met groen vizier",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/motor-04.jpeg",
+      "naam": "Motorrijder op de Kawasaki Z900",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/motor-05.jpeg",
+      "naam": "Silhouet van motorrijder tegen het licht",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/motor-06.jpeg",
+      "naam": "Motorrijder bij de Erasmusbrug",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/motor-07.jpeg",
+      "naam": "Kawasaki Z900 met de skyline op de achtergrond",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/motor-08.jpeg",
+      "naam": "Detailopname laag bij de voorvork",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/motor-09.jpeg",
+      "naam": "Motorrijder met gespreide armen",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/motor-10.jpeg",
+      "naam": "Motorrijder frontaal in de parkeergarage",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/motor-11.jpeg",
+      "naam": "Motorrijder in sfeervol garagelicht",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/motor-12.jpeg",
+      "naam": "Kawasaki Z900 met groene accenten",
+      "bijschrift": ""
+    }
+  ]
 }

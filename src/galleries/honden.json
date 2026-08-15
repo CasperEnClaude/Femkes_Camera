@@ -1,5 +1,66 @@
 {
   "titel": "Honden",
   "categorie": "honden",
-  "photos": []
+  "photos": [
+    {
+      "image": "/src/assets/uploads/honden-01.jpg",
+      "naam": "Australische herder op een rots aan het water",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/honden-02.png",
+      "naam": "Australische herder in de paarse heide",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/honden-03.jpg",
+      "naam": "Red tri Australische herder tussen de varens",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/honden-04.jpg",
+      "naam": "Cocker spaniël op een herfstlaan",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/honden-05.jpg",
+      "naam": "Mechelse herder in volle sprong door het zand",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/honden-06.png",
+      "naam": "Blue merle Australische herder bij een boom in het bos",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/honden-07.png",
+      "naam": "Australische herder ontspannen bij een bankje",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/honden-08.jpg",
+      "naam": "Blue merle Australische herder in het bos",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/honden-09.png",
+      "naam": "Twee honden samen in het veld",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/honden-10.jpg",
+      "naam": "Australische herder op een bankje onder een dramatische lucht",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/honden-11.jpg",
+      "naam": "Jonge hond rennend over een bospad",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/honden-12.png",
+      "naam": "Hond met balletje tegen een warme achtergrond",
+      "bijschrift": ""
+    }
+  ]
 }

@@ -206,6 +206,7 @@ collections:
           - { label: 'Home — introtekst', name: 'home_intro', widget: 'text' }
           - { label: 'Over mij — titel', name: 'over_mij_titel', widget: 'string' }
           - { label: 'Over mij — verhaal', name: 'over_mij_body', widget: 'text', hint: "Laat een lege regel tussen alinea's." }
+          - { label: 'Over mij — foto (van jou)', name: 'over_mij_foto', widget: 'image', required: false }
           - { label: 'Voorbereiding — titel', name: 'voorbereiding_titel', widget: 'string' }
           - { label: 'Voorbereiding — intro', name: 'voorbereiding_intro', widget: 'text' }
           - label: 'Voorbereiding — tips'

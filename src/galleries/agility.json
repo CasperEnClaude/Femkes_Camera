@@ -1,5 +1,51 @@
 {
   "titel": "Agility",
   "categorie": "agility",
-  "photos": []
+  "photos": [
+    {
+      "image": "/src/assets/uploads/agility-01.jpg",
+      "naam": "Vizsla springt over een hindernis tijdens agility",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/agility-02.jpg",
+      "naam": "Australische herder vol in actie op de agilitybaan",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/agility-03.jpg",
+      "naam": "Border collie op de A-frame",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/agility-04.jpg",
+      "naam": "Hond komt uit de tunnel tijdens agility",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/agility-05.jpg",
+      "naam": "Hond springt over een balk op de agilitybaan",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/agility-06.jpg",
+      "naam": "Hond springt hoog bij dock diving",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/agility-07.jpg",
+      "naam": "Mechelse herder springt over een hindernis",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/agility-08.jpg",
+      "naam": "Hond in actie tussen de agility-hindernissen",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/agility-09.jpg",
+      "naam": "Australische herder over de dog-walk",
+      "bijschrift": ""
+    }
+  ]
 }

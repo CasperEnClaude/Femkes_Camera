@@ -1,13 +1,19 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import { resolveImage } from '../lib/images.js';
 import teksten from '../data/teksten.json';
 
 const paragraphs = teksten.over_mij_body.split('\n\n');
+const foto = teksten.over_mij_foto ? resolveImage(teksten.over_mij_foto) : undefined;
 ---
 
 <Base title="Over mij" description="Femke fotografeert dieren met geduld en oog voor gedrag. Werkt dagelijks in een dierenspeciaalzaak. Geen portret-, gezins- of aanzoekfotografie.">
   <section class="container section narrow">
     <h1 class="page-title">{teksten.over_mij_titel}</h1>
+    {foto && (
+      <Image src={foto} alt="Femke met haar honden" widths={[400, 800, 1200]} sizes="(max-width: 760px) 100vw, 760px" loading="eager" class="over-foto" />
+    )}
     {paragraphs.map((p) => <p class="prose">{p}</p>)}
 
     <div class="usp-box">
