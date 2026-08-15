@@ -9,15 +9,16 @@ import InstaIcon from './InstaIcon.astro';
 import honden from '../galleries/honden.json';
 import puppys from '../galleries/puppys.json';
 import agility from '../galleries/agility.json';
+import paarden from '../galleries/paarden.json';
 import creative from '../galleries/creative.json';
 
 const { count = 6 } = Astro.props;
 
 // Mix van sterke beelden, afwisselend per categorie.
 const pool = [
-  honden.photos?.[1], puppys.photos?.[0], agility.photos?.[0],
-  creative.photos?.[0], honden.photos?.[4], puppys.photos?.[3],
-  agility.photos?.[3], honden.photos?.[7], creative.photos?.[1],
+  agility.photos?.[0], paarden.photos?.[0], honden.photos?.[1],
+  puppys.photos?.[0], creative.photos?.[0], honden.photos?.[4],
+  paarden.photos?.[1], puppys.photos?.[3], agility.photos?.[3],
 ].filter(Boolean);
 
 const tiles = pool

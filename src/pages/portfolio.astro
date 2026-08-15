@@ -4,16 +4,16 @@ import Gallery from '../components/Gallery.astro';
 import honden from '../galleries/honden.json';
 import puppys from '../galleries/puppys.json';
 import agility from '../galleries/agility.json';
+import paarden from '../galleries/paarden.json';
 import creative from '../galleries/creative.json';
 import motor from '../galleries/motor.json';
 
-// Dieren eerst en prominent; rookfakkels & motor secundair.
-// Paarden staat tijdelijk uit tot er minimaal 6-8 sterke paardenfoto's zijn
-// (galerij + CMS-collectie blijven bestaan, alleen niet getoond).
+// Volgorde zoals Femke het liefst fotografeert; rookfakkels & motor secundair.
 const primair = [
+  { id: 'agility', data: agility },
+  { id: 'paarden', data: paarden },
   { id: 'honden', data: honden },
   { id: 'puppys', data: puppys },
-  { id: 'agility', data: agility },
 ];
 const secundair = [
   { id: 'creative', data: creative },
@@ -21,15 +21,16 @@ const secundair = [
 ];
 ---
 
-<Base title="Portfolio" description="Een selectie van mijn sterkste dierenfoto's: honden, puppy's en agility. Plus creative- en motorwerk.">
+<Base title="Portfolio" description="Een selectie van mijn sterkste dierenfoto's: agility & sport, paarden, honden en puppy's. Plus rookfakkel- en motorwerk.">
   <section class="container section">
     <h1 class="page-title">Portfolio</h1>
     <p class="section-intro">Een streng geselecteerde greep uit mijn werk. Liever een paar sterke beelden dan alles wat ik ooit maakte.</p>
 
     <nav class="portfolio-nav" aria-label="Categorieën">
+      <a href="#agility">Agility &amp; sport</a>
+      <a href="#paarden">Paarden</a>
       <a href="#honden">Honden</a>
       <a href="#puppys">Puppy's</a>
-      <a href="#agility">Agility</a>
       <a href="#creative" class="secondary">Rookfakkels</a>
       <a href="#motor" class="secondary">Motor</a>
     </nav>

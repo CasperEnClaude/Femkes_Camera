@@ -9,6 +9,7 @@ import teksten from '../data/teksten.json';
 import honden from '../galleries/honden.json';
 import puppys from '../galleries/puppys.json';
 import agility from '../galleries/agility.json';
+import paarden from '../galleries/paarden.json';
 import creative from '../galleries/creative.json';
 import motor from '../galleries/motor.json';
 
@@ -17,17 +18,22 @@ const heroPhoto = honden.photos?.[0];
 const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
 
 const homeDescription = plaats
-  ? `Dierenfotografie door Femke's Camera in en rond ${plaats} — natuurlijke foto's van honden, puppy's en agility, met geduld en oog voor karakter.`
-  : "Dierenfotografie door Femke's Camera — natuurlijke foto's van honden, puppy's en agility, met geduld en oog voor karakter.";
+  ? `Dierenfotografie door Femke's Camera in en rond ${plaats} — natuurlijke foto's van dierensport, paarden, honden en puppy's, met geduld en oog voor karakter.`
+  : "Dierenfotografie door Femke's Camera — natuurlijke foto's van dierensport, paarden, honden en puppy's, met geduld en oog voor karakter.";
 
-// Beeld-led categorie-tiles.
-const categorieen = [
-  { titel: 'Honden', href: '/portfolio#honden', groot: true, tekst: 'Beelden waar je jaren later nog trots op bent.', foto: honden.photos?.[3] },
-  { titel: "Puppy's", href: '/portfolio#puppys', groot: true, tekst: 'Leg die eerste weken vast — ze zijn zó voorbij.', foto: puppys.photos?.[0] },
-  { titel: 'Agility', href: '/portfolio#agility', groot: true, tekst: 'Snelheid, focus en jullie band op de baan.', foto: agility.photos?.[0] },
-  { titel: 'Rookfakkels', href: '/rookfakkels', groot: false, tekst: 'Kleurrijke rook, stoere beelden die opvallen.', foto: creative.photos?.[0] },
-  { titel: 'Motor', href: '/motor', groot: false, tekst: 'Jouw machine sfeervol in beeld — elk merk.', foto: motor.photos?.[4] },
-].map((c) => ({ ...c, img: c.foto ? resolveImage(c.foto.image) : undefined }));
+const prep = (arr) => arr.map((c) => ({ ...c, img: c.foto ? resolveImage(c.foto.image) : undefined }));
+
+// Volgorde zoals Femke het liefst fotografeert. Dieren eerst, dan (met scheiding) de extra's.
+const dierCategorieen = prep([
+  { titel: 'Agility & sport evenementen', href: '/portfolio#agility', tekst: 'Snelheid, focus en jullie band op de baan.', foto: agility.photos?.[0] },
+  { titel: 'Paarden', href: '/portfolio#paarden', tekst: 'Kracht en rust — paarden in hun element.', foto: paarden.photos?.[0] },
+  { titel: 'Honden', href: '/portfolio#honden', tekst: 'Beelden waar je jaren later nog trots op bent.', foto: honden.photos?.[3] },
+  { titel: "Puppy's", href: '/portfolio#puppys', tekst: 'Leg die eerste weken vast — ze zijn zó voorbij.', foto: puppys.photos?.[0] },
+]);
+const extraCategorieen = prep([
+  { titel: 'Rookfakkels', href: '/rookfakkels', tekst: 'Kleurrijke rook, stoere beelden die opvallen.', foto: creative.photos?.[0] },
+  { titel: 'Motor', href: '/motor', tekst: 'Jouw machine sfeervol in beeld.', foto: motor.photos?.[4] },
+]);
 ---
 
 <Base description={homeDescription}>
@@ -58,8 +64,26 @@ const categorieen = [
     <h2 class="section-title">Wat ik fotografeer</h2>
     <p class="section-intro">Dieren zijn mijn hoofdaanbod. Daarnaast doe ik af en toe iets creatiefs of een motorshoot.</p>
 
-    <div class="cat-grid">
-      {categorieen.map((c) => (
+    <div class="cat-grid four">
+      {dierCategorieen.map((c) => (
+        <a href={c.href} class="cat-card">
+          {c.img ? (
+            <Image src={c.img} alt={c.foto?.naam || c.titel} widths={[300, 600]} sizes="(max-width: 640px) 50vw, 240px" loading="lazy" class="cat-img" />
+          ) : (
+            <span class="cat-img cat-img-fallback" aria-hidden="true"></span>
+          )}
+          <span class="cat-overlay">
+            <span class="cat-titel">{c.titel}</span>
+            <span class="cat-tekst">{c.tekst}</span>
+          </span>
+        </a>
+      ))}
+    </div>
+
+    <hr class="cat-divider" />
+
+    <div class="cat-grid two">
+      {extraCategorieen.map((c) => (
         <a href={c.href} class="cat-card">
           {c.img ? (
             <Image src={c.img} alt={c.foto?.naam || c.titel} widths={[300, 600]} sizes="(max-width: 640px) 50vw, 240px" loading="lazy" class="cat-img" />

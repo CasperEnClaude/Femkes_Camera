@@ -62,22 +62,7 @@ const secundair = [
           <div class="package-grid">
             {s.data.pakketten.map((p) => <PackageCard pakket={p} />)}
           </div>
-          {s.data.opties && s.data.opties.length > 0 && (
-            <ul class="opties-lijst compact">
-              {s.data.opties.map((o) => (
-                <li>
-                  <span class="optie-naam">{o.naam}</span>
-                  <span class="optie-prijs">{o.meerprijs}</span>
-                </li>
-              ))}
-              {s.data.addon && (
-                <li class="optie-addon">
-                  <span class="optie-naam">{s.data.addon.naam} <span class="optie-badge">op aanvraag</span></span>
-                  <span class="optie-prijs">{s.data.addon.meerprijs}</span>
-                </li>
-              )}
-            </ul>
-          )}
+          <p class="klein-note">Losse opties en extra's? Die leg ik uit op de eigen pagina.</p>
           <p class="landing-link"><a href={s.href}>{s.linktekst}</a></p>
         </div>
       ))}
