@@ -1,27 +1,33 @@
 ---
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import InstaFollow from '../components/InstaFollow.astro';
+import InstaIcon from '../components/InstaIcon.astro';
 import { resolveImage } from '../lib/images.js';
+import { igHandle, igUrl, plaats } from '../lib/site.js';
 import teksten from '../data/teksten.json';
-import site from '../data/site.json';
 import honden from '../galleries/honden.json';
+import puppys from '../galleries/puppys.json';
+import agility from '../galleries/agility.json';
+import creative from '../galleries/creative.json';
+import motor from '../galleries/motor.json';
 
 // Sterkste hondenfoto als hero (eerste foto uit de Honden-galerij).
 const heroPhoto = honden.photos?.[0];
 const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
 
-const plaats = site.plaatsnaam && !site.plaatsnaam.startsWith('[') ? site.plaatsnaam : null;
 const homeDescription = plaats
   ? `Dierenfotografie door Femke's Camera in en rond ${plaats} — natuurlijke foto's van honden, puppy's en agility, met geduld en oog voor karakter.`
   : "Dierenfotografie door Femke's Camera — natuurlijke foto's van honden, puppy's en agility, met geduld en oog voor karakter.";
 
+// Beeld-led categorie-tiles.
 const categorieen = [
-  { titel: 'Honden', href: '/portfolio#honden', groot: true, tekst: 'Van rustige portretten tot volle actie — beelden waar je jaren later nog trots op bent.' },
-  { titel: "Puppy's", href: "/portfolio#puppys", groot: true, tekst: 'Die eerste weken zijn zo voorbij. Leg je pups vast — om te koesteren én om harten te veroveren.' },
-  { titel: 'Agility', href: '/portfolio#agility', groot: true, tekst: 'Snelheid, focus en flow — laat de sport én jullie band zien.' },
-  { titel: 'Rookfakkels', href: '/rookfakkels', groot: false, tekst: 'Kleurrijke rook rond je hond: stoere beelden die opvallen.' },
-  { titel: 'Motor', href: '/motor', groot: false, tekst: 'Jouw machine sfeervol in beeld — elk merk welkom.' },
-];
+  { titel: 'Honden', href: '/portfolio#honden', groot: true, tekst: 'Beelden waar je jaren later nog trots op bent.', foto: honden.photos?.[3] },
+  { titel: "Puppy's", href: '/portfolio#puppys', groot: true, tekst: 'Leg die eerste weken vast — ze zijn zó voorbij.', foto: puppys.photos?.[0] },
+  { titel: 'Agility', href: '/portfolio#agility', groot: true, tekst: 'Snelheid, focus en jullie band op de baan.', foto: agility.photos?.[0] },
+  { titel: 'Rookfakkels', href: '/rookfakkels', groot: false, tekst: 'Kleurrijke rook, stoere beelden die opvallen.', foto: creative.photos?.[0] },
+  { titel: 'Motor', href: '/motor', groot: false, tekst: 'Jouw machine sfeervol in beeld — elk merk.', foto: motor.photos?.[4] },
+].map((c) => ({ ...c, img: c.foto ? resolveImage(c.foto.image) : undefined }));
 ---
 
 <Base description={homeDescription}>
@@ -33,11 +39,16 @@ const categorieen = [
     )}
     <div class="hero-overlay">
       <div class="container hero-content">
+        {igHandle && (
+          <a href={igUrl} class="hero-ig-chip" rel="noopener" target="_blank">
+            <InstaIcon size={16} /> @{igHandle}
+          </a>
+        )}
         <h1>{teksten.home_titel}</h1>
         <p class="hero-lead">{teksten.home_intro}</p>
         <div class="hero-cta">
-          <a href="/prijzen" class="btn btn-primary">Bekijk pakketten</a>
-          <a href="/contact" class="btn btn-ghost">Boek een shoot</a>
+          <a href="/contact" class="btn btn-primary">Boek een shoot</a>
+          <a href="/portfolio" class="btn btn-ghost">Bekijk portfolio</a>
         </div>
       </div>
     </div>
@@ -50,11 +61,28 @@ const categorieen = [
     <div class="cat-grid">
       {categorieen.map((c) => (
         <a href={c.href} class:list={['cat-card', { big: c.groot, small: !c.groot }]}>
-          <span class="cat-titel">{c.titel}</span>
-          <span class="cat-tekst">{c.tekst}</span>
-          <span class="cat-arrow" aria-hidden="true">→</span>
+          {c.img && (
+            <span class="cat-media">
+              <Image src={c.img} alt={c.foto?.naam || c.titel} widths={[400, 800]} sizes="(max-width: 640px) 100vw, 380px" loading="lazy" class="cat-img" />
+            </span>
+          )}
+          <span class="cat-body">
+            <span class="cat-titel">{c.titel}</span>
+            <span class="cat-tekst">{c.tekst}</span>
+            <span class="cat-arrow" aria-hidden="true">Bekijken →</span>
+          </span>
         </a>
       ))}
+    </div>
+  </section>
+
+  <InstaFollow count={6} />
+
+  <section class="container section why-section">
+    <div class="why-grid">
+      <div class="why-item"><span class="why-ico" aria-hidden="true">🐾</span><h3>Ik ken dieren</h3><p>Elke dag werk ik met dieren in een dierenspeciaalzaak. Ik lees hun gedrag en stel ze op hun gemak.</p></div>
+      <div class="why-item"><span class="why-ico" aria-hidden="true">⏳</span><h3>Alle geduld</h3><p>Werkt je dier even niet mee? Dan wachten we rustig af. Geen druk, geen geforceerde standjes.</p></div>
+      <div class="why-item"><span class="why-ico" aria-hidden="true">✨</span><h3>Beelden die blijven</h3><p>Natuurlijk en herkenbaar — foto's waarin je je dier écht terugziet, klaar voor print en social.</p></div>
     </div>
   </section>
 
@@ -62,7 +90,10 @@ const categorieen = [
     <div class="container band-inner">
       <h2>Klaar voor mooie foto's van je huisdier?</h2>
       <p>Ik denk graag met je mee over het juiste pakket.</p>
-      <a href="/contact" class="btn btn-primary">Neem contact op</a>
+      <div class="hero-cta center-cta">
+        <a href="/contact" class="btn btn-primary">Boek een shoot</a>
+        {igUrl && <a href={igUrl} class="btn btn-ghost" rel="noopener" target="_blank"><InstaIcon size={18} cls="btn-ico" /> Volg op Instagram</a>}
+      </div>
     </div>
   </section>
 </Base>

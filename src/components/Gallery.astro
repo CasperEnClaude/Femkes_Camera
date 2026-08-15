@@ -21,16 +21,11 @@ const photos = (gallery?.photos || [])
           src={p.resolved}
           alt={p.naam || gallery.titel}
           widths={[400, 800, 1200]}
-          sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw"
-          loading={i < 3 ? 'eager' : 'lazy'}
+          sizes="(max-width: 640px) 50vw, (max-width: 1000px) 33vw, 33vw"
+          loading={i < 6 ? 'eager' : 'lazy'}
           class="gallery-img"
         />
-        {(p.naam || p.bijschrift) && (
-          <figcaption class="gallery-caption">
-            {p.naam && <span class="gallery-naam">{p.naam}</span>}
-            {p.bijschrift && <span class="gallery-bijschrift">{p.bijschrift}</span>}
-          </figcaption>
-        )}
+        {p.bijschrift && <figcaption class="gallery-caption">{p.bijschrift}</figcaption>}
       </figure>
     ))}
   </div>

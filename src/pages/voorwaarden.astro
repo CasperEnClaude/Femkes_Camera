@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+
+const laatstBijgewerkt = 'augustus 2026';
+---
+
+<Base title="Algemene voorwaarden" description="De afspraken rond een shoot bij Femke's Camera.">
+  <section class="container section narrow legal">
+    <h1 class="page-title">Algemene voorwaarden</h1>
+    <p class="prose muted-note">Laatst bijgewerkt: {laatstBijgewerkt}</p>
+
+    <p class="prose">{site.merknaam} is hobbymatig fotografiewerk van Femke. Deze voorwaarden zijn bewust kort en in gewone taal — bedoeld om vooraf duidelijkheid te geven, zodat we allebei weten waar we aan toe zijn.</p>
+
+    <h2>Boeken en afspraken</h2>
+    <p class="prose">Een boeking is definitief zodra we samen een datum en pakket hebben afgesproken. Ben je verhinderd? Laat het me op tijd weten, dan plannen we in overleg een nieuw moment.</p>
+
+    <h2>De shoot</h2>
+    <p class="prose">Ik werk met dieren, en dieren laten zich niet dwingen. Ik doe altijd mijn uiterste best, maar het resultaat hangt deels af van je dier en de omstandigheden (weer, licht, locatie). Werkt je dier even niet mee, dan nemen we rustig de tijd — dat hoort erbij.</p>
+
+    <h2>Foto's en levering</h2>
+    <p class="prose">Je ontvangt het aantal bewerkte foto's dat bij je pakket hoort, digitaal en in hoge resolutie via een online galerij. De bewerking en selectie doe ik in mijn eigen stijl. Onbewerkte bestanden (RAW) worden niet geleverd.</p>
+
+    <h2>Gebruik van de foto's</h2>
+    <p class="prose">Jij mag de geleverde foto's vrij gebruiken voor persoonlijke doeleinden: printen, delen en op social media plaatsen. Een vermelding van {site.merknaam} stel ik op prijs, maar is voor privégebruik niet verplicht. Het auteursrecht op de beelden blijft bij mij.</p>
+
+    <h2>Foto's op mijn website en Instagram</h2>
+    <p class="prose">Ik plaats jullie beelden alleen online met jouw toestemming. Wil je dat liever niet? Dat is helemaal goed — geef het even aan.</p>
+
+    <h2>Betaling</h2>
+    <p class="prose">De prijs spreken we vooraf af op basis van het gekozen pakket en eventuele extra's. Reiskosten buiten de vermelde straal reken ik zoals aangegeven op de prijzenpagina.</p>
+
+    <div class="gerust-box">
+      <p><strong>Iets onduidelijk?</strong> Vraag het gerust vóór je boekt — ik leg het graag uit. <a href="/contact">Neem contact op</a>.</p>
+    </div>
+  </section>
+</Base>

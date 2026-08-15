@@ -1,20 +1,19 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Gallery from '../components/Gallery.astro';
 import PackageCard from '../components/PackageCard.astro';
-import site from '../data/site.json';
+import InstaIcon from '../components/InstaIcon.astro';
+import { resolveImage } from '../lib/images.js';
+import { igUrl } from '../lib/site.js';
 import motorGallery from '../galleries/motor.json';
 import prijzen from '../data/prijzen.json';
 
 const motor = prijzen.motor;
 
-// Instagram: eigen motor-handle indien ingevuld, anders de gewone handle van Femke.
-const motorHandle = site.instagram_motor && !site.instagram_motor.startsWith('[') && site.instagram_motor.trim()
-  ? site.instagram_motor
-  : (site.instagram_dieren && !site.instagram_dieren.startsWith('[') ? site.instagram_dieren : null);
-const igMotor = (site.toon_motor_instagram && motorHandle)
-  ? `https://instagram.com/${motorHandle.replace('@', '')}`
-  : null;
+// Sfeervolle motorfoto als hero-achtergrond (silhouet tegen het licht).
+const heroPhoto = motorGallery.photos?.[4] || motorGallery.photos?.[0];
+const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
 ---
 
 <Base
@@ -22,14 +21,21 @@ const igMotor = (site.toon_motor_instagram && motorHandle)
   description="Motorfotografie door Femke's Camera — stoere, sfeervolle beelden van jouw motor, elk merk, met of zonder rijder."
   theme="motor"
 >
-  <section class="motor-hero">
-    <div class="container">
-      <span class="motor-kicker">Voor elke motor</span>
-      <h1>Motorfotografie</h1>
-      <p class="motor-lead">Naast dieren richt ik mijn lens graag op motoren. Elk merk is welkom — stoere, sfeervolle beelden van jouw machine, met of zonder rijder. Een nieuw onderdeel van mijn werk, dus scherp geprijsd.</p>
-      <div class="hero-cta">
-        <a href="/contact?pakket=Motorshoot" class="btn btn-motor">Plan een motorshoot</a>
-        {igMotor && <a href={igMotor} class="btn btn-ghost-motor" rel="noopener">Instagram</a>}
+  <section class="hero motor-photo-hero">
+    {heroImg ? (
+      <Image src={heroImg} alt={heroPhoto.naam || 'Motorfotografie'} widths={[600, 1200, 1800]} sizes="100vw" loading="eager" class="hero-img" />
+    ) : (
+      <div class="hero-img hero-placeholder" aria-hidden="true"></div>
+    )}
+    <div class="hero-overlay motor-overlay">
+      <div class="container hero-content">
+        <span class="motor-kicker">Voor elke motor</span>
+        <h1>Motorfotografie</h1>
+        <p class="hero-lead">Naast dieren richt ik mijn lens graag op motoren. Elk merk is welkom — stoere, sfeervolle beelden van jouw machine, met of zonder rijder. Een nieuw onderdeel van mijn werk, dus scherp geprijsd.</p>
+        <div class="hero-cta">
+          <a href="/contact?pakket=Motorshoot" class="btn btn-motor">Plan een motorshoot</a>
+          {igUrl && <a href={igUrl} class="btn btn-ghost-motor" rel="noopener" target="_blank"><InstaIcon size={18} cls="btn-ico" /> Instagram</a>}
+        </div>
       </div>
     </div>
   </section>

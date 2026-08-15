@@ -1,16 +1,18 @@
 ---
 import site from '../data/site.json';
+import { igUrl } from '../lib/site.js';
+import InstaIcon from './InstaIcon.astro';
 const { theme = 'light' } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 // Dieren staan voorop; creative en motor zijn secundair (kleiner, verderop).
+// "Boeken" is de enige call-to-action — geen aparte, identieke Contact-pagina ernaast.
 const nav = [
   { href: '/', label: 'Home' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/prijzen', label: 'Prijzen' },
   { href: '/voorbereiding', label: 'Voorbereiding' },
   { href: '/over-mij', label: 'Over mij' },
-  { href: '/contact', label: 'Contact' },
 ];
 
 function isActive(href) {
@@ -26,10 +28,17 @@ function isActive(href) {
       <span class="brand-tag">{site.tagline}</span>
     </a>
 
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
-    <label for="nav-toggle" class="nav-burger" aria-label="Menu openen">
-      <span></span><span></span><span></span>
-    </label>
+    <div class="header-actions">
+      {igUrl && (
+        <a href={igUrl} class="header-ig" rel="noopener" target="_blank" aria-label="Femke's Camera op Instagram">
+          <InstaIcon size={22} />
+        </a>
+      )}
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
+      <label for="nav-toggle" class="nav-burger" aria-label="Menu openen">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
 
     <nav class="site-nav" aria-label="Hoofdmenu">
       {nav.map((item) => (
@@ -41,7 +50,12 @@ function isActive(href) {
           {item.label}
         </a>
       ))}
-      <a href="/contact" class="nav-cta">Boek een shoot</a>
+      {igUrl && (
+        <a href={igUrl} class="nav-link nav-ig-link" rel="noopener" target="_blank">
+          <InstaIcon size={18} cls="nav-ig-ico" /> Instagram
+        </a>
+      )}
+      <a href="/contact" class:list={['nav-cta', { active: isActive('/contact') }]}>Boek een shoot</a>
     </nav>
   </div>
 </header>

@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+import { igUrl, igHandle } from '../lib/site.js';
+
+const mail = site.email && !site.email.startsWith('[') ? site.email : null;
+const laatstBijgewerkt = 'augustus 2026';
+---
+
+<Base title="Privacybeleid" description="Hoe Femke's Camera omgaat met je persoonsgegevens.">
+  <section class="container section narrow legal">
+    <h1 class="page-title">Privacybeleid</h1>
+    <p class="prose muted-note">Laatst bijgewerkt: {laatstBijgewerkt}</p>
+
+    <p class="prose">{site.merknaam} is een klein, persoonlijk fotografie-initiatief van Femke. Ik vind je privacy belangrijk en ga zorgvuldig om met de gegevens die je met mij deelt. Hieronder lees je kort en duidelijk wat er gebeurt met je gegevens.</p>
+
+    <h2>Welke gegevens verzamel ik?</h2>
+    <p class="prose">Als je het boekingsformulier invult of contact opneemt, verwerk ik de gegevens die je zelf aan mij verstrekt: je naam, e-mailadres, eventueel je telefoonnummer, en wat je in je bericht schrijft (zoals type dier, gewenst pakket en voorkeursdatum).</p>
+
+    <h2>Waarvoor gebruik ik ze?</h2>
+    <p class="prose">Uitsluitend om op je aanvraag te reageren, een shoot met je af te stemmen en je de foto's te leveren. Ik gebruik je gegevens niet voor reclame en verkoop ze nooit aan derden.</p>
+
+    <h2>Hoelang bewaar ik ze?</h2>
+    <p class="prose">Niet langer dan nodig. Aanvragen die niet tot een shoot leiden, verwijder ik binnen redelijke termijn. Gegevens rond een uitgevoerde shoot bewaar ik zolang dat handig is voor nazorg of nabestellingen.</p>
+
+    <h2>Met wie deel ik ze?</h2>
+    <p class="prose">Deze website draait op <strong>Netlify</strong>. Berichten die je via het formulier verstuurt, worden bij Netlify verwerkt en aan mij doorgegeven. Netlify verwerkt deze gegevens als verwerker namens mij. Verder deel ik je gegevens met niemand.</p>
+
+    <h2>Foto's van je dier</h2>
+    <p class="prose">De foto's van jouw dier zijn van jou. Ik plaats alleen beelden op mijn website of Instagram als je daar akkoord voor geeft. Wil je een foto liever niet online? Laat het weten, dan houd ik daar rekening mee.</p>
+
+    <h2>Cookies</h2>
+    <p class="prose">Deze website gebruikt geen tracking- of advertentiecookies. Er wordt geen bezoekersstatistiek bijgehouden waarvoor toestemming nodig is.</p>
+
+    <h2>Je rechten</h2>
+    <p class="prose">Je mag altijd inzien welke gegevens ik van je heb, ze laten corrigeren of laten verwijderen. Stuur me daarvoor een berichtje{mail ? <> via <a href={`mailto:${site.email}`}>{site.email}</a></> : ''}{igUrl ? <> of een DM op <a href={igUrl} rel="noopener" target="_blank">Instagram (@{igHandle})</a></> : ''}.</p>
+
+    <div class="gerust-box">
+      <p><strong>Vragen over je privacy?</strong> Stel ze gerust — ik help je graag verder. <a href="/contact">Neem contact op</a>.</p>
+    </div>
+  </section>
+</Base>

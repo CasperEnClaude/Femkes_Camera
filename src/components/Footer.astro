@@ -1,15 +1,13 @@
 ---
 import site from '../data/site.json';
+import { igHandle, igUrl, plaats } from '../lib/site.js';
+import InstaIcon from './InstaIcon.astro';
 const { theme = 'light' } = Astro.props;
 
 const waRaw = (site.whatsapp || '').trim();
 const waNumber = waRaw.replace(/[^0-9]/g, '');
 const waLink = (waNumber.length >= 8 && !waRaw.startsWith('[')) ? `https://wa.me/${waNumber}` : null;
 const mailLink = site.email && !site.email.startsWith('[') ? `mailto:${site.email}` : null;
-const igDieren = site.instagram_dieren && !site.instagram_dieren.startsWith('[')
-  ? `https://instagram.com/${site.instagram_dieren.replace('@', '')}`
-  : null;
-const plaats = site.plaatsnaam && !site.plaatsnaam.startsWith('[') ? site.plaatsnaam : null;
 const year = new Date().getFullYear();
 ---
 
@@ -19,6 +17,11 @@ const year = new Date().getFullYear();
       <span class="footer-brand">{site.merknaam}</span>
       <p class="footer-tag">{site.tagline}</p>
       {plaats && <p class="footer-plaats">Dierenfotografie in en rond {plaats}</p>}
+      {igUrl && (
+        <a href={igUrl} class="footer-ig" rel="noopener me" target="_blank">
+          <InstaIcon size={20} /> <span>@{igHandle}</span>
+        </a>
+      )}
     </div>
 
     <div class="footer-col">
@@ -26,7 +29,7 @@ const year = new Date().getFullYear();
       <ul class="footer-links">
         {waLink && <li><a href={waLink} rel="noopener">WhatsApp</a></li>}
         {mailLink && <li><a href={mailLink}>E-mail</a></li>}
-        {igDieren && <li><a href={igDieren} rel="noopener">Instagram</a></li>}
+        {igUrl && <li><a href={igUrl} rel="noopener" target="_blank">Instagram</a></li>}
         <li><a href="/contact">Boek een shoot</a></li>
       </ul>
     </div>
@@ -43,5 +46,9 @@ const year = new Date().getFullYear();
   </div>
   <div class="container footer-bottom">
     <span>© {year} {site.merknaam}</span>
+    <span class="footer-legal">
+      <a href="/privacy">Privacybeleid</a>
+      <a href="/voorwaarden">Algemene voorwaarden</a>
+    </span>
   </div>
 </footer>

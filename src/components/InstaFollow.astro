@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import { resolveImage } from '../lib/images.js';
+import { igHandle, igUrl } from '../lib/site.js';
+import InstaIcon from './InstaIcon.astro';
+
+// Een Instagram-achtige strook: vierkante blokken uit Femke's eigen foto's,
+// die de site laten aanvoelen als verlengstuk van haar Instagram.
+import honden from '../galleries/honden.json';
+import puppys from '../galleries/puppys.json';
+import agility from '../galleries/agility.json';
+import creative from '../galleries/creative.json';
+
+const { count = 6 } = Astro.props;
+
+// Mix van sterke beelden, afwisselend per categorie.
+const pool = [
+  honden.photos?.[1], puppys.photos?.[0], agility.photos?.[0],
+  creative.photos?.[0], honden.photos?.[4], puppys.photos?.[3],
+  agility.photos?.[3], honden.photos?.[7], creative.photos?.[1],
+].filter(Boolean);
+
+const tiles = pool
+  .map((p) => ({ ...p, resolved: resolveImage(p.image) }))
+  .filter((p) => p.resolved)
+  .slice(0, count);
+
+const heading = igHandle ? `@${igHandle}` : 'Volg mee op Instagram';
+---
+
+<section class="insta-section">
+  <div class="container">
+    <div class="insta-head">
+      <div>
+        <span class="insta-kicker"><InstaIcon size={18} cls="insta-kicker-ico" /> Instagram</span>
+        <h2 class="insta-title">{heading}</h2>
+        <p class="insta-sub">Het laatste werk, sfeer achter de schermen en nieuwe shoots — daar deel ik het eerst.</p>
+      </div>
+      {igUrl && (
+        <a href={igUrl} class="btn btn-primary insta-follow-btn" rel="noopener me" target="_blank">
+          <InstaIcon size={20} cls="btn-ico" /> Volgen
+        </a>
+      )}
+    </div>
+
+    <div class="insta-grid">
+      {tiles.map((p) => (
+        igUrl ? (
+          <a href={igUrl} class="insta-tile" rel="noopener" target="_blank" aria-label="Bekijk op Instagram">
+            <Image src={p.resolved} alt={p.naam || 'Foto van Femke\'s Camera'} widths={[300, 600]} sizes="(max-width: 640px) 33vw, 200px" loading="lazy" class="insta-img" />
+            <span class="insta-tile-ico" aria-hidden="true"><InstaIcon size={24} /></span>
+          </a>
+        ) : (
+          <figure class="insta-tile">
+            <Image src={p.resolved} alt={p.naam || 'Foto van Femke\'s Camera'} widths={[300, 600]} sizes="(max-width: 640px) 33vw, 200px" loading="lazy" class="insta-img" />
+          </figure>
+        )
+      ))}
+    </div>
+
+    {igUrl && (
+      <p class="insta-foot"><a href={igUrl} rel="noopener" target="_blank">Bekijk alles op Instagram →</a></p>
+    )}
+  </div>
+</section>
