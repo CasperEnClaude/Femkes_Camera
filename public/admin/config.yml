@@ -100,6 +100,21 @@ collections:
               - { label: 'Foto', name: 'image', widget: 'image' }
               - { label: 'Naam / onderwerp', name: 'naam', widget: 'string' }
               - { label: 'Bijschrift (optioneel)', name: 'bijschrift', widget: 'string', required: false }
+      - file: 'src/galleries/paarden.json'
+        name: 'paarden'
+        label: 'Paarden'
+        fields:
+          - { label: 'Titel', name: 'titel', widget: 'string' }
+          - { label: 'Categorie (niet wijzigen)', name: 'categorie', widget: 'hidden', default: 'paarden' }
+          - label: "Foto's"
+            name: 'photos'
+            widget: 'list'
+            label_singular: 'Foto'
+            summary: '{{fields.naam}}'
+            fields:
+              - { label: 'Foto', name: 'image', widget: 'image' }
+              - { label: 'Naam / onderwerp', name: 'naam', widget: 'string' }
+              - { label: 'Bijschrift (optioneel)', name: 'bijschrift', widget: 'string', required: false }
 
   # ---------- 2. PRIJZEN & PAKKETTEN ----------
   - name: 'prijzen'

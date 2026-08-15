@@ -1,0 +1,16 @@
+{
+  "titel": "Paarden",
+  "categorie": "paarden",
+  "photos": [
+    {
+      "image": "/src/assets/uploads/paarden-01.png",
+      "naam": "Paard met baasje in een zonnig veld",
+      "bijschrift": ""
+    },
+    {
+      "image": "/src/assets/uploads/paarden-02.png",
+      "naam": "Innige band tussen ruiter en paard",
+      "bijschrift": ""
+    }
+  ]
+}
