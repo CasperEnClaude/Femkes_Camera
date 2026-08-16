@@ -7,29 +7,29 @@ import Reviews from '../components/Reviews.astro';
 import InstaIcon from '../components/InstaIcon.astro';
 import { resolveImage } from '../lib/images.js';
 import { igUrl, werkgebiedBasis } from '../lib/site.js';
-import hondenGallery from '../galleries/honden.json';
+import paardenGallery from '../galleries/paarden.json';
 import prijzen from '../data/prijzen.json';
 
 const dieren = prijzen.dieren;
-const heroPhoto = hondenGallery.photos?.[0];
+const heroPhoto = paardenGallery.photos?.[0];
 const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
 ---
 
 <Base
-  title="Hondenfotograaf Rotterdam"
-  description="Hondenfotografie in Rotterdam en omgeving: natuurlijke, herkenbare beelden van je hond. Rustig, geduldig en in het eigen tempo. Shoots vanaf €75."
+  title="Paardenfotografie Rotterdam en omgeving"
+  description="Paardenfotografie in regio Rotterdam — rustige, sfeervolle beelden van jou en je paard. In de manege, in de bak of los in het veld."
 >
   <section class="hero photo-hero">
     {heroImg ? (
-      <Image src={heroImg} alt={heroPhoto.naam || 'Hondenfotografie'} widths={[600, 1200, 1800]} sizes="100vw" loading="eager" class="hero-img" />
+      <Image src={heroImg} alt={heroPhoto.naam || 'Paardenfotografie'} widths={[600, 1200, 1800]} sizes="100vw" loading="eager" class="hero-img" />
     ) : (
       <div class="hero-img hero-placeholder" aria-hidden="true"></div>
     )}
     <div class="hero-overlay">
       <div class="container hero-content">
-        <span class="hero-kicker">Hondenfotografie</span>
-        <h1>Hondenfotograaf {werkgebiedBasis || 'in de regio'}</h1>
-        <p class="hero-lead">Je hond zoals hij écht is — spelend, alert of gewoon lekker zichzelf.</p>
+        <span class="hero-kicker">Paardenfotografie</span>
+        <h1>Paardenfotografie {werkgebiedBasis || 'in de regio'}</h1>
+        <p class="hero-lead">Rustige, sfeervolle beelden van jou en je paard.</p>
         <div class="hero-cta">
           <a href="/contact?pakket=Plus" class="btn btn-primary">Plan een shoot</a>
           {igUrl && <a href={igUrl} class="btn btn-ghost" rel="noopener" target="_blank"><InstaIcon size={18} cls="btn-ico" /> Instagram</a>}
@@ -39,8 +39,8 @@ const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
   </section>
 
   <section class="container section narrow">
-    <p class="prose">Ik fotografeer honden in {werkgebiedBasis || 'de regio Rotterdam'}: natuurlijk, spontaan en in het eigen tempo. Van rustige portretten tot volle actie, buiten in het park of op een vertrouwde plek dicht bij huis.</p>
-    <p class="prose">Ik werk uitsluitend met dieren. Daardoor weet ik precies hoe ik een hond rustig krijg, wanneer ik moet wachten en wanneer het moment er is. Overdag werk ik in een dierenspeciaalzaak, dus ik ben dagelijks met honden bezig en lees hun gedrag. Een shoot voelt daardoor rustig — geen gedoe, geen geforceerde standjes, wel beelden waarin je je hond herkent.</p>
+    <p class="prose">Paarden hebben een speciaal plekje bij me — ik geniet er enorm van om ze te fotograferen. In de manege, in de bak of los in het veld: ik zoek naar de rust, de kracht en die stille band tussen ruiter en paard.</p>
+    <p class="prose">Omdat ik dagelijks met dieren werk, weet ik hoe ik een paard de tijd geef en het moment afwacht. Zo krijgen we natuurlijke beelden zonder gestuur — precies zoals jullie samen zijn.</p>
   </section>
 
   <section class="container section">
@@ -54,15 +54,15 @@ const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
 
   <section class="container section">
     <h2 class="cat-heading">Werk</h2>
-    <Gallery gallery={hondenGallery} />
+    <Gallery gallery={paardenGallery} />
   </section>
 
-  <section class="container section"><Reviews category="honden" count={3} /></section>
+  <section class="container section"><Reviews category="paarden" count={3} /></section>
 
   <section class="band">
     <div class="container band-inner center">
-      <h2>Mooie foto's van je hond?</h2>
-      <p>Stuur me een bericht, dan denk ik met je mee over het juiste pakket.</p>
+      <h2>Jou en je paard voor de lens?</h2>
+      <p>Stuur me een bericht, dan stemmen we het samen af.</p>
       <a href="/contact?pakket=Plus" class="btn btn-primary">Neem contact op</a>
     </div>
   </section>

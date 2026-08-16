@@ -171,13 +171,12 @@ img { max-width: 100%; display: block; }
 .cat-card:hover .cat-img { transform: scale(1.06); }
 .cat-img-fallback { background: linear-gradient(135deg, #e9d6c3, var(--accent)); }
 .cat-overlay {
-  position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 0.15rem;
-  padding: 1.7rem 0.9rem 0.85rem;
-  background: linear-gradient(to top, rgba(20,12,6,0.85) 12%, rgba(20,12,6,0.3) 62%, transparent);
+  position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: flex-end;
+  padding: 1.6rem 0.9rem 0.9rem;
+  background: linear-gradient(to top, rgba(20,12,6,0.78) 8%, rgba(20,12,6,0.15) 55%, transparent);
 }
-.cat-titel { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: #fff; line-height: 1.1; }
-.cat-tekst { color: rgba(255,255,255,0.9); font-size: 0.82rem; line-height: 1.25; }
-@media (min-width: 640px) { .cat-titel { font-size: 1.25rem; } .cat-tekst { font-size: 0.86rem; } }
+.cat-titel { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: #fff; line-height: 1.15; }
+@media (min-width: 640px) { .cat-titel { font-size: 1.3rem; } }
 
 /* ---------- Band (CTA-strook) ---------- */
 .band { background: var(--surface-2); margin-top: 2rem; }
@@ -187,8 +186,8 @@ img { max-width: 100%; display: block; }
 .band-inner p { color: var(--muted); margin: 0 0 1.4rem; }
 
 /* ---------- Over mij ---------- */
-.over-foto { display: block; width: 66%; max-width: 340px; margin: 0.5rem auto 1.8rem; border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 3 / 2; object-fit: cover; object-position: center; }
-@media (max-width: 620px) { .over-foto { width: 66%; max-width: 300px; } }
+.over-foto { display: block; width: 82%; max-width: 440px; margin: 0.5rem auto 1.8rem; border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 3 / 2; object-fit: cover; object-position: center; }
+@media (max-width: 620px) { .over-foto { width: 82%; max-width: 380px; } }
 .hero-meta { color: rgba(255,255,255,0.9); font-size: 0.85rem; margin: 0.9rem 0 0; }
 .usp-box { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 1.4rem 1.6rem; margin: 2rem 0; box-shadow: var(--shadow); }
 .usp-box h2 { font-size: 1.2rem; margin: 0 0 0.7rem; }
@@ -229,10 +228,11 @@ img { max-width: 100%; display: block; }
 .blok-intro { color: var(--muted); max-width: 640px; margin: 0 0 1.5rem; }
 
 .package-grid { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
-.primary-grid { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; align-items: stretch; }
+.primary-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; align-items: stretch; }
 @media (min-width: 720px) { .primary-grid { gap: 1.3rem; } }
+.package-card { min-width: 0; }
 .package-grid.single { max-width: 420px; }
-.package-grid.twee-kolom { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; align-items: stretch; }
+.package-grid.twee-kolom { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; align-items: stretch; }
 @media (min-width: 720px) { .package-grid.twee-kolom { gap: 1.3rem; max-width: 720px; } }
 
 /* ---------- Reviews ---------- */
@@ -263,7 +263,7 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius); padding: 1.6rem 1.4rem; box-shadow: var(--shadow);
   display: flex; flex-direction: column;
 }
-.package-card.featured { border-color: var(--accent); border-width: 2px; box-shadow: var(--shadow-lg); }
+.package-card.featured { border-color: var(--accent); box-shadow: var(--shadow-lg); }
 .package-badge {
   position: absolute; top: -0.8rem; left: 1.4rem;
   background: var(--accent); color: #fff; font-size: 0.76rem; font-weight: 700;
