@@ -1,11 +1,18 @@
 {
   "merknaam": "Femke's Camera",
   "tagline": "Dierenfotografie met geduld en gevoel",
-  "plaatsnaam": "[plaatsnaam invullen]",
-  "reiskosten_straal_km": "15",
-  "email": "[e-mailadres invullen]",
-  "whatsapp": "[telefoonnummer, bijv. 316xxxxxxxx]",
+  "plaatsnaam": "Rotterdam",
+  "werkgebied_basis": "Rotterdam en omgeving",
+  "werkgebied_op_aanvraag": "Daarbuiten en in België in overleg",
+  "reiskosten_straal_km": "20",
+  "reiskosten_km_prijs": "0,30",
+  "email": "",
+  "whatsapp": "",
   "instagram_dieren": "femkes_camera",
   "instagram_motor": "",
-  "toon_motor_instagram": false
+  "toon_motor_instagram": false,
+  "google_bedrijfsprofiel": "",
+  "bedrijfsnaam": "",
+  "kvk": "",
+  "btw_regeling": "kleineondernemersregeling"
 }

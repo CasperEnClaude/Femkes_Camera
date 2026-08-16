@@ -1,9 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import site from '../data/site.json';
-import { igUrl, igHandle } from '../lib/site.js';
+import { igUrl, igHandle, email, bedrijfsnaam, plaats } from '../lib/site.js';
 
-const mail = site.email && !site.email.startsWith('[') ? site.email : null;
+const mail = email;
 const laatstBijgewerkt = 'augustus 2026';
 ---
 
@@ -12,10 +12,12 @@ const laatstBijgewerkt = 'augustus 2026';
     <h1 class="page-title">Privacybeleid</h1>
     <p class="prose muted-note">Laatst bijgewerkt: {laatstBijgewerkt}</p>
 
-    <p class="prose">{site.merknaam} is een klein, persoonlijk fotografie-initiatief van Femke. Ik vind je privacy belangrijk en ga zorgvuldig om met de gegevens die je met mij deelt. Hieronder lees je kort en duidelijk wat er gebeurt met je gegevens.</p>
+    <p class="prose">{site.merknaam} vindt je privacy belangrijk en gaat zorgvuldig om met de gegevens die je deelt. Hieronder lees je kort en duidelijk wat er met je gegevens gebeurt.</p>
+    {bedrijfsnaam && <p class="prose">Verwerkingsverantwoordelijke: {bedrijfsnaam}{plaats ? `, ${plaats}` : ''}.</p>}
 
     <h2>Welke gegevens verzamel ik?</h2>
-    <p class="prose">Als je het boekingsformulier invult of contact opneemt, verwerk ik de gegevens die je zelf aan mij verstrekt: je naam, e-mailadres, eventueel je telefoonnummer, en wat je in je bericht schrijft (zoals type dier, gewenst pakket en voorkeursdatum).</p>
+    <p class="prose">Als je het boekingsformulier invult of contact opneemt, verwerk ik de gegevens die je zelf aan mij verstrekt: je naam, e-mailadres, eventueel je telefoonnummer, de locatie of plaats, en wat je in je bericht schrijft (zoals soort dier, gewenst pakket en voorkeursperiode).</p>
+    <p class="prose">Op het formulier kun je twee dingen aanvinken. Geef je toestemming om de foto's op mijn website en social media te gebruiken, dan bewaar ik die keuze. Vink je aan dat ik je over een jaar een herinnering mag sturen, dan bewaar ik daarvoor je naam en e-mailadres tot je je afmeldt.</p>
 
     <h2>Waarvoor gebruik ik ze?</h2>
     <p class="prose">Uitsluitend om op je aanvraag te reageren, een shoot met je af te stemmen en je de foto's te leveren. Ik gebruik je gegevens niet voor reclame en verkoop ze nooit aan derden.</p>

@@ -1,0 +1,78 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Gallery from '../components/Gallery.astro';
+import PackageCard from '../components/PackageCard.astro';
+import Reviews from '../components/Reviews.astro';
+import InstaIcon from '../components/InstaIcon.astro';
+import { resolveImage } from '../lib/images.js';
+import { igUrl, werkgebiedBasis } from '../lib/site.js';
+import puppysGallery from '../galleries/puppys.json';
+import prijzen from '../data/prijzen.json';
+
+const puppy = prijzen.puppy;
+const fokkers = prijzen.fokkers;
+const heroPhoto = puppysGallery.photos?.[0];
+const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
+---
+
+<Base
+  title="Puppyshoot Rotterdam — puppyfotografie"
+  description="Puppyshoot in Rotterdam en omgeving. Leg die eerste maanden vast, of kies het puppyjaar met drie shoots. Ook nestreportages voor fokkers."
+>
+  <section class="hero photo-hero">
+    {heroImg ? (
+      <Image src={heroImg} alt={heroPhoto.naam || 'Puppyfotografie'} widths={[600, 1200, 1800]} sizes="100vw" loading="eager" class="hero-img" />
+    ) : (
+      <div class="hero-img hero-placeholder" aria-hidden="true"></div>
+    )}
+    <div class="hero-overlay">
+      <div class="container hero-content">
+        <span class="hero-kicker">Puppyfotografie</span>
+        <h1>Puppyshoot in {werkgebiedBasis || 'de regio'}</h1>
+        <p class="hero-lead">Die eerste maanden zijn zó voorbij. Leg je pup vast nu hij nog klein is.</p>
+        <div class="hero-cta">
+          <a href="/contact?pakket=Puppyshoot" class="btn btn-primary">Plan een puppyshoot</a>
+          {igUrl && <a href={igUrl} class="btn btn-ghost" rel="noopener" target="_blank"><InstaIcon size={18} cls="btn-ico" /> Instagram</a>}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section narrow">
+    <p class="prose">Een pup verandert in twaalf maanden onherkenbaar. Van dat kleine, onhandige hondje naar een volwassen hond — het gaat sneller dan je denkt. Een puppyshoot legt precies dat vast: de grote oren, de zachte blik, dat eerste onderzoekende karakter.</p>
+    <p class="prose">Ik fotografeer je pup rustig en op zijn eigen tempo. Puppy's hebben een korte spanningsboog, dus ik werk met geduld, wat pauzes en veel geduldige herhaling. Zo krijgen we natuurlijke beelden waarin je je pup echt herkent, zonder gestress of geforceerde standjes.</p>
+    <h2 class="cat-heading">Het puppyjaar</h2>
+    <p class="prose">Wil je die verandering echt vastleggen? Met het puppyjaar kom ik drie keer langs: rond tien weken, rond zes maanden en rond de eerste verjaardag. Drie momenten die samen laten zien hoe je pup opgroeit. Je spreidt het over het jaar en rekent per shoot af.</p>
+  </section>
+
+  <section class="container section">
+    <h2 class="cat-heading">Wat een puppyshoot kost</h2>
+    <div class="package-grid twee-kolom">
+      {puppy.pakketten.map((p) => <PackageCard pakket={p} />)}
+    </div>
+  </section>
+
+  <section class="container section narrow">
+    <h2 class="cat-heading">{fokkers.titel}</h2>
+    <p class="prose">{fokkers.intro}</p>
+    <div class="package-grid single">
+      {fokkers.pakketten.map((p) => <PackageCard pakket={p} />)}
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2 class="cat-heading">Werk</h2>
+    <Gallery gallery={puppysGallery} />
+  </section>
+
+  <section class="container section"><Reviews category="puppys" count={3} /></section>
+
+  <section class="band">
+    <div class="container band-inner center">
+      <h2>Je pup vastleggen?</h2>
+      <p>Stuur me een bericht, dan plannen we een moment dat past.</p>
+      <a href="/contact?pakket=Puppyshoot" class="btn btn-primary">Neem contact op</a>
+    </div>
+  </section>
+</Base>

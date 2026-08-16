@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import { werkgebiedBasis } from '../lib/site.js';
+---
+
+<Base
+  title="Cadeaubon dierenfotografie Rotterdam"
+  description="Geef een dierenshoot cadeau. De cadeaubon van Femke's Camera is er vanaf €75, twaalf maanden geldig en in te wisselen op elk pakket."
+>
+  <section class="container section narrow">
+    <h1 class="page-title">Cadeaubon</h1>
+    <p class="prose">Iemand blij maken met een fotoshoot van hun dier? Met een cadeaubon van Femke's Camera geef je een shoot cadeau — het mooiste moment kiest de ontvanger zelf.</p>
+
+    <div class="usp-box">
+      <h2>Hoe het werkt</h2>
+      <ul>
+        <li>Vanaf €75, in een bedrag naar keuze</li>
+        <li>Twaalf maanden geldig</li>
+        <li>In te wisselen op elk pakket{werkgebiedBasis ? `, binnen ${werkgebiedBasis}` : ''}</li>
+        <li>Je ontvangt de bon digitaal om zelf te printen of door te sturen</li>
+      </ul>
+    </div>
+
+    <p class="prose">Een cadeaubon aanvragen doe je via het contactformulier — vermeld het gewenste bedrag en voor wie de bon is, dan regel ik de rest.</p>
+
+    <div class="hero-cta">
+      <a href="/contact?pakket=Cadeaubon" class="btn btn-primary">Cadeaubon aanvragen</a>
+      <a href="/prijzen" class="btn btn-ghost">Bekijk de pakketten</a>
+    </div>
+  </section>
+</Base>

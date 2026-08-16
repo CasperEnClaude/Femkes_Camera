@@ -1,65 +1,33 @@
 ---
 import Base from '../layouts/Base.astro';
-import site from '../data/site.json';
+import { igUrl, email, mailLink, waLink, plaats, werkgebiedBasis, werkgebiedOpAanvraag } from '../lib/site.js';
 
-const waRaw = (site.whatsapp || '').trim();
-const waNumber = waRaw.replace(/[^0-9]/g, '');
-const heeftWa = waNumber.length >= 8 && !waRaw.startsWith('[');
-const heeftMail = site.email && !site.email.startsWith('[');
-const heeftIg = site.instagram_dieren && !site.instagram_dieren.startsWith('[');
-const plaats = site.plaatsnaam && !site.plaatsnaam.startsWith('[') ? site.plaatsnaam : null;
-
-// Sjabloon zodat baasjes meteen de juiste info meesturen (voor WhatsApp/mail).
-const sjabloon = [
-  'Hoi Femke! Ik wil graag een shoot boeken.',
-  '',
-  'Naam:',
-  'Type dier (bijv. hond, kat):',
-  'Gewenst pakket (Mini / Classic / Uitgebreid / anders):',
-  'Voorkeursdatum of periode:',
-  'Regio / plaats:',
-  'Bericht:',
-].join('\n');
-
-const waLink = heeftWa
-  ? `https://wa.me/${waNumber}?text=${encodeURIComponent(sjabloon)}`
-  : null;
-const mailLink = heeftMail
-  ? `mailto:${site.email}?subject=${encodeURIComponent('Shoot boeken — Femke\'s Camera')}&body=${encodeURIComponent(sjabloon)}`
-  : null;
-const igLink = heeftIg
-  ? `https://instagram.com/${site.instagram_dieren.replace('@', '')}`
-  : null;
+const waText = encodeURIComponent('Hoi Femke! Ik wil graag een shoot boeken voor mijn ');
+const waBook = waLink ? `${waLink}?text=${waText}` : null;
 
 const pakketOpties = [
-  'Mini',
-  'Classic',
+  'Kennismaking',
+  'Compleet',
   'Uitgebreid',
-  'Rookfakkel-shoot',
+  'Puppyshoot',
+  'Puppyjaar',
+  'Nestreportage',
+  'Rookfakkelshoot',
   'Motorshoot',
-  'Dierensport & Evenementen',
+  'Clubs & verenigingen',
+  'Cadeaubon',
   'Weet ik nog niet',
 ];
 ---
 
-<Base title="Boek een shoot" description="Boek een shoot via het formulier, WhatsApp, e-mail of Instagram. Geen druk — ik denk met je mee.">
+<Base title="Boek een shoot — Rotterdam en omgeving" description="Boek een dierenshoot in Rotterdam en omgeving via het formulier, WhatsApp of e-mail. Geen druk — ik denk met je mee.">
   <section class="container section narrow">
     <h1 class="page-title">Boek een shoot</h1>
-    <p class="prose">Leuk dat je een shoot overweegt! Vul hieronder het boekingsformulier in, dan reageer ik zo snel mogelijk. Liever even appen, mailen of een DM op Instagram sturen? Dat kan ook{plaats ? ` — ik werk in en rond ${plaats}` : ''}.</p>
+    <p class="prose">Leuk dat je een shoot overweegt! Vul het formulier in, dan reageer ik zo snel mogelijk. Liever appen, mailen of een DM op Instagram? Dat kan ook.{werkgebiedBasis ? ` Ik werk in ${werkgebiedBasis}${werkgebiedOpAanvraag ? `; ${werkgebiedOpAanvraag.toLowerCase()}` : ''}.` : ''}</p>
 
-    <!-- Boekingsformulier via Netlify Forms. Werkt automatisch zodra de site op Netlify staat. -->
-    <form
-      name="boeking"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      action="/bedankt"
-      class="boek-form"
-    >
+    <form name="boeking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/bedankt" class="boek-form">
       <input type="hidden" name="form-name" value="boeking" />
-      <p class="hp-field">
-        <label>Laat dit veld leeg: <input name="bot-field" /></label>
-      </p>
+      <p class="hp-field"><label>Laat dit veld leeg: <input name="bot-field" /></label></p>
 
       <div class="form-row">
         <label for="naam">Je naam <span class="req">*</span></label>
@@ -68,67 +36,85 @@ const pakketOpties = [
 
       <div class="form-grid">
         <div class="form-row">
-          <label for="email">E-mail <span class="req">*</span></label>
+          <label for="email">E-mailadres <span class="req">*</span></label>
           <input id="email" name="email" type="email" required autocomplete="email" />
         </div>
         <div class="form-row">
-          <label for="telefoon">Telefoon (optioneel)</label>
+          <label for="telefoon">Telefoonnummer</label>
           <input id="telefoon" name="telefoon" type="tel" autocomplete="tel" />
         </div>
       </div>
 
       <div class="form-grid">
         <div class="form-row">
-          <label for="type_dier">Type dier</label>
-          <input id="type_dier" name="type_dier" type="text" placeholder="bijv. hond, kat, konijn" />
+          <label for="dier">Soort dier en naam</label>
+          <input id="dier" name="dier" type="text" placeholder="bijv. hond, Bumper" />
         </div>
         <div class="form-row">
-          <label for="pakket">Gewenst pakket</label>
+          <label for="pakket">Welk pakket spreekt je aan</label>
           <select id="pakket" name="pakket">
             {pakketOpties.map((p) => <option value={p}>{p}</option>)}
           </select>
         </div>
       </div>
 
-      <div class="form-row">
-        <label for="datum">Voorkeursdatum of -periode</label>
-        <input id="datum" name="datum" type="text" placeholder="bijv. eind september, of een weekend" />
+      <div class="form-grid">
+        <div class="form-row">
+          <label for="periode">Voorkeursperiode</label>
+          <input id="periode" name="periode" type="text" placeholder="bijv. eind september, of een weekend" />
+        </div>
+        <div class="form-row">
+          <label for="locatie">Locatie of plaats <span class="req">*</span></label>
+          <input id="locatie" name="locatie" type="text" required placeholder={plaats ? `bijv. ${plaats}` : 'bijv. je woonplaats'} />
+        </div>
       </div>
 
       <div class="form-row">
-        <label for="bericht">Bericht</label>
+        <label for="bericht">Je bericht</label>
         <textarea id="bericht" name="bericht" rows="4" placeholder="Vertel kort iets over je dier of je wensen."></textarea>
       </div>
+
+      <label class="form-check">
+        <input type="checkbox" name="toestemming_publicatie" value="ja" />
+        <span>Ik geef toestemming om de foto's te gebruiken op de website en social media van Femke's Camera.</span>
+      </label>
+      <label class="form-check">
+        <input type="checkbox" name="herinnering" value="ja" />
+        <span>Stuur me over een jaar een herinnering voor een nieuwe shoot.</span>
+      </label>
 
       <button type="submit" class="btn btn-primary">Verstuur boekingsaanvraag</button>
       <p class="form-note">Geen betaling of verplichting — dit is een aanvraag. Ik neem contact met je op om alles af te stemmen.</p>
     </form>
 
-    <div class="of-scheiding"><span>of neem direct contact op</span></div>
-
-    <div class="contact-cards">
-      {waLink && (
-        <a href={waLink} class="contact-card wa" rel="noopener">
-          <span class="contact-icon" aria-hidden="true">💬</span>
-          <span class="contact-label">WhatsApp</span>
-          <span class="contact-sub">Snelst — met een kant-en-klaar berichtje</span>
-        </a>
-      )}
-      {mailLink && (
-        <a href={mailLink} class="contact-card mail">
-          <span class="contact-icon" aria-hidden="true">✉️</span>
-          <span class="contact-label">E-mail</span>
-          <span class="contact-sub">{site.email}</span>
-        </a>
-      )}
-      {igLink && (
-        <a href={igLink} class="contact-card ig" rel="noopener">
-          <span class="contact-icon" aria-hidden="true">📷</span>
-          <span class="contact-label">Instagram</span>
-          <span class="contact-sub">Bekijk mijn laatste werk</span>
-        </a>
-      )}
-    </div>
+    {(waBook || mailLink || igUrl) && (
+      <>
+        <div class="of-scheiding"><span>of neem direct contact op</span></div>
+        <div class="contact-cards">
+          {waBook && (
+            <a href={waBook} class="contact-card wa" rel="noopener" target="_blank">
+              <span class="contact-icon" aria-hidden="true">💬</span>
+              <span class="contact-label">WhatsApp</span>
+              <span class="contact-sub">Snelst — met een kant-en-klaar berichtje</span>
+            </a>
+          )}
+          {mailLink && (
+            <a href={mailLink} class="contact-card mail">
+              <span class="contact-icon" aria-hidden="true">✉️</span>
+              <span class="contact-label">E-mail</span>
+              <span class="contact-sub">{email}</span>
+            </a>
+          )}
+          {igUrl && (
+            <a href={igUrl} class="contact-card ig" rel="noopener" target="_blank">
+              <span class="contact-icon" aria-hidden="true">📷</span>
+              <span class="contact-label">Instagram</span>
+              <span class="contact-sub">Bekijk mijn laatste werk</span>
+            </a>
+          )}
+        </div>
+      </>
+    )}
 
     <div class="gerust-box">
       <p><strong>Geen druk.</strong> Twijfel je nog of heb je een vraag over wat past bij jouw dier? Stel hem gerust — ik denk graag met je mee.</p>
@@ -136,27 +122,16 @@ const pakketOpties = [
   </section>
 
   <script is:inline>
-    // Vult het gekozen pakket voor als iemand via een "Boek dit pakket"-knop komt (?pakket=...).
     (function () {
-      const params = new URLSearchParams(window.location.search);
-      const pakket = params.get('pakket');
+      var params = new URLSearchParams(window.location.search);
+      var pakket = params.get('pakket');
       if (pakket) {
-        const sel = document.getElementById('pakket');
+        var sel = document.getElementById('pakket');
         if (sel) {
-          let match = Array.from(sel.options).find(
-            (o) => o.value.toLowerCase() === pakket.toLowerCase()
-          );
-          if (!match) {
-            match = new Option(pakket, pakket, true, true);
-            sel.add(match, 0);
-          }
+          var match = Array.from(sel.options).find(function (o) { return o.value.toLowerCase() === pakket.toLowerCase(); });
+          if (!match) { match = new Option(pakket, pakket, true, true); sel.add(match, 0); }
           sel.value = match.value;
         }
-      }
-      const type = params.get('type');
-      if (type) {
-        const t = document.getElementById('type_dier');
-        if (t) t.value = type;
       }
     })();
   </script>

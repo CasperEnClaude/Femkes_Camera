@@ -1,0 +1,13 @@
+[
+  {
+    "voorbeeld": true,
+    "naam": "VOORBEELD — vervang dit",
+    "plaats": "Rotterdam",
+    "dier": "Bumper",
+    "ras": "Golden Retriever",
+    "pakket": "Compleet",
+    "categorie": "honden",
+    "datum": "2026-01-01",
+    "tekst": "Dit is een voorbeeldreview en wordt niet getoond op de site. Vervang 'voorbeeld' door false en pas de tekst aan zodra je een echte review hebt. Drie of vier zinnen van een baasje werkt het best."
+  }
+]

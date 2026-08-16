@@ -187,7 +187,9 @@ img { max-width: 100%; display: block; }
 .band-inner p { color: var(--muted); margin: 0 0 1.4rem; }
 
 /* ---------- Over mij ---------- */
-.over-foto { display: block; width: 100%; max-width: 520px; margin: 0 auto 1.8rem; border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 3 / 2; object-fit: cover; object-position: center; }
+.over-foto { display: block; width: 66%; max-width: 340px; margin: 0.5rem auto 1.8rem; border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 3 / 2; object-fit: cover; object-position: center; }
+@media (max-width: 620px) { .over-foto { width: 66%; max-width: 300px; } }
+.hero-meta { color: rgba(255,255,255,0.9); font-size: 0.85rem; margin: 0.9rem 0 0; }
 .usp-box { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 1.4rem 1.6rem; margin: 2rem 0; box-shadow: var(--shadow); }
 .usp-box h2 { font-size: 1.2rem; margin: 0 0 0.7rem; }
 .usp-box ul { margin: 0; padding-left: 1.2rem; color: var(--text); }
@@ -230,6 +232,17 @@ img { max-width: 100%; display: block; }
 .primary-grid { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; align-items: stretch; }
 @media (min-width: 720px) { .primary-grid { gap: 1.3rem; } }
 .package-grid.single { max-width: 420px; }
+.package-grid.twee-kolom { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; align-items: stretch; }
+@media (min-width: 720px) { .package-grid.twee-kolom { gap: 1.3rem; max-width: 720px; } }
+
+/* ---------- Reviews ---------- */
+.reviews { margin: 2.6rem 0 3rem; }
+.reviews .section-title { margin-bottom: 1.4rem; }
+.reviews-grid { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
+@media (min-width: 720px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
+.review { margin: 0; background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 1.3rem 1.4rem; box-shadow: var(--shadow); }
+.review-tekst { font-size: 1rem; margin: 0 0 0.8rem; font-style: italic; }
+.review-bron { color: var(--muted); font-size: 0.88rem; font-style: normal; }
 
 .secundair-rij { display: grid; grid-template-columns: 1fr; gap: 1.4rem; margin-bottom: 3rem; align-items: stretch; }
 @media (min-width: 720px) { .secundair-rij { grid-template-columns: 1fr 1fr; } }
@@ -296,8 +309,9 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--surface-2); border-top: 1px solid var(--border); margin-top: 3rem; }
-.footer-inner { display: grid; grid-template-columns: 1fr; gap: 1.6rem; padding: 2.6rem 1.1rem 1.4rem; }
-@media (min-width: 640px) { .footer-inner { grid-template-columns: 1.4fr 1fr 1fr; } }
+.footer-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; padding: 2.6rem 1.1rem 1.4rem; }
+@media (min-width: 760px) { .footer-inner { grid-template-columns: 1.6fr 1fr 1fr 1fr; } }
+.footer-werkgebied { color: var(--muted); font-size: 0.82rem; margin: 0.8rem 0 0; }
 .footer-brand { font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; }
 .footer-tag { color: var(--muted); margin: 0.3rem 0 0; font-size: 0.92rem; }
 .footer-h { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 0.6rem; }
@@ -340,6 +354,8 @@ img { max-width: 100%; display: block; }
 .boek-form button[type="submit"] { margin-top: 0.4rem; }
 .form-note { color: var(--muted); font-size: 0.86rem; margin: 0.8rem 0 0; }
 .hp-field { position: absolute; left: -9999px; }
+.form-check { display: flex; gap: 0.6rem; align-items: flex-start; margin: 0.3rem 0 0.9rem; font-size: 0.92rem; line-height: 1.4; }
+.form-check input { margin-top: 0.2rem; width: auto; flex-shrink: 0; }
 
 .of-scheiding { display: flex; align-items: center; gap: 1rem; margin: 2.4rem 0 1.6rem; color: var(--muted); font-size: 0.9rem; }
 .of-scheiding::before, .of-scheiding::after { content: ""; flex: 1; height: 1px; background: var(--border); }

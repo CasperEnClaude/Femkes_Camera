@@ -1,0 +1,30 @@
+---
+// Toont echte reviews (voorbeeld-items worden nooit getoond). Rendert niets
+// zolang er geen echte reviews zijn. Vul src/data/reviews.json aan met
+// "voorbeeld": false om een review live te zetten.
+import reviews from '../data/reviews.json';
+const { category = null, count = 3, titel = 'Wat baasjes zeggen' } = Astro.props;
+
+let echt = (reviews || []).filter((r) => r && r.voorbeeld !== true && r.tekst);
+if (category) {
+  const match = echt.filter((r) => r.categorie === category);
+  if (match.length) echt = match;
+}
+const lijst = echt.slice(0, count);
+---
+
+{lijst.length > 0 && (
+  <div class="reviews">
+    <h2 class="section-title center">{titel}</h2>
+    <div class="reviews-grid">
+      {lijst.map((r) => (
+        <blockquote class="review">
+          <p class="review-tekst">“{r.tekst}”</p>
+          <footer class="review-bron">
+            — {r.naam}{r.plaats ? `, ${r.plaats}` : ''}{r.dier ? ` · ${r.dier}` : ''}{r.ras ? ` (${r.ras})` : ''}
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+)}

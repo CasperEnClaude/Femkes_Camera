@@ -1,15 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
+import { igUrl } from '../lib/site.js';
 ---
 
 <Base title="Bedankt!" description="Je boekingsaanvraag is verstuurd. Femke neemt zo snel mogelijk contact met je op.">
   <section class="container section narrow center">
     <div class="bedankt-icon" aria-hidden="true">🐾</div>
     <h1 class="page-title">Bedankt voor je aanvraag!</h1>
-    <p class="prose">Je bericht is verstuurd. Ik neem zo snel mogelijk contact met je op om de shoot af te stemmen. Check ook je spam-map voor de zekerheid.</p>
+    <p class="prose">Je bericht is verstuurd. Ik neem zo snel mogelijk contact met je op om de shoot af te stemmen — meestal binnen een paar dagen. Check ook je spam-map voor de zekerheid.</p>
+    <p class="prose">Na de shoot spreken we samen af wanneer je de foto's krijgt. Je galerij blijft daarna een jaar online, dus wil je later meer foto's, dan kan dat altijd.</p>
+    <p class="prose">Veel baasjes komen elk jaar terug. Als je dat bij je aanvraag hebt aangevinkt, stuur ik je rond die tijd een berichtje voor nieuwe beelden.</p>
+
     <div class="hero-cta center-cta">
-      <a href="/portfolio" class="btn btn-primary">Bekijk mijn werk</a>
-      <a href="/" class="btn btn-ghost">Terug naar home</a>
+      {igUrl && <a href={igUrl} class="btn btn-primary" rel="noopener" target="_blank">Volg mee op Instagram</a>}
+      <a href="/portfolio" class="btn btn-ghost">Bekijk mijn werk</a>
     </div>
   </section>
 </Base>

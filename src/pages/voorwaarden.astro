@@ -1,8 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import site from '../data/site.json';
+import { plaats, reiskostenStraal, reiskostenKmPrijs, bedrijfsnaam, kvk } from '../lib/site.js';
 
 const laatstBijgewerkt = 'augustus 2026';
+const stad = plaats || 'de afgesproken vertrekplaats';
 ---
 
 <Base title="Algemene voorwaarden" description="De afspraken rond een shoot bij Femke's Camera.">
@@ -10,37 +12,61 @@ const laatstBijgewerkt = 'augustus 2026';
     <h1 class="page-title">Algemene voorwaarden</h1>
     <p class="prose muted-note">Laatst bijgewerkt: {laatstBijgewerkt}</p>
 
-    <p class="prose">{site.merknaam} is hobbymatig fotografiewerk van Femke. Deze voorwaarden zijn bewust kort en in gewone taal — bedoeld om vooraf duidelijkheid te geven, zodat we allebei weten waar we aan toe zijn.</p>
+    <p class="prose">Deze voorwaarden zijn bewust kort en in gewone taal — bedoeld om vooraf duidelijkheid te geven, zodat we allebei weten waar we aan toe zijn.</p>
 
     <h2>Boeken en afspraken</h2>
     <p class="prose">Een boeking is definitief zodra we samen een datum en pakket hebben afgesproken. Je aanvraag via het formulier, WhatsApp, e-mail of Instagram geldt als het begin daarvan.</p>
 
     <h2>Annuleren en verzetten</h2>
-    <p class="prose">Ben je verhinderd? Laat het me zo snel mogelijk weten, dan plannen we in overleg kosteloos een nieuw moment. Ik vraag alleen om er rekening mee te houden dat een afspraak die op het laatste moment afgezegd wordt, voor mij lastig nog op te vullen is — ga dus zorgvuldig om met de gekozen datum.</p>
+    <p class="prose">Verzetten kan kosteloos tot 48 uur van tevoren. Binnen 48 uur kijken we in overleg naar een oplossing. Ik vraag je zorgvuldig met de gekozen datum om te gaan: een afspraak die op het laatste moment vervalt, kan ik meestal niet meer opvullen.</p>
 
     <h2>Weer en overmacht</h2>
     <p class="prose">Buitenshoots zijn afhankelijk van het weer. Bij slechte omstandigheden verplaatsen we de shoot in overleg naar een nieuwe datum; dat kost niets extra. Kan ik door ziekte of onvoorziene omstandigheden zelf niet, dan laat ik dat zo vroeg mogelijk weten en zoeken we samen een nieuw moment.</p>
 
-    <h2>De shoot</h2>
-    <p class="prose">Ik werk met dieren, en dieren laten zich niet dwingen. Ik doe altijd mijn uiterste best, maar het resultaat hangt deels af van je dier en de omstandigheden (weer, licht, locatie). Werkt je dier even niet mee, dan nemen we rustig de tijd — dat hoort erbij. Jij bent tijdens de shoot verantwoordelijk voor het welzijn en de veiligheid van je eigen dier.</p>
+    <h2>Locatie</h2>
+    <p class="prose">De locatie kiezen we in overleg. Fotograferen we op privéterrein, dan zorg jij vooraf voor toestemming van de eigenaar of beheerder.</p>
+
+    <h2>De shoot en het welzijn van je dier</h2>
+    <p class="prose">Ik werk met dieren, en dieren laten zich niet dwingen. Ik doe altijd mijn uiterste best, maar het resultaat hangt deels af van je dier en de omstandigheden (weer, licht, locatie). Werkt je dier even niet mee, dan nemen we rustig de tijd. Jij bent tijdens de shoot verantwoordelijk voor de belasting, de veiligheid en het welzijn van je dier. Bij twijfel of het te veel wordt, breken we de shoot af of kiezen we een rustiger aanpak.</p>
 
     <h2>Foto's en levering</h2>
-    <p class="prose">Je ontvangt het aantal bewerkte foto's dat bij je pakket hoort, digitaal en in hoge resolutie via een online galerij. De bewerking en selectie doe ik in mijn eigen stijl. Onbewerkte bestanden (RAW) worden niet geleverd.</p>
+    <p class="prose">Je ontvangt het aantal bewerkte foto's dat bij je pakket hoort, digitaal en in hoge resolutie via een online galerij. De bewerking en selectie doe ik in mijn eigen stijl. Onbewerkte bestanden (RAW) worden niet geleverd. Na de shoot spreken we samen af wanneer je de foto's krijgt. Meestal lukt dat binnen een paar weken.</p>
 
     <h2>Gebruik van de foto's</h2>
     <p class="prose">Jij mag de geleverde foto's vrij gebruiken voor persoonlijke doeleinden: printen, delen en op social media plaatsen. Een vermelding van {site.merknaam} stel ik op prijs, maar is voor privégebruik niet verplicht. Het auteursrecht op de beelden blijft bij mij.</p>
 
+    <h2>Clubs en verenigingen</h2>
+    <p class="prose">Bij het clubpakket verleen ik de vereniging een niet-exclusieve licentie om de beelden te gebruiken en door te verkopen aan haar leden. Het auteursrecht blijft bij mij.</p>
+
     <h2>Foto's op mijn website en Instagram</h2>
-    <p class="prose">Ik plaats jullie beelden alleen online met jouw toestemming. Wil je dat liever niet? Dat is helemaal goed — geef het even aan.</p>
+    <p class="prose">Ik plaats jouw beelden alleen online als je daar toestemming voor geeft (via het vinkje op het boekingsformulier of in overleg). Wil je dat liever niet? Dat is helemaal goed — geef het even aan.</p>
+
+    <h2>Extra dieren en reiskosten</h2>
+    <p class="prose">Het aantal dieren bepaalt de prijs, ongeacht het huishouden: elk dier boven het aantal dat bij je pakket hoort, kost €25 extra. Reiskosten: binnen {reiskostenStraal} km van {stad} inbegrepen, daarbuiten €{reiskostenKmPrijs} per km.</p>
+
+    <h2>Rookfakkels — veilig werken</h2>
+    <p class="prose">Ik werk met rookfakkels op rustige, veilige plekken en in overleg met jou. Bij droogte of verhoogd natuurbrandgevaar verplaats ik de shoot — kosteloos. De locatie kiezen we samen; als we op privéterrein fotograferen, regel jij vooraf toestemming van de eigenaar. Twijfel je of je hond gevoelig is voor rook of geluid, laat het weten — dan doen we het rustig aan of kiezen we een alternatief.</p>
 
     <h2>Betaling</h2>
-    <p class="prose">De prijs spreken we vooraf af op basis van het gekozen pakket en eventuele extra's. Reiskosten buiten de vermelde straal reken ik zoals aangegeven op de prijzenpagina. Betaling gebeurt in onderling overleg; de foto's worden geleverd zodra de betaling is voldaan.</p>
+    <p class="prose">De prijs spreken we vooraf af op basis van het gekozen pakket en eventuele extra's. Betaling gebeurt in onderling overleg; de foto's worden geleverd zodra de betaling is voldaan.</p>
 
     <h2>Aansprakelijkheid</h2>
-    <p class="prose">Dit is hobbymatig werk. Mijn aansprakelijkheid is beperkt tot ten hoogste het bedrag van de betreffende boeking. Ik ben niet aansprakelijk voor schade aan personen, dieren of eigendommen tijdens de shoot, behalve wanneer er sprake is van opzet of grove nalatigheid van mijn kant.</p>
+    <p class="prose">Mijn aansprakelijkheid is beperkt tot ten hoogste het bedrag van de betreffende boeking. Ik ben niet aansprakelijk voor schade aan personen, dieren of eigendommen tijdens de shoot, behalve wanneer er sprake is van opzet of grove nalatigheid van mijn kant.</p>
 
     <h2>Niet tevreden of een klacht?</h2>
-    <p class="prose">Zit iets je niet lekker, of ben je niet blij met het resultaat? Laat het me binnen 14 dagen na levering weten, dan kijken we er samen naar en zoeken we een passende oplossing. Ik wil graag dat je met een goed gevoel terugkijkt op je shoot.</p>
+    <p class="prose">Zit iets je niet lekker, of ben je niet blij met het resultaat? Laat het me binnen 14 dagen na levering weten, dan kijken we er samen naar en zoeken we een passende oplossing.</p>
+
+    {(bedrijfsnaam || kvk) && (
+      <>
+        <h2>Bedrijfsgegevens</h2>
+        <p class="prose">
+          {bedrijfsnaam && <>{bedrijfsnaam}<br /></>}
+          {plaats && <>Vestigingsplaats: {plaats}<br /></>}
+          {kvk && <>KvK: {kvk}<br /></>}
+          Btw: {site.btw_regeling === 'kleineondernemersregeling' ? 'kleineondernemersregeling (geen btw)' : site.btw_regeling}
+        </p>
+      </>
+    )}
 
     <div class="gerust-box">
       <p><strong>Iets onduidelijk?</strong> Vraag het gerust vóór je boekt — ik leg het graag uit. <a href="/contact">Neem contact op</a>.</p>

@@ -288,9 +288,16 @@ collections:
           - { label: 'Merknaam', name: 'merknaam', widget: 'string' }
           - { label: 'Tagline (onder de naam)', name: 'tagline', widget: 'string' }
           - { label: 'Plaatsnaam / regio', name: 'plaatsnaam', widget: 'string' }
+          - { label: 'Werkgebied (basis)', name: 'werkgebied_basis', widget: 'string', required: false }
+          - { label: 'Werkgebied (op aanvraag)', name: 'werkgebied_op_aanvraag', widget: 'string', required: false }
           - { label: 'Reiskosten gratis binnen (km)', name: 'reiskosten_straal_km', widget: 'string' }
-          - { label: 'E-mailadres', name: 'email', widget: 'string' }
-          - { label: 'WhatsApp-nummer (met landcode, bijv. 316...)', name: 'whatsapp', widget: 'string' }
+          - { label: 'Reiskosten per km (bijv. 0,30)', name: 'reiskosten_km_prijs', widget: 'string', required: false }
+          - { label: 'E-mailadres', name: 'email', widget: 'string', required: false }
+          - { label: 'WhatsApp-nummer (met landcode, bijv. 316...)', name: 'whatsapp', widget: 'string', required: false }
           - { label: 'Instagram — dieren (zonder @)', name: 'instagram_dieren', widget: 'string', required: false }
           - { label: 'Instagram — motor (zonder @)', name: 'instagram_motor', widget: 'string', required: false }
-          - { label: 'Motor-Instagram tonen?', name: 'toon_motor_instagram', widget: 'boolean', default: true }
+          - { label: 'Motor-Instagram tonen?', name: 'toon_motor_instagram', widget: 'boolean', default: false }
+          - { label: 'Google Bedrijfsprofiel (reviewlink)', name: 'google_bedrijfsprofiel', widget: 'string', required: false }
+          - { label: 'Bedrijfsnaam (zodra ingeschreven)', name: 'bedrijfsnaam', widget: 'string', required: false }
+          - { label: 'KvK-nummer (zodra ingeschreven)', name: 'kvk', widget: 'string', required: false }
+          - { label: 'Btw-regeling', name: 'btw_regeling', widget: 'string', required: false }

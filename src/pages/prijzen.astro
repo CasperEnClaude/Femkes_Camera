@@ -1,71 +1,98 @@
 ---
 import Base from '../layouts/Base.astro';
 import PackageCard from '../components/PackageCard.astro';
+import Reviews from '../components/Reviews.astro';
 import prijzen from '../data/prijzen.json';
-import site from '../data/site.json';
+import { reiskostenRegel } from '../lib/site.js';
 
-const { dieren, rookfakkels, motor, dierensport } = prijzen;
+const { dieren, puppy, fokkers, rookfakkels, motor, clubs, samen, cadeaubon } = prijzen;
+const dierenAanvullend = [...(dieren.aanvullend || []), reiskostenRegel];
 
-const plaats = site.plaatsnaam && !site.plaatsnaam.startsWith('[') ? site.plaatsnaam : null;
-const straal = site.reiskosten_straal_km || '15';
-const reiskostenRegel = plaats
-  ? `Reiskosten €0,30/km buiten ${straal} km van ${plaats}`
-  : `Reiskosten €0,30/km buiten ${straal} km (regio in overleg)`;
-const dierenExtras = [...(dieren.extras || []), reiskostenRegel];
-
-// Secundaire kaarten (Rookfakkels & Motor) — zelfde warme stijl als de rest.
-const secundair = [
-  { data: rookfakkels, href: '/rookfakkels', linktekst: 'Bekijk rookfakkel-shoots →' },
+// Teasers voor categorieën met een eigen landingspagina (details staan daar).
+const teasers = [
+  { data: rookfakkels, href: '/rookfakkels', linktekst: 'Bekijk rookfakkelshoots →' },
   { data: motor, href: '/motor', linktekst: 'Bekijk motorshoots →' },
 ];
 ---
 
-<Base title="Diensten & Prijzen" description="Pakketten voor dierenfotografie vanaf €65. Plus rookfakkel-, motor- en dierensportfotografie.">
+<Base title="Prijzen dierenfotografie Rotterdam" description="Pakketten voor dierenfotografie in Rotterdam en omgeving. Dieren, puppy's, agility, rookfakkels en motoren. Shoots vanaf €75.">
   <section class="container section">
     <h1 class="page-title">Diensten &amp; Prijzen</h1>
 
-    <!-- Dieren: hoofdaanbod, bovenaan en het grootst -->
+    <!-- Dieren: hoofdblok, drie gelijke kaarten -->
     <div class="prijs-blok">
-      <div class="blok-kop">
-        <h2>{dieren.titel}</h2>
-        <span class="blok-sub">{dieren.ondertitel}</span>
-      </div>
+      <div class="blok-kop"><h2>{dieren.titel}</h2></div>
       <p class="blok-intro">{dieren.intro}</p>
       <div class="package-grid primary-grid">
         {dieren.pakketten.map((p) => <PackageCard pakket={p} />)}
       </div>
       <ul class="extras">
-        {dierenExtras.map((e) => <li>{e}</li>)}
+        {dierenAanvullend.map((e) => <li>{e}</li>)}
       </ul>
+      <p class="klein-note">Je galerij blijft een jaar online. Wil je later meer foto's, dan kan dat altijd.</p>
     </div>
 
-    <!-- Dierensport & Evenementen: boven de secundaire categorieën (motor/fakkel) -->
-    <div class="prijs-blok zakelijk">
-      <div class="blok-kop">
-        <h2>{dierensport.titel}</h2>
-        <span class="blok-sub">{dierensport.ondertitel}</span>
+    <Reviews count={3} />
+
+    <!-- Puppy -->
+    <div class="prijs-blok">
+      <div class="blok-kop"><h2>{puppy.titel}</h2></div>
+      <p class="blok-intro">{puppy.intro}</p>
+      <div class="package-grid twee-kolom">
+        {puppy.pakketten.map((p) => <PackageCard pakket={p} />)}
       </div>
-      <div class="package-grid">
-        {dierensport.pakketten.map((p) => <PackageCard pakket={p} />)}
+      <p class="landing-link"><a href="/puppyshoot">Meer over de puppyshoot en het puppyjaar →</a></p>
+    </div>
+
+    <!-- Fokkers -->
+    <div class="prijs-blok">
+      <div class="blok-kop"><h2>{fokkers.titel}</h2></div>
+      <p class="blok-intro">{fokkers.intro}</p>
+      <div class="package-grid single">
+        {fokkers.pakketten.map((p) => <PackageCard pakket={p} />)}
       </div>
     </div>
 
-    <!-- Rookfakkels & Motor: secundair, met eigen sub-opties en link naar de landingspagina -->
+    <!-- Creatief & thema + Motor: teasers naar de eigen pagina's -->
     <div class="secundair-rij">
-      {secundair.map((s) => (
+      {teasers.map((s) => (
         <div class="prijs-blok klein landing-kaart">
-          <div class="blok-kop">
-            <h2>{s.data.titel}</h2>
-            <span class="blok-sub">{s.data.ondertitel}</span>
-          </div>
+          <div class="blok-kop"><h2>{s.data.titel}</h2></div>
           {s.data.intro && <p class="blok-intro klein-intro">{s.data.intro}</p>}
           <div class="package-grid">
             {s.data.pakketten.map((p) => <PackageCard pakket={p} />)}
           </div>
-          <p class="klein-note">Losse opties en extra's? Die leg ik uit op de eigen pagina.</p>
+          <p class="klein-note">Losse opties en extra's leg ik uit op de eigen pagina.</p>
           <p class="landing-link"><a href={s.href}>{s.linktekst}</a></p>
         </div>
       ))}
+    </div>
+
+    <!-- Clubs & verenigingen -->
+    <div class="prijs-blok zakelijk">
+      <div class="blok-kop"><h2>{clubs.titel}</h2></div>
+      <p class="blok-intro">{clubs.intro}</p>
+      <div class="package-grid twee-kolom">
+        {clubs.pakketten.map((p) => <PackageCard pakket={p} />)}
+      </div>
+      {clubs.note && <p class="klein-note">{clubs.note}</p>}
+    </div>
+
+    <!-- Samen boeken + Cadeaubon -->
+    <div class="secundair-rij">
+      <div class="prijs-blok klein">
+        <div class="blok-kop"><h2>{samen.titel}</h2></div>
+        <p class="blok-intro klein-intro">{samen.tekst}</p>
+      </div>
+      <div class="prijs-blok klein">
+        <div class="blok-kop"><h2>{cadeaubon.titel}</h2></div>
+        <p class="blok-intro klein-intro">{cadeaubon.tekst}</p>
+        <p class="landing-link"><a href="/cadeaubon">Cadeaubon aanvragen →</a></p>
+      </div>
+    </div>
+
+    <div class="gerust-box">
+      <p><strong>Veel baasjes komen elk jaar terug.</strong> Ik stuur je rond die tijd een berichtje voor nieuwe beelden — als je dat wil.</p>
     </div>
 
     <div class="band-inner center">

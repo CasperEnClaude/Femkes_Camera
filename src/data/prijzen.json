@@ -1,124 +1,173 @@
 {
   "dieren": {
     "titel": "Dieren",
-    "ondertitel": "Mijn hoofdaanbod",
-    "intro": "Ik fotografeer je huisdier zoals het is — spelend, snuffelend, lekker zichzelf. Geen geforceerde standjes, wel geduld en oog voor karakter.",
+    "intro": "Ik fotografeer je dier zoals het is — spelend, snuffelend, lekker zichzelf. Elk pakket is inclusief drie fotokaartjes om weg te geven.",
     "pakketten": [
       {
-        "naam": "Mini",
-        "prijs": "€65",
+        "naam": "Kennismaking",
+        "prijs": "€75",
         "populair": false,
         "regels": [
-          "30–45 minuten",
-          "1 huisdier",
-          "5 zorgvuldig geselecteerde en bewerkte foto's",
-          "Online galerij",
-          "Digitale levering in hoge resolutie"
+          "45 minuten",
+          "1 dier",
+          "6 bewerkte foto's",
+          "Eén locatie",
+          "Inclusief 3 fotokaartjes om weg te geven"
         ]
       },
       {
-        "naam": "Classic",
-        "prijs": "€95",
+        "naam": "Compleet",
+        "prijs": "€125",
         "populair": true,
         "badge": "Meest gekozen",
         "regels": [
-          "60 minuten",
-          "Max. 2 huisdieren uit hetzelfde gezin",
-          "8–10 bewerkte foto's",
-          "Online galerij",
-          "Geschikt voor print en social media"
+          "75 minuten",
+          "Max. 2 dieren",
+          "12 bewerkte foto's",
+          "Twee settings of locaties",
+          "Inclusief 3 fotokaartjes om weg te geven"
         ]
       },
       {
         "naam": "Uitgebreid",
-        "prijs": "€135",
+        "prijs": "€175",
         "populair": false,
         "regels": [
-          "75–90 minuten",
-          "Max. 3 huisdieren",
-          "15–20 bewerkte foto's",
-          "Online galerij",
-          "Meerdere settings/momenten"
+          "2 uur",
+          "Max. 3 dieren",
+          "20 bewerkte foto's",
+          "Meerdere locaties, wisseling van licht en omgeving",
+          "Inclusief 3 fotokaartjes om weg te geven"
         ]
       }
     ],
-    "extras": [
-      "Extra foto €8 per stuk (5-pack €35)",
-      "Extra huisdier (ander gezin) €20"
+    "aanvullend": [
+      "Alle geslaagde beelden uit je shoot: +€75",
+      "Losse extra foto: €12",
+      "Extra dier: €25"
+    ]
+  },
+  "puppy": {
+    "titel": "Puppy",
+    "intro": "Een pup verandert in een jaar onherkenbaar. Leg die eerste maanden vast.",
+    "pakketten": [
+      {
+        "naam": "Puppyshoot",
+        "prijs": "€125",
+        "populair": false,
+        "regels": [
+          "75 minuten",
+          "Max. 2 dieren",
+          "12 bewerkte foto's",
+          "Twee settings of locaties",
+          "Inclusief 3 fotokaartjes om weg te geven"
+        ]
+      },
+      {
+        "naam": "Puppyjaar",
+        "prijs": "€295",
+        "populair": true,
+        "badge": "i.p.v. €375",
+        "regels": [
+          "Drie shoots in het eerste jaar",
+          "Rond 10 weken, 6 maanden en 1 jaar",
+          "Te spreiden, af te rekenen per shoot",
+          "Inclusief 3 fotokaartjes per shoot"
+        ]
+      }
+    ]
+  },
+  "fokkers": {
+    "titel": "Fokkers",
+    "intro": "Een nestreportage laat je pups van hun mooiste kant zien — precies waar nieuwe baasjes op vallen.",
+    "pakketten": [
+      {
+        "naam": "Nestreportage",
+        "prijs": "€195",
+        "populair": false,
+        "regels": [
+          "Tot 8 pups",
+          "Van elke pup twee portretten",
+          "Sfeerbeelden van het nest",
+          "Inclusief gebruikslicentie voor je eigen website en verkoop"
+        ]
+      }
     ]
   },
   "rookfakkels": {
-    "titel": "Rookfakkels",
-    "ondertitel": "Een sfeervolle extra",
-    "intro": "Kleurrijke rook rond je hond levert stoere, filmische beelden op — precies het soort foto waar mensen op blijven hangen en dat je dier er echt uit laat springen. Eén vaste opzet: jouw dier plus een rookfakkel, op een rustige plek waar het veilig kan.",
+    "titel": "Creatief & thema",
+    "intro": "Kleurrijke rook rond je hond levert stoere, filmische beelden op — precies het soort foto waar mensen op blijven hangen.",
     "pakketten": [
       {
-        "naam": "Rookfakkel-shoot",
-        "prijs": "€95",
+        "naam": "Rookfakkelshoot",
+        "prijs": "€135",
         "populair": false,
         "regels": [
           "60 minuten",
-          "1 huisdier + rookfakkel in 1 kleur",
           "8 bewerkte foto's",
-          "Online galerij"
+          "Eén kleur inbegrepen"
         ]
       }
     ],
     "opties": [
-      { "naam": "Extra rookfakkel (extra kleur)", "meerprijs": "+€15" },
-      { "naam": "Combinatie van meerdere kleuren in één shoot", "meerprijs": "+€20" }
+      { "naam": "Extra kleur", "meerprijs": "+€20" },
+      { "naam": "Meerkleurencombinatie", "meerprijs": "+€30" }
     ],
-    "addon": {
-      "naam": "Instagram-reel van je shoot (15–30 sec)",
-      "meerprijs": "+€25–35",
-      "aanvraag": true
-    },
-    "creatief": "Zin in iets meer? De rookfakkel is mijn vaste basis, maar creatief kan er van alles bij — denk aan een Halloween-sfeer of een seizoensthema. Heb je zelf een idee of een styling in gedachten? Neem het gerust mee, dan kijken we samen wat we ervan kunnen maken.",
+    "creatief": "Zin in iets meer? De rookfakkel is mijn basis, maar creatief kan er van alles bij — denk aan een Halloween-sfeer of je eigen thema. Heb je zelf een idee of styling in gedachten? Neem het gerust mee, dan kijken we samen wat we ervan maken.",
     "note": "Zelf een kostuum of styling meebrengen mag altijd — dat kost niets extra."
   },
   "motor": {
     "titel": "Motor",
-    "ondertitel": "Nieuw in mijn aanbod",
     "intro": "Naast dieren richt ik mijn lens graag op motoren — stoere, sfeervolle beelden van jouw machine, met of zonder rijder.",
     "pakketten": [
       {
-        "naam": "Motorshoot (basis)",
-        "prijs": "€95",
+        "naam": "Motorshoot",
+        "prijs": "€125",
         "populair": false,
         "regels": [
           "60 minuten",
-          "Je motor voor de lens — geen rijder nodig",
-          "8–10 bewerkte foto's",
-          "Online galerij"
+          "10 bewerkte foto's",
+          "Met of zonder rijder"
         ]
       }
     ],
     "opties": [
-      { "naam": "Met rijder erbij", "meerprijs": "+€20", "hint": "meer regie en poses" },
-      { "naam": "Twee locaties in één shoot", "meerprijs": "+€35", "hint": "reken op een shoot van 2 uur+" }
-    ],
-    "addon": {
-      "naam": "Instagram-reel van je shoot (15–30 sec)",
-      "meerprijs": "+€25–35",
-      "aanvraag": true
-    }
+      { "naam": "Tweede locatie in één shoot", "meerprijs": "+€25", "hint": "reken op een shoot van 2 uur+" }
+    ]
   },
-  "dierensport": {
-    "titel": "Dierensport & Evenementen",
-    "ondertitel": "Voor clubs én deelnemers",
+  "clubs": {
+    "titel": "Clubs & verenigingen",
+    "intro": "Voor clubs, verenigingen en individuele wedstrijd- of trainingsdeelnemers.",
     "pakketten": [
       {
-        "naam": "Halve of hele dag",
-        "prijs": "€150 / €250",
+        "naam": "Halve dag",
+        "prijs": "€195",
         "populair": false,
         "regels": [
-          "Halve dag €150 · hele dag €250",
-          "Voor clubs/verenigingen én individuele wedstrijd- of trainingsdeelnemers",
-          "Alle foto's bewerkt en geleverd",
-          "Vrij te gebruiken door de club of deelnemer",
-          "Met vermelding van Femke's Camera op de gebruikte kanalen"
+          "Halve dag op locatie",
+          "Alle geslaagde beelden bewerkt en geleverd",
+          "Inclusief gebruikslicentie voor de vereniging"
+        ]
+      },
+      {
+        "naam": "Hele dag",
+        "prijs": "€325",
+        "populair": false,
+        "regels": [
+          "Hele dag op locatie",
+          "Alle geslaagde beelden bewerkt en geleverd",
+          "Inclusief gebruikslicentie voor de vereniging"
         ]
       }
-    ]
+    ],
+    "note": "Leden van de vereniging kunnen na afloop zelf een shoot boeken, met €10 korting."
+  },
+  "samen": {
+    "titel": "Samen boeken",
+    "tekst": "Boek je samen met een ander baasje op dezelfde dag en locatie? Dan betalen jullie allebei €105 voor het pakket Compleet."
+  },
+  "cadeaubon": {
+    "titel": "Cadeaubon",
+    "tekst": "Vanaf €75, geldig 12 maanden, in te wisselen op elk pakket."
   }
 }

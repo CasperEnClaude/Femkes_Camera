@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import InstaFollow from '../components/InstaFollow.astro';
 import InstaIcon from '../components/InstaIcon.astro';
 import { resolveImage } from '../lib/images.js';
-import { igHandle, igUrl, plaats } from '../lib/site.js';
+import { igHandle, igUrl, plaats, werkgebiedBasis } from '../lib/site.js';
 import teksten from '../data/teksten.json';
 import honden from '../galleries/honden.json';
 import puppys from '../galleries/puppys.json';
@@ -36,7 +36,7 @@ const extraCategorieen = prep([
 ]);
 ---
 
-<Base description={homeDescription}>
+<Base title="Dierenfotograaf Rotterdam" description={homeDescription}>
   <section class="hero">
     {heroImg ? (
       <Image src={heroImg} alt={heroPhoto.naam || 'Hondenfotografie door Femke\'s Camera'} widths={[600, 1200, 1800]} sizes="100vw" loading="eager" class="hero-img" />
@@ -56,13 +56,14 @@ const extraCategorieen = prep([
           <a href="/contact" class="btn btn-primary">Boek een shoot</a>
           <a href="/portfolio" class="btn btn-ghost">Bekijk portfolio</a>
         </div>
+        <p class="hero-meta">Shoots vanaf €75{werkgebiedBasis ? ` · ${werkgebiedBasis}, daarbuiten in overleg` : ''}.</p>
       </div>
     </div>
   </section>
 
   <section class="container section">
     <h2 class="section-title">Wat ik fotografeer</h2>
-    <p class="section-intro">Dieren zijn mijn hoofdaanbod. Daarnaast doe ik af en toe iets creatiefs of een motorshoot.</p>
+    <p class="section-intro">Ik fotografeer honden, puppy's, agility en paarden. Daarnaast maak ik creatieve shoots met rookfakkels en fotografeer ik motoren.</p>
 
     <div class="cat-grid four">
       {dierCategorieen.map((c) => (

@@ -19,9 +19,16 @@ const secundair = [
   { id: 'creative', data: creative },
   { id: 'motor', data: motor },
 ];
+
+// Categoriepagina's met eigen tekst + SEO (paarden nog niet: te weinig beeld).
+const paginaLink = {
+  agility: { href: '/agility-fotografie', tekst: 'Meer over agility fotografie →' },
+  honden: { href: '/hondenfotografie', tekst: 'Meer over hondenfotografie →' },
+  puppys: { href: '/puppyshoot', tekst: 'Meer over de puppyshoot →' },
+};
 ---
 
-<Base title="Portfolio" description="Een selectie van mijn sterkste dierenfoto's: agility & sport, paarden, honden en puppy's. Plus rookfakkel- en motorwerk.">
+<Base title="Portfolio dierenfotografie Rotterdam" description="Een selectie van mijn sterkste dierenfoto's uit Rotterdam en omgeving: agility & sport, paarden, honden en puppy's. Plus rookfakkel- en motorwerk.">
   <section class="container section">
     <h1 class="page-title">Portfolio</h1>
     <p class="section-intro">Een streng geselecteerde greep uit mijn werk. Liever een paar sterke beelden dan alles wat ik ooit maakte.</p>
@@ -40,11 +47,14 @@ const secundair = [
         <h2 class="cat-heading">{g.data.titel}</h2>
         {g.data.intro && <p class="cat-intro">{g.data.intro}</p>}
         <Gallery gallery={g.data} />
+        {paginaLink[g.id] && (
+          <p class="motor-link-note"><a href={paginaLink[g.id].href} class="btn btn-ghost">{paginaLink[g.id].tekst}</a></p>
+        )}
       </div>
     ))}
 
     <hr class="portfolio-divider" />
-    <p class="secondary-note">Naast dieren doe ik af en toe een rookfakkel-shoot of een motorshoot — een leuke extra, geen hoofdaanbod.</p>
+    <p class="secondary-note">Naast dieren fotografeer ik creatieve shoots en motoren.</p>
 
     {secundair.map((g) => (
       <div class="portfolio-section secondary-section" id={g.id}>

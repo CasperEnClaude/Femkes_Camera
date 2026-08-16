@@ -1,13 +1,8 @@
 ---
 import site from '../data/site.json';
-import { igHandle, igUrl, plaats } from '../lib/site.js';
+import { igHandle, igUrl, waLink, mailLink, plaats, werkgebiedBasis, werkgebiedOpAanvraag } from '../lib/site.js';
 import InstaIcon from './InstaIcon.astro';
 const { theme = 'light' } = Astro.props;
-
-const waRaw = (site.whatsapp || '').trim();
-const waNumber = waRaw.replace(/[^0-9]/g, '');
-const waLink = (waNumber.length >= 8 && !waRaw.startsWith('[')) ? `https://wa.me/${waNumber}` : null;
-const mailLink = site.email && !site.email.startsWith('[') ? `mailto:${site.email}` : null;
 const year = new Date().getFullYear();
 ---
 
@@ -16,7 +11,7 @@ const year = new Date().getFullYear();
     <div class="footer-col">
       <span class="footer-brand">{site.merknaam}</span>
       <p class="footer-tag">{site.tagline}</p>
-      {plaats && <p class="footer-plaats">Dierenfotografie in en rond {plaats}</p>}
+      {werkgebiedBasis && <p class="footer-plaats">Dierenfotografie in {werkgebiedBasis}</p>}
       {igUrl && (
         <a href={igUrl} class="footer-ig" rel="noopener me" target="_blank">
           <InstaIcon size={20} /> <span>@{igHandle}</span>
@@ -25,9 +20,20 @@ const year = new Date().getFullYear();
     </div>
 
     <div class="footer-col">
+      <h2 class="footer-h">Fotografie</h2>
+      <ul class="footer-links">
+        <li><a href="/hondenfotografie">Honden</a></li>
+        <li><a href="/puppyshoot">Puppy's</a></li>
+        <li><a href="/agility-fotografie">Agility</a></li>
+        <li><a href="/rookfakkels">Rookfakkels</a></li>
+        <li><a href="/motor">Motor</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
       <h2 class="footer-h">Contact</h2>
       <ul class="footer-links">
-        {waLink && <li><a href={waLink} rel="noopener">WhatsApp</a></li>}
+        {waLink && <li><a href={waLink} rel="noopener" target="_blank">WhatsApp</a></li>}
         {mailLink && <li><a href={mailLink}>E-mail</a></li>}
         {igUrl && <li><a href={igUrl} rel="noopener" target="_blank">Instagram</a></li>}
         <li><a href="/contact">Boek een shoot</a></li>
@@ -35,13 +41,16 @@ const year = new Date().getFullYear();
     </div>
 
     <div class="footer-col">
-      <h2 class="footer-h">Ook interessant</h2>
+      <h2 class="footer-h">Informatie</h2>
       <ul class="footer-links">
-        <li><a href="/portfolio">Portfolio</a></li>
         <li><a href="/prijzen">Prijzen</a></li>
-        <li><a href="/rookfakkels">Rookfakkels</a></li>
-        <li><a href="/motor">Motorfotografie</a></li>
+        <li><a href="/cadeaubon">Cadeaubon</a></li>
+        <li><a href="/voorwaarden">Algemene voorwaarden</a></li>
+        <li><a href="/privacy">Privacybeleid</a></li>
       </ul>
+      {werkgebiedBasis && (
+        <p class="footer-werkgebied">{werkgebiedBasis}{werkgebiedOpAanvraag ? `. ${werkgebiedOpAanvraag}.` : '.'}</p>
+      )}
     </div>
   </div>
   <div class="container footer-bottom">
