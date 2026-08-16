@@ -39,13 +39,13 @@
       }
     ],
     "aanvullend": [
-      "Extra bewerkte foto: €6 (5 voor €25)",
+      "Extra bewerkte foto: €4,50 (5 voor €20)",
       "Extra dier in dezelfde shoot: €15"
     ]
   },
   "puppy": {
     "titel": "Puppy",
-    "intro": "Een pup verandert in een jaar onherkenbaar. Leg die eerste maanden vast nu hij nog klein is.",
+    "intro": "Puppy's blijven niet lang klein. Met een puppyshoot leg je die grote oren, de zachte blik en dat eerste onhandige karakter vast — beelden om te koesteren en trots te delen.",
     "pakketten": [
       {
         "naam": "Puppyshoot",
@@ -73,7 +73,7 @@
     ]
   },
   "fokkers": {
-    "titel": "Fokkers — nestreportage",
+    "titel": "Nestreportage",
     "intro": "Een nest groeit snel, en die eerste weken zijn bijzonder. Met een nestreportage laat je je pups van hun mooiste kant zien.",
     "pakketten": [
       {
@@ -117,7 +117,7 @@
     "pakketten": [
       {
         "naam": "Motorshoot",
-        "prijs": "€110",
+        "prijs": "€95",
         "populair": false,
         "regels": [
           "60 minuten",

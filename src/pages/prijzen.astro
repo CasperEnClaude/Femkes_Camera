@@ -10,6 +10,7 @@ const dierenAanvullend = [...(dieren.aanvullend || []), reiskostenRegel];
 
 // Teasers voor categorieën met een eigen landingspagina (details staan daar).
 const teasers = [
+  { data: puppy, href: '/puppyshoot', linktekst: 'Puppyshoot, puppyjaar & nestreportage →' },
   { data: rookfakkels, href: '/rookfakkels', linktekst: 'Bekijk rookfakkelshoots →' },
   { data: motor, href: '/motor', linktekst: 'Bekijk motorshoots →' },
 ];
@@ -33,35 +34,15 @@ const teasers = [
 
     <Reviews count={3} />
 
-    <!-- Puppy -->
-    <div class="prijs-blok">
-      <div class="blok-kop"><h2>{puppy.titel}</h2></div>
-      <p class="blok-intro">{puppy.intro}</p>
-      <div class="package-grid twee-kolom">
-        {puppy.pakketten.map((p) => <PackageCard pakket={p} />)}
-      </div>
-      <p class="landing-link"><a href="/puppyshoot">Meer over de puppyshoot en het puppyjaar →</a></p>
-    </div>
-
-    <!-- Fokkers -->
-    <div class="prijs-blok">
-      <div class="blok-kop"><h2>{fokkers.titel}</h2></div>
-      <p class="blok-intro">{fokkers.intro}</p>
-      <div class="package-grid single">
-        {fokkers.pakketten.map((p) => <PackageCard pakket={p} />)}
-      </div>
-    </div>
-
-    <!-- Creatief & thema + Motor: teasers naar de eigen pagina's -->
-    <div class="secundair-rij">
+    <!-- Puppy, Creatief & thema, Motor: teasers naar de eigen pagina's -->
+    <div class="secundair-rij drie">
       {teasers.map((s) => (
         <div class="prijs-blok klein landing-kaart">
           <div class="blok-kop"><h2>{s.data.titel}</h2></div>
           {s.data.intro && <p class="blok-intro klein-intro">{s.data.intro}</p>}
           <div class="package-grid">
-            {s.data.pakketten.map((p) => <PackageCard pakket={p} />)}
+            {s.data.pakketten.slice(0, 1).map((p) => <PackageCard pakket={p} />)}
           </div>
-          <p class="klein-note">Losse opties en extra's leg ik uit op de eigen pagina.</p>
           <p class="landing-link"><a href={s.href}>{s.linktekst}</a></p>
         </div>
       ))}

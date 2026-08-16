@@ -4,27 +4,23 @@ import { resolveImage } from '../lib/images.js';
 import { igHandle, igUrl } from '../lib/site.js';
 import InstaIcon from './InstaIcon.astro';
 
-// Een Instagram-achtige strook: vierkante blokken uit Femke's eigen foto's,
-// die de site laten aanvoelen als verlengstuk van haar Instagram.
+// Horizontale "feed"-strook die je zijwaarts swipet — bewust anders dan het
+// verticale categorie-raster erboven, en met andere foto's (geen dubbeling).
 import honden from '../galleries/honden.json';
 import puppys from '../galleries/puppys.json';
 import agility from '../galleries/agility.json';
-import paarden from '../galleries/paarden.json';
+import motor from '../galleries/motor.json';
 import creative from '../galleries/creative.json';
 
-const { count = 6 } = Astro.props;
-
-// Mix van sterke beelden, afwisselend per categorie.
 const pool = [
-  agility.photos?.[0], paarden.photos?.[0], honden.photos?.[1],
-  puppys.photos?.[0], creative.photos?.[0], honden.photos?.[4],
-  paarden.photos?.[1], puppys.photos?.[3], agility.photos?.[3],
+  honden.photos?.[5], puppys.photos?.[2], agility.photos?.[3], motor.photos?.[1],
+  honden.photos?.[9], creative.photos?.[1], puppys.photos?.[6], agility.photos?.[6],
+  honden.photos?.[11],
 ].filter(Boolean);
 
 const tiles = pool
   .map((p) => ({ ...p, resolved: resolveImage(p.image) }))
-  .filter((p) => p.resolved)
-  .slice(0, count);
+  .filter((p) => p.resolved);
 
 const heading = igHandle ? `@${igHandle}` : 'Volg mee op Instagram';
 ---
@@ -35,7 +31,7 @@ const heading = igHandle ? `@${igHandle}` : 'Volg mee op Instagram';
       <div>
         <span class="insta-kicker"><InstaIcon size={18} cls="insta-kicker-ico" /> Instagram</span>
         <h2 class="insta-title">{heading}</h2>
-        <p class="insta-sub">Het laatste werk, sfeer achter de schermen en nieuwe shoots — daar deel ik het eerst.</p>
+        <p class="insta-sub">Het laatste werk en sfeer achter de schermen — daar deel ik het eerst.</p>
       </div>
       {igUrl && (
         <a href={igUrl} class="btn btn-primary insta-follow-btn" rel="noopener me" target="_blank">
@@ -43,24 +39,20 @@ const heading = igHandle ? `@${igHandle}` : 'Volg mee op Instagram';
         </a>
       )}
     </div>
+  </div>
 
-    <div class="insta-grid">
-      {tiles.map((p) => (
-        igUrl ? (
-          <a href={igUrl} class="insta-tile" rel="noopener" target="_blank" aria-label="Bekijk op Instagram">
-            <Image src={p.resolved} alt={p.naam || 'Foto van Femke\'s Camera'} widths={[300, 600]} sizes="(max-width: 640px) 33vw, 200px" loading="lazy" class="insta-img" />
-            <span class="insta-tile-ico" aria-hidden="true"><InstaIcon size={24} /></span>
-          </a>
-        ) : (
-          <figure class="insta-tile">
-            <Image src={p.resolved} alt={p.naam || 'Foto van Femke\'s Camera'} widths={[300, 600]} sizes="(max-width: 640px) 33vw, 200px" loading="lazy" class="insta-img" />
-          </figure>
-        )
-      ))}
-    </div>
-
-    {igUrl && (
-      <p class="insta-foot"><a href={igUrl} rel="noopener" target="_blank">Bekijk alles op Instagram →</a></p>
-    )}
+  <div class="insta-strip" role="list">
+    {tiles.map((p) => (
+      igUrl ? (
+        <a href={igUrl} class="insta-cell" role="listitem" rel="noopener" target="_blank" aria-label="Bekijk op Instagram">
+          <Image src={p.resolved} alt={p.naam || 'Foto van Femke\'s Camera'} widths={[220, 440]} sizes="180px" loading="lazy" class="insta-img" />
+          <span class="insta-cell-ico" aria-hidden="true"><InstaIcon size={22} /></span>
+        </a>
+      ) : (
+        <figure class="insta-cell" role="listitem">
+          <Image src={p.resolved} alt={p.naam || 'Foto van Femke\'s Camera'} widths={[220, 440]} sizes="180px" loading="lazy" class="insta-img" />
+        </figure>
+      )
+    ))}
   </div>
 </section>
