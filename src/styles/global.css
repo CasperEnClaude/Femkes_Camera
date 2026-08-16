@@ -59,7 +59,9 @@ img { max-width: 100%; display: block; }
 
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.1rem; }
 
-.section { padding: 3rem 0; }
+/* Alleen verticale padding: horizontale gutter blijft van .container komen
+   (anders reset de shorthand 'padding' de zijkanten naar 0 → tekst tegen de rand). */
+.section { padding-top: 3rem; padding-bottom: 3rem; }
 .section.narrow { max-width: 760px; }
 .narrow { max-width: 760px; margin-left: auto; margin-right: auto; }
 
@@ -185,7 +187,7 @@ img { max-width: 100%; display: block; }
 .band-inner p { color: var(--muted); margin: 0 0 1.4rem; }
 
 /* ---------- Over mij ---------- */
-.over-foto { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); margin: 0 0 1.6rem; aspect-ratio: 3 / 2; object-fit: cover; }
+.over-foto { display: block; width: 100%; max-width: 520px; margin: 0 auto 1.8rem; border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 3 / 2; object-fit: cover; object-position: center; }
 .usp-box { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 1.4rem 1.6rem; margin: 2rem 0; box-shadow: var(--shadow); }
 .usp-box h2 { font-size: 1.2rem; margin: 0 0 0.7rem; }
 .usp-box ul { margin: 0; padding-left: 1.2rem; color: var(--text); }
@@ -462,9 +464,11 @@ body.theme-motor .optie-badge { color: var(--accent); }
 /* ---------- Footer Instagram + juridisch ---------- */
 .footer-ig { display: inline-flex; align-items: center; gap: 0.45rem; margin-top: 0.8rem; color: var(--accent-dark); font-weight: 600; }
 .footer-ig:hover { text-decoration: none; color: var(--accent); }
-.footer-bottom { display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem; align-items: center; justify-content: space-between; }
-.footer-legal { display: inline-flex; gap: 1.1rem; flex-wrap: wrap; }
-.footer-legal a { color: var(--muted); font-size: 0.85rem; }
+.footer-bottom { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; align-items: center; justify-content: space-between; }
+.footer-legal { display: inline-flex; gap: 1.2rem; flex-wrap: wrap; }
+.footer-legal a { color: var(--text); font-size: 0.85rem; text-decoration: underline; text-underline-offset: 2px; }
+.footer-legal a:hover { color: var(--accent-dark); }
+@media (max-width: 560px) { .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.7rem; } }
 
 /* ---------- Juridische pagina's ---------- */
 .legal h2 { font-size: 1.2rem; margin: 1.8rem 0 0.5rem; }
@@ -485,13 +489,15 @@ body.theme-motor .optie-badge { color: var(--accent); }
   .extras { gap: 0.4rem; }
   .extras li { font-size: 0.8rem; padding: 0.35rem 0.7rem; }
 
-  /* Iets meer lucht op mobiel */
-  .section { padding: 2.1rem 0; }
+  /* Iets meer lucht op mobiel (alleen verticaal — horizontale gutter blijft van .container) */
+  .section { padding-top: 2rem; padding-bottom: 2rem; }
   .page-title { font-size: 1.6rem; }
   .boek-form input, .boek-form select, .boek-form textarea { padding: 0.62rem 0.75rem; }
   .boek-form .form-row { margin-bottom: 0.85rem; }
   .contact-cards { gap: 0.7rem; }
   .contact-card { padding: 1.1rem 0.8rem; }
+  /* Comfortabele zijmarge zodat tekst niet tegen de rand plakt */
+  .container { padding-left: 1.25rem; padding-right: 1.25rem; }
 }
 
 /* ---------- Mobiel: alles iets uitgezoomd (rustiger, minder groot) ---------- */

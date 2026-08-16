@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { resolveImage } from '../lib/images.js';
+import { igUrl } from '../lib/site.js';
 import teksten from '../data/teksten.json';
 import site from '../data/site.json';
 
@@ -10,23 +11,14 @@ const foto = teksten.over_mij_foto ? resolveImage(teksten.over_mij_foto) : undef
 const plaats = site.plaatsnaam && !site.plaatsnaam.startsWith('[') ? site.plaatsnaam : null;
 ---
 
-<Base title="Over mij" description="Femke fotografeert dieren met geduld en oog voor gedrag. Werkt dagelijks in een dierenspeciaalzaak. Geen portret-, gezins- of aanzoekfotografie.">
+<Base title="Wie ben ik?" description="Femke fotografeert dieren met geduld en oog voor gedrag. 21 jaar, opleiding Dier en Ondernemen, werkt dagelijks in een dierenspeciaalzaak.">
   <section class="container section narrow">
     <h1 class="page-title">{teksten.over_mij_titel}</h1>
     {foto && (
-      <Image src={foto} alt="Femke met haar honden" widths={[400, 800, 1200]} sizes="(max-width: 760px) 100vw, 760px" loading="eager" class="over-foto" />
+      <Image src={foto} alt="Femke van Femke's Camera" widths={[420, 640, 900, 1300, 1620]} sizes="(max-width: 620px) 88vw, 520px" quality={82} loading="eager" class="over-foto" />
     )}
     {paragraphs.map((p) => <p class="prose">{p}</p>)}
     {plaats && <p class="prose">Ik werk in en rond {plaats} — kom je van net iets verder? Vraag gerust, meestal komen we er samen uit.</p>}
-
-    <div class="usp-box">
-      <h2>Waarom dieren mijn ding zijn</h2>
-      <ul>
-        <li>Ik werk elke dag met dieren in een dierenspeciaalzaak — ik lees hun gedrag.</li>
-        <li>Ik heb geduld. Een dier laat zich niet haasten, en dat hoeft ook niet.</li>
-        <li>Ik spreek de taal van baasjes en denk met je mee.</li>
-      </ul>
-    </div>
 
     <div class="hero-cta">
       <a href="/portfolio" class="btn btn-primary">Bekijk mijn werk</a>
