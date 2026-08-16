@@ -1,0 +1,21 @@
+---
+// "Hoe ziet een shoot eruit?" — korte, warme uitleg per categorie.
+const { stappen = [], titel = 'Hoe ziet een shoot eruit?' } = Astro.props;
+---
+
+{stappen.length > 0 && (
+  <div class="walkthrough">
+    <h2 class="cat-heading">{titel}</h2>
+    <ol class="stappen">
+      {stappen.map((s, i) => (
+        <li class="stap">
+          <span class="stap-num" aria-hidden="true">{i + 1}</span>
+          <div class="stap-body">
+            <strong>{s.titel}</strong>
+            <p>{s.tekst}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+)}

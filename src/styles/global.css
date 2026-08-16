@@ -246,6 +246,7 @@ img { max-width: 100%; display: block; }
 .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
 @media (min-width: 720px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
 .review { margin: 0; background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 1.3rem 1.4rem; box-shadow: var(--shadow); }
+.review-sterren { display: block; color: #e0a43b; font-size: 1rem; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
 .review-tekst { font-size: 1rem; margin: 0 0 0.8rem; font-style: italic; }
 .review-bron { color: var(--muted); font-size: 0.88rem; font-style: normal; }
 
@@ -518,6 +519,24 @@ body.theme-motor .optie-badge { color: var(--accent); }
   /* Comfortabele zijmarge zodat tekst niet tegen de rand plakt */
   .container { padding-left: 1.25rem; padding-right: 1.25rem; }
 }
+
+/* ---------- Walkthrough (hoe ziet een shoot eruit) ---------- */
+.walkthrough { margin: 1.5rem 0; }
+.stappen { list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: 1rem; }
+.stap { display: flex; gap: 0.9rem; align-items: flex-start; }
+.stap-num { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font-weight: 700; font-family: var(--font-head); }
+.stap-body strong { display: block; margin-bottom: 0.15rem; }
+.stap-body p { margin: 0; color: var(--muted); }
+
+/* ---------- FAQ ---------- */
+.faq { margin: 1.8rem 0; }
+.faq-lijst { margin-top: 1rem; }
+.faq-item { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); margin-bottom: 0.6rem; padding: 0 1rem; }
+.faq-item summary { cursor: pointer; font-weight: 600; padding: 0.9rem 0; list-style: none; position: relative; padding-right: 1.6rem; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 0.75rem; color: var(--accent-dark); font-size: 1.35rem; line-height: 1; }
+.faq-item[open] summary::after { content: "–"; }
+.faq-item p { margin: 0 0 1rem; color: var(--text); }
 
 /* ---------- Mobiel: alles iets uitgezoomd (rustiger, minder groot) ---------- */
 @media (max-width: 560px) {

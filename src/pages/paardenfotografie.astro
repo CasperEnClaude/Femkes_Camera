@@ -4,6 +4,8 @@ import Base from '../layouts/Base.astro';
 import Gallery from '../components/Gallery.astro';
 import PackageCard from '../components/PackageCard.astro';
 import Reviews from '../components/Reviews.astro';
+import Walkthrough from '../components/Walkthrough.astro';
+import Faq from '../components/Faq.astro';
 import InstaIcon from '../components/InstaIcon.astro';
 import { resolveImage } from '../lib/images.js';
 import { igUrl, werkgebiedBasis } from '../lib/site.js';
@@ -13,10 +15,25 @@ import prijzen from '../data/prijzen.json';
 const dieren = prijzen.dieren;
 const heroPhoto = paardenGallery.photos?.[0];
 const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
+
+const stappen = [
+  { titel: 'Even afstemmen', tekst: 'We bespreken vooraf wat je wilt, waar we fotograferen en of je zelf mee op de foto wilt.' },
+  { titel: 'Rustig beginnen', tekst: 'Je paard mag eerst even wennen aan mij en de camera. Ik werk rustig en zonder haast.' },
+  { titel: 'De shoot zelf', tekst: 'Ik wacht het juiste moment af — de blik, de houding, die stille band tussen jullie.' },
+  { titel: 'Selectie & bewerking', tekst: 'Ik kies de sterkste beelden en bewerk ze in mijn eigen, natuurlijke stijl.' },
+  { titel: 'Levering', tekst: 'Je ontvangt je foto\'s digitaal via een online galerij.' },
+];
+
+const vragen = [
+  { vraag: 'Waar vindt een paardenshoot plaats?', antwoord: 'In de manege, in de bak of los in het veld — waar jij en je paard je op je gemak voelen. We kiezen de plek samen.' },
+  { vraag: 'Moet ik zelf op de foto?', antwoord: 'Dat mag, maar het hoeft niet. Portretten van alleen je paard kunnen net zo goed.' },
+  { vraag: 'Wat als mijn paard onrustig is?', antwoord: 'Dan nemen we de tijd. Ik werk rustig en wacht het juiste moment af.' },
+  { vraag: 'Wanneer ontvang ik de foto\'s?', antwoord: 'Dat spreken we samen af; meestal lukt dat binnen een paar weken.' },
+];
 ---
 
 <Base
-  title="Paardenfotografie Rotterdam en omgeving"
+  title="Paardenfotograaf Rotterdam"
   description="Paardenfotografie in regio Rotterdam — rustige, sfeervolle beelden van jou en je paard. In de manege, in de bak of los in het veld."
 >
   <section class="hero photo-hero">
@@ -57,7 +74,15 @@ const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
     <Gallery gallery={paardenGallery} />
   </section>
 
+  <section class="container section narrow">
+    <Walkthrough stappen={stappen} />
+  </section>
+
   <section class="container section"><Reviews category="paarden" count={3} /></section>
+
+  <section class="container section narrow">
+    <Faq vragen={vragen} />
+  </section>
 
   <section class="band">
     <div class="container band-inner center">

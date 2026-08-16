@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Gallery from '../components/Gallery.astro';
 import PackageCard from '../components/PackageCard.astro';
+import Walkthrough from '../components/Walkthrough.astro';
 import InstaIcon from '../components/InstaIcon.astro';
 import { resolveImage } from '../lib/images.js';
 import { igUrl } from '../lib/site.js';
@@ -12,6 +13,14 @@ import prijzen from '../data/prijzen.json';
 const rf = prijzen.rookfakkels;
 const heroPhoto = creativeGallery.photos?.[1] || creativeGallery.photos?.[0];
 const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
+
+const stappen = [
+  { titel: 'Even afstemmen', tekst: 'We kiezen samen de kleur(en), de sfeer die je zoekt en een rustige, veilige locatie.' },
+  { titel: 'Veilig opzetten', tekst: 'Ik werk met rookfakkels op een veilige plek en houd rekening met wind en droogte.' },
+  { titel: 'De shoot zelf', tekst: 'Rook werkt snel, dus we werken vlot en gericht voor die stoere, filmische beelden.' },
+  { titel: 'Selectie & bewerking', tekst: 'Ik kies de sterkste beelden en bewerk ze in mijn eigen stijl.' },
+  { titel: 'Levering', tekst: 'Je ontvangt je foto\'s digitaal via een online galerij.' },
+];
 ---
 
 <Base
@@ -30,7 +39,7 @@ const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
         <h1>Rookfakkel-shoots</h1>
         <p class="hero-lead">{rf.intro}</p>
         <div class="hero-cta">
-          <a href="/contact?pakket=Rookfakkel-shoot" class="btn btn-primary">Plan een rookfakkel-shoot</a>
+          <a href="/contact?pakket=Rookfakkelshoot" class="btn btn-primary">Plan een rookfakkel-shoot</a>
           {igUrl && <a href={igUrl} class="btn btn-ghost" rel="noopener" target="_blank"><InstaIcon size={18} cls="btn-ico" /> Instagram</a>}
         </div>
       </div>
@@ -79,11 +88,15 @@ const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
     </div>
   </section>
 
+  <section class="container section narrow">
+    <Walkthrough stappen={stappen} />
+  </section>
+
   <section class="band">
     <div class="container band-inner center">
       <h2>Zin in iets kleurrijks?</h2>
       <p>Stuur me een bericht — ik denk graag mee over kleur en locatie.</p>
-      <a href="/contact?pakket=Rookfakkel-shoot" class="btn btn-primary">Neem contact op</a>
+      <a href="/contact?pakket=Rookfakkelshoot" class="btn btn-primary">Neem contact op</a>
     </div>
   </section>
 </Base>

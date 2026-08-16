@@ -1,13 +1,24 @@
 [
   {
+    "voorbeeld": false,
+    "naam": "Casper V.",
+    "plaats": "Rotterdam",
+    "pakket": "Motorshoot",
+    "categorie": "motor",
+    "sterren": 5,
+    "datum": "2026-08-16",
+    "tekst": "Femke heeft mijn motor op de foto gezet en ik ben er echt weg van. Ze nam alle tijd, dacht mee over locatie en licht, en wist precies de hoek te vinden waardoor de motor er stoer en sfeervol uitkomt. Ontspannen sfeer tijdens de shoot, snelle levering en een strakke bewerking. Absolute aanrader — ik kom zeker terug."
+  },
+  {
     "voorbeeld": true,
     "naam": "VOORBEELD — vervang dit",
     "plaats": "Rotterdam",
     "dier": "Bumper",
     "ras": "Golden Retriever",
-    "pakket": "Compleet",
+    "pakket": "Plus",
     "categorie": "honden",
+    "sterren": 5,
     "datum": "2026-01-01",
-    "tekst": "Dit is een voorbeeldreview en wordt niet getoond op de site. Vervang 'voorbeeld' door false en pas de tekst aan zodra je een echte review hebt. Drie of vier zinnen van een baasje werkt het best."
+    "tekst": "Dit is een voorbeeldreview en wordt niet getoond op de site. Zet 'voorbeeld' op false en pas de tekst aan zodra je een echte review hebt. Drie of vier zinnen van een baasje werkt het best."
   }
 ]

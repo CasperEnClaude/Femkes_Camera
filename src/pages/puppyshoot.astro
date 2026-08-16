@@ -4,6 +4,8 @@ import Base from '../layouts/Base.astro';
 import Gallery from '../components/Gallery.astro';
 import PackageCard from '../components/PackageCard.astro';
 import Reviews from '../components/Reviews.astro';
+import Walkthrough from '../components/Walkthrough.astro';
+import Faq from '../components/Faq.astro';
 import InstaIcon from '../components/InstaIcon.astro';
 import { resolveImage } from '../lib/images.js';
 import { igUrl, werkgebiedBasis } from '../lib/site.js';
@@ -14,11 +16,26 @@ const puppy = prijzen.puppy;
 const fokkers = prijzen.fokkers;
 const heroPhoto = puppysGallery.photos?.[0];
 const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
+
+const stappen = [
+  { titel: 'Even afstemmen', tekst: 'We bespreken kort wat je wilt en waar en wanneer het jou en je pup uitkomt.' },
+  { titel: 'Rustig beginnen', tekst: 'Je pup mag eerst even rondsnuffelen en wennen. Geen haast.' },
+  { titel: 'Korte momentjes', tekst: 'Puppy\'s hebben een korte spanningsboog, dus ik werk met pauzes, wat snoep en veel geduld.' },
+  { titel: 'Selectie & bewerking', tekst: 'Ik kies de sterkste beelden en bewerk ze in mijn eigen, natuurlijke stijl.' },
+  { titel: 'Levering', tekst: 'Je ontvangt je foto\'s digitaal via een online galerij.' },
+];
+
+const vragen = [
+  { vraag: 'Hoe jong kan een pup op de foto?', antwoord: 'Vanaf een week of acht kan het al, zodra je pup ver genoeg is om veilig ergens te komen. In overleg kijken we wat kan.' },
+  { vraag: 'Mijn pup luistert nog niet goed, kan dat?', antwoord: 'Zeker. Ik verwacht geen commando\'s of stilzitten. We werken met korte momentjes, pauzes en veel geduld.' },
+  { vraag: 'Wat is het puppyjaar?', antwoord: 'Drie shoots verdeeld over het eerste jaar (rond 10 weken, 6 maanden en 1 jaar), zodat je ziet hoe je pup opgroeit. Je rekent per shoot af.' },
+  { vraag: 'Wanneer ontvang ik de foto\'s?', antwoord: 'Dat spreken we samen af; meestal lukt dat binnen een paar weken.' },
+];
 ---
 
 <Base
   title="Puppyshoot Rotterdam — puppyfotografie"
-  description="Puppyshoot in Rotterdam en omgeving. Leg die eerste maanden vast, of kies het puppyjaar met drie shoots. Ook nestreportages voor fokkers."
+  description="Puppyshoot in Rotterdam en omgeving. Leg die eerste maanden vast, of kies het puppyjaar met drie shoots. Ook nestreportages voor een heel nest."
 >
   <section class="hero photo-hero">
     {heroImg ? (
@@ -66,7 +83,15 @@ const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
     <Gallery gallery={puppysGallery} />
   </section>
 
+  <section class="container section narrow">
+    <Walkthrough stappen={stappen} />
+  </section>
+
   <section class="container section"><Reviews category="puppys" count={3} /></section>
+
+  <section class="container section narrow">
+    <Faq vragen={vragen} />
+  </section>
 
   <section class="band">
     <div class="container band-inner center">

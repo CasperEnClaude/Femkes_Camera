@@ -19,6 +19,9 @@ const lijst = echt.slice(0, count);
     <div class="reviews-grid">
       {lijst.map((r) => (
         <blockquote class="review">
+          {r.sterren && (
+            <span class="review-sterren" aria-label={`${r.sterren} van 5 sterren`}>{'★'.repeat(r.sterren)}</span>
+          )}
           <p class="review-tekst">“{r.tekst}”</p>
           <footer class="review-bron">
             — {r.naam}{r.plaats ? `, ${r.plaats}` : ''}{r.dier ? ` · ${r.dier}` : ''}{r.ras ? ` (${r.ras})` : ''}

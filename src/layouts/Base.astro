@@ -23,16 +23,34 @@ const plaats = site.plaatsnaam && !site.plaatsnaam.startsWith('[') ? site.plaats
 const igHandle = site.instagram_dieren && !site.instagram_dieren.startsWith('[')
   ? site.instagram_dieren.replace('@', '')
   : null;
+const homeUrl = Astro.site ? Astro.site.toString() : undefined;
+const diensten = [
+  'Dierenfotografie',
+  'Hondenfotografie',
+  'Puppyfotografie',
+  'Paardenfotografie',
+  'Agility- en hondensportfotografie',
+  'Rookfakkel- en creatieve fotografie',
+  'Motorfotografie',
+];
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': Astro.site ? new URL('/', Astro.site).toString() : undefined,
+  '@type': ['ProfessionalService', 'LocalBusiness'],
+  '@id': homeUrl ? `${homeUrl}#business` : undefined,
   name: site.merknaam,
-  description: site.tagline,
-  url: Astro.site ? Astro.site.toString() : undefined,
+  description: `${site.merknaam} is een fotograaf uit de regio Rotterdam, gespecialiseerd in dierenfotografie: honden, puppy's, paarden en agility. Daarnaast creatieve fotografie met rookfakkels en motorfotografie.`,
+  slogan: site.tagline,
+  url: homeUrl,
   image: Astro.site ? new URL('/og-image.jpg', Astro.site).toString() : undefined,
-  priceRange: '€€',
-  ...(plaats ? { areaServed: plaats, address: { '@type': 'PostalAddress', addressLocality: plaats, addressCountry: 'NL' } } : {}),
+  priceRange: '€65–€325',
+  knowsAbout: diensten,
+  areaServed: [
+    { '@type': 'City', name: 'Rotterdam' },
+    { '@type': 'AdministrativeArea', name: 'Zuid-Holland' },
+  ],
+  founder: { '@type': 'Person', name: 'Femke' },
+  makesOffer: diensten.map((d) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: d, areaServed: 'Rotterdam' } })),
+  ...(plaats ? { address: { '@type': 'PostalAddress', addressLocality: plaats, addressRegion: 'Zuid-Holland', addressCountry: 'NL' } } : {}),
   ...(igHandle ? { sameAs: [`https://instagram.com/${igHandle}`] } : {}),
 };
 ---
@@ -100,6 +118,16 @@ const jsonLd = {
           if (e.target.closest('#lightbox')) sluit();
         });
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) sluit(); });
+      })();
+    </script>
+
+    <!-- Klein knipoogje: ander tabblad-titeltje als je de site even verlaat. -->
+    <script is:inline>
+      (function () {
+        var orig = document.title;
+        document.addEventListener('visibilitychange', function () {
+          document.title = document.hidden ? '🐾 Tot snel!' : orig;
+        });
       })();
     </script>
 

@@ -4,6 +4,8 @@ import Base from '../layouts/Base.astro';
 import Gallery from '../components/Gallery.astro';
 import PackageCard from '../components/PackageCard.astro';
 import Reviews from '../components/Reviews.astro';
+import Walkthrough from '../components/Walkthrough.astro';
+import Faq from '../components/Faq.astro';
 import InstaIcon from '../components/InstaIcon.astro';
 import { resolveImage } from '../lib/images.js';
 import { igUrl, werkgebiedBasis } from '../lib/site.js';
@@ -13,6 +15,22 @@ import prijzen from '../data/prijzen.json';
 const dieren = prijzen.dieren;
 const heroPhoto = hondenGallery.photos?.[0];
 const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
+
+const stappen = [
+  { titel: 'Even afstemmen', tekst: 'Vooraf bespreken we kort wat je wilt, waar we fotograferen en wanneer het jou en je hond uitkomt.' },
+  { titel: 'Rustig beginnen', tekst: 'Op locatie geef ik je hond eerst even de tijd om te wennen. Geen haast — dat werkt altijd het best.' },
+  { titel: 'De shoot zelf', tekst: 'Ik werk met het gedrag mee: een balletje, wat snoep en veel geduld. Zo krijgen we natuurlijke beelden zonder geforceerde poses.' },
+  { titel: 'Selectie & bewerking', tekst: 'Ik kies de sterkste foto\'s en bewerk ze in mijn eigen, natuurlijke stijl.' },
+  { titel: 'Levering', tekst: 'Je ontvangt je foto\'s digitaal via een online galerij, klaar om te delen of te printen.' },
+];
+
+const vragen = [
+  { vraag: 'Hoe lang duurt een hondenshoot?', antwoord: 'Afhankelijk van je pakket 45 minuten tot ongeveer 2 uur. We nemen rustig de tijd, zodat je hond zich op zijn gemak voelt.' },
+  { vraag: 'Wat als mijn hond niet stilzit?', antwoord: 'Geen probleem — dat hoeft ook niet. Ik werk juist met beweging en gedrag mee. Een hond die speelt of snuffelt levert vaak de mooiste beelden op.' },
+  { vraag: 'Mag mijn hond loslopen tijdens de shoot?', antwoord: 'Als de locatie het toelaat en je hond betrouwbaar terugkomt, kan dat prima. Anders werken we met een lange lijn die ik later kan wegbewerken.' },
+  { vraag: 'Kan ik meerdere honden laten fotograferen?', antwoord: 'Ja. Bij het Plus-pakket kunnen er tot 4 dieren mee, bij Compleet meerdere dieren uit hetzelfde gezin.' },
+  { vraag: 'Wanneer ontvang ik de foto\'s?', antwoord: 'Dat spreken we samen af; meestal lukt dat binnen een paar weken.' },
+];
 ---
 
 <Base
@@ -57,7 +75,15 @@ const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
     <Gallery gallery={hondenGallery} />
   </section>
 
+  <section class="container section narrow">
+    <Walkthrough stappen={stappen} />
+  </section>
+
   <section class="container section"><Reviews category="honden" count={3} /></section>
+
+  <section class="container section narrow">
+    <Faq vragen={vragen} />
+  </section>
 
   <section class="band">
     <div class="container band-inner center">

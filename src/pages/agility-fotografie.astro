@@ -4,6 +4,8 @@ import Base from '../layouts/Base.astro';
 import Gallery from '../components/Gallery.astro';
 import PackageCard from '../components/PackageCard.astro';
 import Reviews from '../components/Reviews.astro';
+import Walkthrough from '../components/Walkthrough.astro';
+import Faq from '../components/Faq.astro';
 import InstaIcon from '../components/InstaIcon.astro';
 import { resolveImage } from '../lib/images.js';
 import { igUrl, werkgebiedBasis } from '../lib/site.js';
@@ -13,6 +15,20 @@ import prijzen from '../data/prijzen.json';
 const clubs = prijzen.clubs;
 const heroPhoto = agilityGallery.photos?.[0];
 const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
+
+const stappen = [
+  { titel: 'Even afstemmen', tekst: 'We bespreken de datum, of het om een wedstrijd, training of clubdag gaat, en wat je precies wilt.' },
+  { titel: 'Op locatie', tekst: 'Ik ken de looplijnen en zoek de plekken op waar het moment ontstaat — bij de sprong, in de tunnel.' },
+  { titel: 'Tijdens de sport', tekst: 'Scherpe actiebeelden met snelheid en spanning, plus rustigere momenten ernaast.' },
+  { titel: 'Selectie & bewerking', tekst: 'Ik kies de sterkste beelden en bewerk ze in mijn eigen stijl.' },
+  { titel: 'Levering', tekst: 'Je ontvangt de foto\'s digitaal; voor clubs regelen we nabestellen in overleg.' },
+];
+
+const vragen = [
+  { vraag: 'Fotografeer je hele wedstrijden of clubdagen?', antwoord: 'Ja, voor clubs en evenementen leg ik de hele dag vast. Voor individuele deelnemers maak ik gerichte beelden van jou en je hond.' },
+  { vraag: 'Kunnen deelnemers zelf foto\'s nabestellen?', antwoord: 'Zeker, dat regelen we in overleg met de club.' },
+  { vraag: 'Fotografeer je ook andere hondensport?', antwoord: 'Naast agility fotografeer ik ook andere hondensport en trainingen — vraag gerust naar de mogelijkheden.' },
+];
 ---
 
 <Base
@@ -58,7 +74,15 @@ const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
     <Gallery gallery={agilityGallery} />
   </section>
 
+  <section class="container section narrow">
+    <Walkthrough stappen={stappen} />
+  </section>
+
   <section class="container section"><Reviews category="agility" count={3} /></section>
+
+  <section class="container section narrow">
+    <Faq vragen={vragen} />
+  </section>
 
   <section class="band">
     <div class="container band-inner center">

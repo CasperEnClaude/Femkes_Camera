@@ -3,6 +3,9 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Gallery from '../components/Gallery.astro';
 import PackageCard from '../components/PackageCard.astro';
+import Reviews from '../components/Reviews.astro';
+import Walkthrough from '../components/Walkthrough.astro';
+import Faq from '../components/Faq.astro';
 import InstaIcon from '../components/InstaIcon.astro';
 import { resolveImage } from '../lib/images.js';
 import { igUrl } from '../lib/site.js';
@@ -14,11 +17,25 @@ const motor = prijzen.motor;
 // Sfeervolle motorfoto als hero-achtergrond (silhouet tegen het licht).
 const heroPhoto = motorGallery.photos?.[4] || motorGallery.photos?.[0];
 const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
+
+const stappen = [
+  { titel: 'Even afstemmen', tekst: 'We bespreken de sfeer die je zoekt, de locatie en of je met of zonder rijder op de foto wilt.' },
+  { titel: 'Op locatie', tekst: 'Ik zoek de hoek en het licht waarin je motor het best tot zijn recht komt.' },
+  { titel: 'De shoot zelf', tekst: 'Stoere, sfeervolle beelden — rustig opgebouwd, met oog voor detail.' },
+  { titel: 'Selectie & bewerking', tekst: 'Ik kies de sterkste beelden en bewerk ze in een strakke, sfeervolle stijl.' },
+  { titel: 'Levering', tekst: 'Je ontvangt je foto\'s digitaal via een online galerij.' },
+];
+
+const vragen = [
+  { vraag: 'Fotografeer je met of zonder rijder?', antwoord: 'Allebei kan. Met rijder is er meer regie en poses; zonder rijder ligt de focus helemaal op de machine.' },
+  { vraag: 'Waar vindt een motorshoot plaats?', antwoord: 'Op een plek die past bij de sfeer die je zoekt — industrieel, stads of juist rustig. We kiezen de locatie samen.' },
+  { vraag: 'Kan ik een tweede locatie toevoegen?', antwoord: 'Ja, tegen een kleine meerprijs. Reken dan op een shoot van 2 uur of langer.' },
+];
 ---
 
 <Base
-  title="Motorfotografie Rotterdam"
-  description="Motorfotografie in Rotterdam en omgeving — stoere, sfeervolle beelden van jouw motor, met of zonder rijder. Vaste prijs, 10 bewerkte foto's."
+  title="Motorfotograaf Rotterdam"
+  description="Motorfotografie in Rotterdam en omgeving — stoere, sfeervolle beelden van jouw motor, met of zonder rijder. Vaste prijs, 12 bewerkte foto's."
 >
   <section class="hero photo-hero">
     {heroImg ? (
@@ -68,6 +85,16 @@ const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
         </ul>
       </div>
     </div>
+  </section>
+
+  <section class="container section narrow">
+    <Walkthrough stappen={stappen} />
+  </section>
+
+  <section class="container section"><Reviews category="motor" count={3} /></section>
+
+  <section class="container section narrow">
+    <Faq vragen={vragen} />
   </section>
 
   <section class="band">
