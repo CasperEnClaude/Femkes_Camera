@@ -1,7 +1,7 @@
 {
   "dieren": {
     "titel": "Dieren",
-    "intro": "Ik fotografeer je dier zoals het is — spelend, snuffelend, lekker zichzelf. Kies het pakket dat bij jullie past.",
+    "intro": "Ik fotografeer je huisdier zoals het is — spelend, snuffelend, lekker zichzelf. Kies het pakket dat bij jullie past.",
     "pakketten": [
       {
         "naam": "Basis",
@@ -10,7 +10,7 @@
         "regels": [
           "45 minuten",
           "1 dier",
-          "8 bewerkte foto's",
+          "5 bewerkte foto's",
           "Eén locatie"
         ]
       },
@@ -21,9 +21,9 @@
         "badge": "Meest gekozen",
         "regels": [
           "75 minuten",
-          "1 dier, of 2 uit hetzelfde gezin",
+          "Tot 4 dieren",
           "15 bewerkte foto's",
-          "Twee settings of locaties"
+          "Eén locatie"
         ]
       },
       {
@@ -33,13 +33,13 @@
         "regels": [
           "Ongeveer 2 uur",
           "Meerdere dieren uit hetzelfde gezin",
-          "Alle bewerkte foto's van de shoot",
+          "35 bewerkte foto's",
           "Meerdere locaties"
         ]
       }
     ],
     "aanvullend": [
-      "Extra bewerkte foto: €4,50 (5 voor €20)",
+      "Extra bewerkte foto: €5,95 (5 voor €24,50)",
       "Extra dier in dezelfde shoot: €15"
     ]
   },
@@ -55,7 +55,7 @@
           "75 minuten",
           "Je pup",
           "15 bewerkte foto's",
-          "Twee settings of locaties"
+          "Eén locatie"
         ]
       },
       {
@@ -91,7 +91,7 @@
   },
   "rookfakkels": {
     "titel": "Creatief & thema",
-    "intro": "Kleurrijke rook rond je hond levert stoere, filmische beelden op — precies het soort foto waar mensen op blijven hangen.",
+    "intro": "Kleurrijke rook levert stoere, filmische beelden op — precies het soort foto waar mensen op blijven hangen.",
     "pakketten": [
       {
         "naam": "Rookfakkelshoot",
