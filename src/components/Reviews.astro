@@ -3,7 +3,7 @@
 // zolang er geen echte reviews zijn. Vul src/data/reviews.json aan met
 // "voorbeeld": false om een review live te zetten.
 import reviews from '../data/reviews.json';
-const { category = null, count = 3, titel = 'Wat baasjes zeggen' } = Astro.props;
+const { category = null, count = 3, titel = 'Wat klanten zeggen' } = Astro.props;
 
 let echt = (reviews || []).filter((r) => r && r.voorbeeld !== true && r.tekst);
 if (category) {

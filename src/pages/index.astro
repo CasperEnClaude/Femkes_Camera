@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import InstaFollow from '../components/InstaFollow.astro';
+import Reviews from '../components/Reviews.astro';
 import InstaIcon from '../components/InstaIcon.astro';
 import { resolveImage } from '../lib/images.js';
 import { igHandle, igUrl, plaats, werkgebiedBasis } from '../lib/site.js';
@@ -109,6 +110,8 @@ const extraCategorieen = prep([
     </div>
   </section>
 
+  <section class="container section"><Reviews count={3} /></section>
+
   <InstaFollow count={6} />
 
   <section class="band">
@@ -117,7 +120,7 @@ const extraCategorieen = prep([
       <p>Ik denk graag met je mee over het juiste pakket.</p>
       <div class="hero-cta center-cta">
         <a href="/contact" class="btn btn-primary">Boek een shoot</a>
-        {igUrl && <a href={igUrl} class="btn btn-ghost" rel="noopener" target="_blank"><InstaIcon size={18} cls="btn-ico" /> Volg op Instagram</a>}
+        <a href="/portfolio" class="btn btn-ghost">Bekijk mijn werk</a>
       </div>
     </div>
   </section>
