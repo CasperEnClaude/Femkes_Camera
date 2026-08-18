@@ -265,6 +265,7 @@ collections:
         fields:
           - { label: 'Home — grote titel', name: 'home_titel', widget: 'string' }
           - { label: 'Home — introtekst', name: 'home_intro', widget: 'text' }
+          - { label: 'Home — hoofdafbeelding (grote foto bovenaan)', name: 'home_hero_foto', widget: 'image', required: false, hint: 'Kies een liggende (brede) foto voor het beste resultaat.' }
           - { label: 'Over mij — titel', name: 'over_mij_titel', widget: 'string' }
           - { label: 'Over mij — verhaal', name: 'over_mij_body', widget: 'text', hint: "Laat een lege regel tussen alinea's." }
           - { label: 'Over mij — foto (van jou)', name: 'over_mij_foto', widget: 'image', required: false }

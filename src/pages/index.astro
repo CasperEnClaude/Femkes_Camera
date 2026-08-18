@@ -14,10 +14,12 @@ import paarden from '../galleries/paarden.json';
 import creative from '../galleries/creative.json';
 import motor from '../galleries/motor.json';
 
-// Hero: dynamische agility-actiefoto (hond in volle sprong) — laat meteen zien
-// wat Femke onderscheidt.
-const heroPhoto = agility.photos?.[7] || honden.photos?.[0];
-const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
+// Hero: via het CMS instelbaar (Teksten → Home → hoofdafbeelding). Valt terug op
+// de agility-actiefoto als er niets is gekozen.
+const fallbackPhoto = agility.photos?.[7] || honden.photos?.[0];
+const heroImg = (teksten.home_hero_foto ? resolveImage(teksten.home_hero_foto) : undefined)
+  || (fallbackPhoto ? resolveImage(fallbackPhoto.image) : undefined);
+const heroAlt = 'Dierenfotografie door Femke\'s Camera';
 
 const homeDescription = plaats
   ? `Dierenfotografie door Femke's Camera in en rond ${plaats} — natuurlijke foto's van dierensport, paarden, honden en puppy's, met geduld en oog voor karakter.`
@@ -41,7 +43,7 @@ const extraCategorieen = prep([
 <Base title="Dierenfotograaf Rotterdam" description={homeDescription}>
   <section class="hero">
     {heroImg ? (
-      <Image src={heroImg} alt={heroPhoto.naam || 'Hondenfotografie door Femke\'s Camera'} widths={[600, 1200, 1800]} sizes="100vw" loading="eager" class="hero-img" />
+      <Image src={heroImg} alt={heroAlt} widths={[600, 1200, 1800]} sizes="100vw" loading="eager" class="hero-img" />
     ) : (
       <div class="hero-img hero-placeholder" aria-hidden="true"></div>
     )}
