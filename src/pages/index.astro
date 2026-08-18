@@ -14,8 +14,9 @@ import paarden from '../galleries/paarden.json';
 import creative from '../galleries/creative.json';
 import motor from '../galleries/motor.json';
 
-// Sterkste hondenfoto als hero (eerste foto uit de Honden-galerij).
-const heroPhoto = honden.photos?.[0];
+// Hero: sfeervolle herfstfoto (cocker spaniël op een herfstlaan) — warme tonen
+// die aansluiten bij de huisstijl.
+const heroPhoto = honden.photos?.[3] || honden.photos?.[0];
 const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
 
 const homeDescription = plaats
