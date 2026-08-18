@@ -24,7 +24,7 @@ const lijst = echt.slice(0, count);
           )}
           <p class="review-tekst">“{r.tekst}”</p>
           <footer class="review-bron">
-            — {r.naam}{r.plaats ? `, ${r.plaats}` : ''}{r.dier ? ` · ${r.dier}` : ''}{r.ras ? ` (${r.ras})` : ''}
+            {r.naam}{r.plaats ? `, ${r.plaats}` : ''}{r.dier ? ` · ${r.dier}` : ''}{r.ras ? ` (${r.ras})` : ''}
           </footer>
         </blockquote>
       ))}

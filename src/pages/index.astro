@@ -22,17 +22,17 @@ const heroImg = (teksten.home_hero_foto ? resolveImage(teksten.home_hero_foto) :
 const heroAlt = 'Dierenfotografie door Femke\'s Camera';
 
 const homeDescription = plaats
-  ? `Dierenfotografie door Femke's Camera in en rond ${plaats} — natuurlijke foto's van dierensport, paarden, honden en puppy's, met geduld en oog voor karakter.`
-  : "Dierenfotografie door Femke's Camera — natuurlijke foto's van dierensport, paarden, honden en puppy's, met geduld en oog voor karakter.";
+  ? `Dierenfotografie door Femke's Camera in en rond ${plaats}, natuurlijke foto's van dierensport, paarden, honden en puppy's, met geduld en oog voor karakter.`
+  : "Dierenfotografie door Femke's Camera, natuurlijke foto's van dierensport, paarden, honden en puppy's, met geduld en oog voor karakter.";
 
 const prep = (arr) => arr.map((c) => ({ ...c, img: c.foto ? resolveImage(c.foto.image) : undefined }));
 
 // Volgorde zoals Femke het liefst fotografeert. Dieren eerst, dan (met scheiding) de extra's.
 const dierCategorieen = prep([
   { titel: 'Agility & sport evenementen', href: '/portfolio#agility', tekst: 'Snelheid, focus en jullie band op de baan.', foto: agility.photos?.[0] },
-  { titel: 'Paarden', href: '/portfolio#paarden', tekst: 'Kracht en rust — paarden in hun element.', foto: paarden.photos?.[0] },
+  { titel: 'Paarden', href: '/portfolio#paarden', tekst: 'Kracht en rust, paarden in hun element.', foto: paarden.photos?.[0] },
   { titel: 'Honden', href: '/portfolio#honden', tekst: 'Beelden waar je jaren later nog trots op bent.', foto: honden.photos?.[3] },
-  { titel: "Puppy's", href: '/portfolio#puppys', tekst: 'Leg die eerste weken vast — ze zijn zó voorbij.', foto: puppys.photos?.[0] },
+  { titel: "Puppy's", href: '/portfolio#puppys', tekst: 'Leg die eerste weken vast, ze zijn zó voorbij.', foto: puppys.photos?.[0] },
 ]);
 const extraCategorieen = prep([
   { titel: 'Rookfakkels', href: '/rookfakkels', tekst: 'Kleurrijke rook, stoere beelden die opvallen.', foto: creative.photos?.[0] },
@@ -55,7 +55,7 @@ const extraCategorieen = prep([
           </a>
         )}
         <h1>{teksten.home_titel}</h1>
-        <p class="hero-lead">Natuurlijke foto's van je huisdier — met rust en geduld.</p>
+        <p class="hero-lead">Natuurlijke foto's van je huisdier, met rust en geduld.</p>
         <div class="hero-cta">
           <a href="/contact" class="btn btn-primary">Boek een shoot</a>
           <a href="/portfolio" class="btn btn-ghost">Bekijk portfolio</a>
@@ -109,7 +109,7 @@ const extraCategorieen = prep([
     <div class="why-grid">
       <div class="why-item"><span class="why-ico" aria-hidden="true">🐾</span><h3>Ik ken dieren</h3><p>Elke dag werk ik met dieren in een dierenspeciaalzaak. Ik lees hun gedrag en stel ze op hun gemak.</p></div>
       <div class="why-item"><span class="why-ico" aria-hidden="true">⏳</span><h3>Alle geduld</h3><p>Werkt je huisdier even niet mee? Dan wachten we rustig af. Geen druk, geen geforceerde standjes.</p></div>
-      <div class="why-item"><span class="why-ico" aria-hidden="true">✨</span><h3>Beelden die blijven</h3><p>Natuurlijk en herkenbaar — foto's waarin je je huisdier écht terugziet, klaar voor print en social.</p></div>
+      <div class="why-item"><span class="why-ico" aria-hidden="true">✨</span><h3>Beelden die blijven</h3><p>Natuurlijk en herkenbaar, foto's waarin je je huisdier écht terugziet, klaar voor print en social.</p></div>
     </div>
   </section>
 

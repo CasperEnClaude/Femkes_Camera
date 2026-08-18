@@ -1,7 +1,7 @@
 {
   "dieren": {
     "titel": "Dieren",
-    "intro": "Ik fotografeer je huisdier zoals het is — spelend, snuffelend, lekker zichzelf. Kies het pakket dat bij jullie past.",
+    "intro": "Ik fotografeer je huisdier zoals het is, spelend, snuffelend, lekker zichzelf. Kies het pakket dat bij jullie past.",
     "pakketten": [
       {
         "naam": "Basis",
@@ -45,7 +45,7 @@
   },
   "puppy": {
     "titel": "Puppy",
-    "intro": "Puppy's blijven niet lang klein. Met een puppyshoot leg je die grote oren, de zachte blik en dat eerste onhandige karakter vast — beelden om te koesteren en trots te delen.",
+    "intro": "Puppy's blijven niet lang klein. Met een puppyshoot leg je die grote oren, de zachte blik en dat eerste onhandige karakter vast, beelden om te koesteren en trots te delen.",
     "pakketten": [
       {
         "naam": "Puppyshoot",
@@ -91,7 +91,7 @@
   },
   "rookfakkels": {
     "titel": "Creatief & thema",
-    "intro": "Kleurrijke rook levert stoere, filmische beelden op — precies het soort foto waar mensen op blijven hangen.",
+    "intro": "Kleurrijke rook levert stoere, filmische beelden op, precies het soort foto waar mensen op blijven hangen.",
     "pakketten": [
       {
         "naam": "Rookfakkelshoot",
@@ -108,12 +108,12 @@
       { "naam": "Extra kleur", "meerprijs": "+€15" },
       { "naam": "Meerkleurencombinatie", "meerprijs": "+€25" }
     ],
-    "creatief": "Zin in iets meer? De rookfakkel is mijn basis, maar creatief kan er van alles bij — denk aan een Halloween-sfeer of je eigen thema. Heb je zelf een idee of styling in gedachten? Neem het gerust mee, dan kijken we samen wat we ervan maken.",
-    "note": "Zelf een kostuum of styling meebrengen mag altijd — dat kost niets extra."
+    "creatief": "Zin in iets meer? De rookfakkel is mijn basis, maar creatief kan er van alles bij, denk aan een Halloween-sfeer of je eigen thema. Heb je zelf een idee of styling in gedachten? Neem het gerust mee, dan kijken we samen wat we ervan maken.",
+    "note": "Zelf een kostuum of styling meebrengen mag altijd, dat kost niets extra."
   },
   "motor": {
     "titel": "Motor",
-    "intro": "Naast dieren richt ik mijn lens graag op motoren — stoere, sfeervolle beelden van jouw machine, met of zonder rijder.",
+    "intro": "Naast dieren richt ik mijn lens graag op motoren, stoere, sfeervolle beelden van jouw machine, met of zonder rijder.",
     "pakketten": [
       {
         "naam": "Motorshoot",
@@ -159,7 +159,7 @@
   },
   "samen": {
     "titel": "Samen boeken",
-    "tekst": "Ken je iemand die ook mooie foto's van hun dier wil? Boek samen op dezelfde dag en plek. Ieder krijgt zijn eigen shoot en eigen foto's, en jullie betalen allebei een lager tarief — gezellig én voordeliger."
+    "tekst": "Ken je iemand die ook mooie foto's van hun dier wil? Boek samen op dezelfde dag en plek. Ieder krijgt zijn eigen shoot en eigen foto's, en jullie betalen allebei een lager tarief, gezellig én voordeliger."
   },
   "cadeaubon": {
     "titel": "Cadeaubon",

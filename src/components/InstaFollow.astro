@@ -4,7 +4,7 @@ import { resolveImage } from '../lib/images.js';
 import { igHandle, igUrl } from '../lib/site.js';
 import InstaIcon from './InstaIcon.astro';
 
-// Horizontale "feed"-strook die je zijwaarts swipet — bewust anders dan het
+// Horizontale "feed"-strook die je zijwaarts swipet, bewust anders dan het
 // verticale categorie-raster erboven, en met andere foto's (geen dubbeling).
 import honden from '../galleries/honden.json';
 import puppys from '../galleries/puppys.json';
@@ -31,7 +31,7 @@ const heading = igHandle ? `@${igHandle}` : 'Volg mee op Instagram';
       <div>
         <span class="insta-kicker"><InstaIcon size={18} cls="insta-kicker-ico" /> Instagram</span>
         <h2 class="insta-title">{heading}</h2>
-        <p class="insta-sub">Het laatste werk en sfeer achter de schermen — daar deel ik het eerst.</p>
+        <p class="insta-sub">Het laatste werk en sfeer achter de schermen, daar deel ik het eerst.</p>
       </div>
       {igUrl && (
         <a href={igUrl} class="btn btn-primary insta-follow-btn" rel="noopener me" target="_blank">

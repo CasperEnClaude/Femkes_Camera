@@ -314,7 +314,9 @@ img { max-width: 100%; display: block; }
   padding: 1.5rem 1rem; color: var(--text); box-shadow: var(--shadow); transition: transform .12s ease;
 }
 .contact-card:hover { text-decoration: none; transform: translateY(-2px); border-color: var(--accent); }
-.contact-icon { font-size: 1.8rem; }
+.contact-icon { font-size: 1.8rem; display: inline-flex; }
+.contact-icon.wa-icon { color: #25D366; }
+.contact-icon.ig-icon { color: #E1306C; }
 .contact-label { font-weight: 700; font-size: 1.1rem; }
 .contact-sub { color: var(--muted); font-size: 0.86rem; }
 

@@ -18,7 +18,7 @@ const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
 
 const stappen = [
   { titel: 'Even afstemmen', tekst: 'We bespreken de datum, of het om een wedstrijd, training of clubdag gaat, en wat je precies wilt.' },
-  { titel: 'Op locatie', tekst: 'Ik ken de looplijnen en zoek de plekken op waar het moment ontstaat — bij de sprong, in de tunnel.' },
+  { titel: 'Op locatie', tekst: 'Ik ken de looplijnen en zoek de plekken op waar het moment ontstaat, bij de sprong, in de tunnel.' },
   { titel: 'Tijdens de sport', tekst: 'Scherpe actiebeelden met snelheid en spanning, plus rustigere momenten ernaast.' },
   { titel: 'Selectie & bewerking', tekst: 'Ik kies de sterkste beelden en bewerk ze in mijn eigen stijl.' },
   { titel: 'Levering', tekst: 'Je ontvangt de foto\'s digitaal; voor clubs regelen we nabestellen in overleg.' },
@@ -27,13 +27,13 @@ const stappen = [
 const vragen = [
   { vraag: 'Fotografeer je hele wedstrijden of clubdagen?', antwoord: 'Ja, voor clubs en evenementen leg ik de hele dag vast. Voor individuele deelnemers maak ik gerichte beelden van jou en je hond.' },
   { vraag: 'Kunnen deelnemers zelf foto\'s nabestellen?', antwoord: 'Zeker, dat regelen we in overleg met de club.' },
-  { vraag: 'Fotografeer je ook andere hondensport?', antwoord: 'Naast agility fotografeer ik ook andere hondensport en trainingen — vraag gerust naar de mogelijkheden.' },
+  { vraag: 'Fotografeer je ook andere hondensport?', antwoord: 'Naast agility fotografeer ik ook andere hondensport en trainingen, vraag gerust naar de mogelijkheden.' },
 ];
 ---
 
 <Base
   title="Agility fotografie Rotterdam en omgeving"
-  description="Agility- en hondensportfotografie in Rotterdam en omgeving. Scherpe actiebeelden van de baan — voor clubs, evenementen en individuele deelnemers."
+  description="Agility- en hondensportfotografie in Rotterdam en omgeving. Scherpe actiebeelden van de baan, voor clubs, evenementen en individuele deelnemers."
 >
   <section class="hero photo-hero">
     {heroImg ? (
@@ -45,7 +45,7 @@ const vragen = [
       <div class="container hero-content">
         <span class="hero-kicker">Agility &amp; hondensport</span>
         <h1>Agility fotografie {werkgebiedBasis || 'in de regio'}</h1>
-        <p class="hero-lead">Snelheid, focus en die klik tussen jou en je hond — vastgelegd op de baan.</p>
+        <p class="hero-lead">Snelheid, focus en die klik tussen jou en je hond, vastgelegd op de baan.</p>
         <div class="hero-cta">
           <a href="/contact?pakket=Clubs%20%26%20verenigingen" class="btn btn-primary">Vraag een shoot aan</a>
           {igUrl && <a href={igUrl} class="btn btn-ghost" rel="noopener" target="_blank"><InstaIcon size={18} cls="btn-ico" /> Instagram</a>}
@@ -55,7 +55,7 @@ const vragen = [
   </section>
 
   <section class="container section narrow">
-    <p class="prose">Agility is mijn eigen sport. Ik sta zelf op de baan, ken de looplijnen en weet waar het moment ontstaat — bij de sprong, in de tunnel, op dat ene stukje waar hond en baas volledig op elkaar zijn afgestemd. Daardoor kom ik op plekken en momenten die een fotograaf van buiten de sport gemakkelijk mist.</p>
+    <p class="prose">Agility is mijn eigen sport. Ik sta zelf op de baan, ken de looplijnen en weet waar het moment ontstaat, bij de sprong, in de tunnel, op dat ene stukje waar hond en baas volledig op elkaar zijn afgestemd. Daardoor kom ik op plekken en momenten die een fotograaf van buiten de sport gemakkelijk mist.</p>
     <p class="prose">Ik fotografeer agility en hondensport in {werkgebiedBasis || 'Rotterdam en omgeving'}: scherpe actiebeelden met snelheid en spanning erin, plus rustigere momenten ernaast. Voor clubs en evenementen leg ik de hele dag vast; voor individuele deelnemers maak ik gerichte beelden van jou en je hond. Ideaal voor social media, het clubblad of gewoon om trots te delen.</p>
   </section>
 

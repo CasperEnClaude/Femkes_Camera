@@ -21,21 +21,21 @@ const heroImg = heroPhoto ? resolveImage(heroPhoto.image) : undefined;
 const stappen = [
   { titel: 'Even afstemmen', tekst: 'We bespreken de sfeer die je zoekt, de locatie en of je met of zonder rijder op de foto wilt.' },
   { titel: 'Op locatie', tekst: 'Ik zoek de hoek en het licht waarin je motor het best tot zijn recht komt.' },
-  { titel: 'De shoot zelf', tekst: 'Stoere, sfeervolle beelden — rustig opgebouwd, met oog voor detail.' },
+  { titel: 'De shoot zelf', tekst: 'Stoere, sfeervolle beelden, rustig opgebouwd, met oog voor detail.' },
   { titel: 'Selectie & bewerking', tekst: 'Ik kies de sterkste beelden en bewerk ze in een strakke, sfeervolle stijl.' },
   { titel: 'Levering', tekst: 'Je ontvangt je foto\'s digitaal via een online galerij.' },
 ];
 
 const vragen = [
   { vraag: 'Fotografeer je met of zonder rijder?', antwoord: 'Allebei kan. Met rijder is er meer regie en poses; zonder rijder ligt de focus helemaal op de machine.' },
-  { vraag: 'Waar vindt een motorshoot plaats?', antwoord: 'Op een plek die past bij de sfeer die je zoekt — industrieel, stads of juist rustig. We kiezen de locatie samen.' },
+  { vraag: 'Waar vindt een motorshoot plaats?', antwoord: 'Op een plek die past bij de sfeer die je zoekt, industrieel, stads of juist rustig. We kiezen de locatie samen.' },
   { vraag: 'Kan ik een tweede locatie toevoegen?', antwoord: 'Ja, tegen een kleine meerprijs. Reken dan op een shoot van 2 uur of langer.' },
 ];
 ---
 
 <Base
   title="Motorfotograaf Rotterdam"
-  description="Motorfotografie in Rotterdam en omgeving — stoere, sfeervolle beelden van jouw motor, met of zonder rijder. Vaste prijs, 12 bewerkte foto's."
+  description="Motorfotografie in Rotterdam en omgeving, stoere, sfeervolle beelden van jouw motor, met of zonder rijder. Vaste prijs, 12 bewerkte foto's."
 >
   <section class="hero photo-hero">
     {heroImg ? (
@@ -47,7 +47,7 @@ const vragen = [
       <div class="container hero-content">
         <span class="hero-kicker">Stoer &amp; sfeervol</span>
         <h1>Motorfotografie</h1>
-        <p class="hero-lead">Naast dieren richt ik mijn lens graag op motoren — stoere, sfeervolle beelden van jouw machine, met of zonder rijder.</p>
+        <p class="hero-lead">Naast dieren richt ik mijn lens graag op motoren, stoere, sfeervolle beelden van jouw machine, met of zonder rijder.</p>
         <div class="hero-cta">
           <a href="/contact?pakket=Motorshoot" class="btn btn-primary">Plan een motorshoot</a>
           {igUrl && <a href={igUrl} class="btn btn-ghost" rel="noopener" target="_blank"><InstaIcon size={18} cls="btn-ico" /> Instagram</a>}
@@ -72,7 +72,7 @@ const vragen = [
         <ul class="opties-lijst">
           {motor.opties.map((o) => (
             <li>
-              <span class="optie-naam">{o.naam}{o.hint && <span class="optie-hint"> — {o.hint}</span>}</span>
+              <span class="optie-naam">{o.naam}{o.hint && <span class="optie-hint">, {o.hint}</span>}</span>
               <span class="optie-prijs">{o.meerprijs}</span>
             </li>
           ))}
@@ -100,7 +100,7 @@ const vragen = [
   <section class="band">
     <div class="container band-inner center">
       <h2>Jouw motor voor de lens?</h2>
-      <p>Stuur me een bericht — ik denk graag mee over locatie en sfeer.</p>
+      <p>Stuur me een bericht, ik denk graag mee over locatie en sfeer.</p>
       <a href="/contact?pakket=Motorshoot" class="btn btn-primary">Neem contact op</a>
     </div>
   </section>

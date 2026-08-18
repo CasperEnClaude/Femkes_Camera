@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import InstaIcon from '../components/InstaIcon.astro';
+import WhatsIcon from '../components/WhatsIcon.astro';
 import { igUrl, email, mailLink, waLink, plaats, werkgebiedBasis, werkgebiedOpAanvraag } from '../lib/site.js';
 
 const waText = encodeURIComponent('Hoi Femke! Ik wil graag een shoot boeken voor mijn ');
@@ -20,7 +22,7 @@ const pakketOpties = [
 ];
 ---
 
-<Base title="Boek een shoot — Rotterdam en omgeving" description="Boek een dierenshoot in Rotterdam en omgeving via het formulier, WhatsApp of e-mail. Geen druk — ik denk met je mee.">
+<Base title="Boek een shoot in Rotterdam en omgeving" description="Boek een dierenshoot in Rotterdam en omgeving via het formulier, WhatsApp of e-mail. Geen druk, ik denk met je mee.">
   <section class="container section narrow">
     <h1 class="page-title">Boek een shoot</h1>
     <p class="prose">Leuk dat je een shoot overweegt! Vul het formulier in, dan reageer ik zo snel mogelijk. Liever appen, mailen of een DM op Instagram? Dat kan ook.{werkgebiedBasis ? ` Ik werk in ${werkgebiedBasis}${werkgebiedOpAanvraag ? `; ${werkgebiedOpAanvraag.toLowerCase()}` : ''}.` : ''}</p>
@@ -84,7 +86,7 @@ const pakketOpties = [
       </label>
 
       <button type="submit" class="btn btn-primary">Verstuur boekingsaanvraag</button>
-      <p class="form-note">Geen betaling of verplichting — dit is een aanvraag. Ik neem contact met je op om alles af te stemmen.</p>
+      <p class="form-note">Geen betaling of verplichting, dit is een aanvraag. Ik neem contact met je op om alles af te stemmen.</p>
     </form>
 
     {(waBook || mailLink || igUrl) && (
@@ -93,9 +95,9 @@ const pakketOpties = [
         <div class="contact-cards">
           {waBook && (
             <a href={waBook} class="contact-card wa" rel="noopener" target="_blank">
-              <span class="contact-icon" aria-hidden="true">💬</span>
+              <span class="contact-icon wa-icon" aria-hidden="true"><WhatsIcon size={30} /></span>
               <span class="contact-label">WhatsApp</span>
-              <span class="contact-sub">Snelst — met een kant-en-klaar berichtje</span>
+              <span class="contact-sub">Snelst, met een kant-en-klaar berichtje</span>
             </a>
           )}
           {mailLink && (
@@ -107,7 +109,7 @@ const pakketOpties = [
           )}
           {igUrl && (
             <a href={igUrl} class="contact-card ig" rel="noopener" target="_blank">
-              <span class="contact-icon" aria-hidden="true">📷</span>
+              <span class="contact-icon ig-icon" aria-hidden="true"><InstaIcon size={28} /></span>
               <span class="contact-label">Instagram</span>
               <span class="contact-sub">Bekijk mijn laatste werk</span>
             </a>
@@ -117,7 +119,7 @@ const pakketOpties = [
     )}
 
     <div class="gerust-box">
-      <p><strong>Geen druk.</strong> Twijfel je nog of heb je een vraag over wat past bij jouw dier? Stel hem gerust — ik denk graag met je mee.</p>
+      <p><strong>Geen druk.</strong> Twijfel je nog of heb je een vraag over wat past bij jouw dier? Stel hem gerust, ik denk graag met je mee.</p>
     </div>
   </section>
 
