@@ -15,7 +15,7 @@ const plaats = site.plaatsnaam && !site.plaatsnaam.startsWith('[') ? site.plaats
   <section class="container section narrow">
     <h1 class="page-title">{teksten.over_mij_titel}</h1>
     {foto && (
-      <Image src={foto} alt="Femke van Femke's Camera" widths={[320, 480, 640, 760]} sizes="(max-width: 620px) 70vw, 360px" quality={86} loading="eager" class="over-foto" />
+      <Image src={foto} alt="Femke van Femke's Camera met haar twee Australian Shepherds" widths={[400, 600, 800, 1100]} sizes="(max-width: 620px) 90vw, 460px" quality={86} loading="eager" class="over-foto" />
     )}
     {paragraphs.map((p) => <p class="prose">{p}</p>)}
     {plaats && <p class="prose">Ik werk in en rond {plaats} — kom je van net iets verder? Vraag gerust, meestal komen we er samen uit.</p>}
