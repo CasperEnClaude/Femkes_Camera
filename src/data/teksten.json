@@ -1,11 +1,5 @@
 {
-  "home_titel": "Foto's van je huisdier waar je blij van wordt",
-  "home_hero_foto": "/src/assets/uploads/agility-08.jpg",
-  "home_intro": "Natuurlijke, herkenbare foto's van je hond, kat of konijn — spelend, snuffelend, lekker zichzelf. Geen geforceerde standjes, wel rust en geduld. Boek een shoot en houd beelden over waar je jaren later nog blij van wordt.",
-  "over_mij_titel": "Wie ben ik?",
-  "over_mij_body": "Mijn naam is Femke, ik ben 21 jaar en ik fotografeer dieren sinds 2017. Fotografie en agility zijn allebei mijn wereld — en die twee komen mooi samen.\n\nIk fotografeer uitsluitend dieren. Daardoor weet ik precies hoe ik een dier rustig krijg, wanneer ik moet wachten en wanneer het moment er is. Overdag werk ik in een dierenspeciaalzaak, dus ik ben dagelijks met dieren bezig en lees hun gedrag.\n\nMijn stijl is natuurlijk en spontaan: ik fotografeer een dier zoals het is, spelend, snuffelend of gewoon lekker zittend. Ik werk met een 70-200mm en een 50mm 1.4, dus zowel actiefoto's als rustige portretten zijn mogelijk.",
-  "voorbereiding_titel": "Voorbereiding op je shoot",
-  "voorbereiding_intro": "Een fijne shoot begint met een klein beetje voorbereiding. Geen zorgen — het hoeft niet perfect. Dit helpt je hond én mij op weg:",
+  "over_mij_foto": "/src/assets/uploads/over-mij-portret.jpg",
   "voorbereiding_tips": [
     "Neem de favoriete snoepjes en een speeltje mee. Daar krijg ik de mooiste, alerte blikken mee.",
     "Laat je hond van tevoren even goed uitrazen (flinke wandeling). Een dier dat zijn energie kwijt is, werkt fijner mee.",
@@ -13,6 +7,12 @@
     "Trek zelf makkelijke kleding aan waarin je kunt bewegen of even naast je dier kunt zitten.",
     "Belangrijkste van alles: geen druk. Werkt je dier even niet mee? Dan wachten we gewoon rustig af. Dat hoort erbij en komt altijd goed."
   ],
+  "voorbereiding_intro": "Een fijne shoot begint met een klein beetje voorbereiding. Geen zorgen — het hoeft niet perfect. Dit helpt je hond én mij op weg:",
+  "home_titel": "Foto's van je huisdier waar je blij van wordt",
+  "home_hero_foto": "/src/assets/uploads/honden-08.jpg",
   "voorbereiding_geruststelling": "Je hoeft niets 'goed' te doen tijdens de shoot. Ik zorg voor de rest — jij mag gewoon genieten van je dier.",
-  "over_mij_foto": "/src/assets/uploads/over-mij-portret.jpg"
+  "over_mij_titel": "Wie ben ik?",
+  "home_intro": "Natuurlijke, herkenbare foto's van je hond, kat of konijn — spelend, snuffelend, lekker zichzelf. Geen geforceerde standjes, wel rust en geduld. Boek een shoot en houd beelden over waar je jaren later nog blij van wordt.",
+  "voorbereiding_titel": "Voorbereiding op je shoot",
+  "over_mij_body": "Mijn naam is Femke, ik ben 21 jaar en ik fotografeer dieren sinds 2017. Fotografie en agility zijn allebei mijn wereld — en die twee komen mooi samen.\n\nIk fotografeer uitsluitend dieren. Daardoor weet ik precies hoe ik een dier rustig krijg, wanneer ik moet wachten en wanneer het moment er is. Overdag werk ik in een dierenspeciaalzaak, dus ik ben dagelijks met dieren bezig en lees hun gedrag.\n\nMijn stijl is natuurlijk en spontaan: ik fotografeer een dier zoals het is, spelend, snuffelend of gewoon lekker zittend. Ik werk met een 70-200mm en een 50mm 1.4, dus zowel actiefoto's als rustige portretten zijn mogelijk."
 }
