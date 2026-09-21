@@ -9,7 +9,7 @@ Deze handleiding legt stap voor stap uit hoe dat werkt. Neem gerust je tijd; je 
 ## 1. Inloggen in het beheerscherm
 
 1. Ga naar je website en zet achter het adres: **`/admin`**
-   (bijvoorbeeld: `https://femkes-camera.netlify.app/admin`)
+   (bijvoorbeeld: `https://femkescamera.netlify.app/admin`)
 2. Log in met je e-mailadres en wachtwoord.
    - De **allereerste keer** krijg je een uitnodiging per e-mail. Klik op de link in die mail en kies een wachtwoord. Daarna kun je altijd inloggen.
    - Wachtwoord vergeten? Klik op "Wachtwoord vergeten" in het inlogscherm.
@@ -26,7 +26,7 @@ Je ziet nu een menu met een paar onderdelen:
 ## 2. Een foto toevoegen
 
 1. Klik op **📷 Portfolio (foto's)**.
-2. Kies de juiste categorie: **Honden, Puppy's, Agility, Creative & Thema** of **Motor**.
+2. Kies de juiste categorie: **Honden, Puppy's, Agility, Paarden, Rookfakkels** of **Motor**.
 3. Klik onderaan bij "Foto's" op **"Add Foto"** (of het plusje).
 4. Klik op **"Choose an image"** en kies een foto van je computer of telefoon.
 5. Vul bij **"Naam / onderwerp"** de naam van het dier in (bijv. *Rex* of *Puppy Bella*).
